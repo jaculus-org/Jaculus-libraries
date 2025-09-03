@@ -1,0 +1,16 @@
+{
+  "name": "jaculus-libraries-core",
+  "version": "1.0.0",
+  "description": "Core libraries for the Jaculus - JavaScript runtime for embedded devices",
+  "license": "MIT",
+  "author": "Jaculus team",
+  "type": "module",
+  "packageManager": "pnpm@10.15.0",
+  "scripts": {
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
