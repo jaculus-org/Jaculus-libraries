@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaculus Registry</title>
+
+    <!-- Tailwind v4 Play CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Jaculus accent color -->
+    <style type="text/tailwindcss">
+      @theme {
+        --color-jaculus: #2563eb;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 text-slate-100">
+    <script>
+      // --- BASIC CONFIG ------------------------------------------------------
+      // Adjust only these if you fork / rename:
+      window.SITE_CONFIG = {
+        apiRepoOwner: "jaculus-org",
+        apiRepoName: "Jaculus-libraries",
+        registryBranch: "registry",
+      };
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      async function viewFile(downloadUrl, fileName) {
+        try {
+          const response = await fetch(downloadUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status} ${response.statusText}`);
+          }
+
+          const content = await response.text();
+
+          document.body.innerHTML = `
+            <div class="min-h-screen flex items-start justify-center bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 py-6 px-4">
+              <div class="w-full max-w-4xl bg-slate-900/80 shadow-2xl rounded-2xl border border-slate-800 p-5 md:p-6 backdrop-blur">
+                <div class="flex items-center justify-between gap-4 mb-4">
+                  <div>
+                    <div class="inline-flex items-center gap-2 text-xs font-medium text-jaculus bg-jaculus/15 px-2.5 py-1 rounded-full">
+                      <span class="w-1.5 h-1.5 rounded-full bg-jaculus animate-pulse"></span>
+                      Jaculus Registry
+                    </div>
+                    <h1 class="mt-2 text-lg md:text-xl font-semibold tracking-tight text-slate-50">
+                      File viewer
+                    </h1>
+                    <p class="text-xs text-slate-400 mt-1">
+                      Viewing <span class="font-semibold text-slate-100">${escapeHtml(
+                        fileName
+                      )}</span>
+                    </p>
+                  </div>
+                  <button
+                    onclick="window.location.reload()"
+                    class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-100 border border-slate-700 rounded-full px-3 py-1.5 hover:bg-slate-800/80 hover:border-slate-500 transition-colors"
+                  >
+                    <span class="text-base">←</span>
+                    Back
+                  </button>
+                </div>
+
+                <div class="mt-4 rounded-xl bg-slate-950 text-slate-100 text-xs md:text-sm font-mono p-4 overflow-auto max-h-[70vh] border border-slate-800">
+                  <pre class="whitespace-pre-wrap">${escapeHtml(content)}</pre>
+                </div>
+              </div>
+            </div>
+          `;
+        } catch (error) {
+          document.body.innerHTML = `
+            <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 py-6 px-4">
+              <div class="w-full max-w-xl bg-slate-900/90 shadow-2xl rounded-2xl border border-rose-700/60 p-5 md:p-6 backdrop-blur">
+                <h2 class="text-base md:text-lg font-semibold text-rose-200 mb-2">
+                  Error loading file
+                </h2>
+                <p class="text-sm text-rose-300">
+                  ${escapeHtml(error.message)}
+                </p>
+                <button
+                  onclick="window.location.reload()"
+                  class="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-rose-50 border border-rose-500/70 rounded-full px-3 py-1.5 hover:bg-rose-600/30 transition-colors"
+                >
+                  Try again
+                </button>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      (async () => {
+        const cfg = window.SITE_CONFIG || {};
+        const { apiRepoOwner, apiRepoName, registryBranch = "registry" } = cfg;
+
+        if (!apiRepoOwner || !apiRepoName) {
+          document.body.innerHTML = `
+            <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 px-4">
+              <div class="w-full max-w-xl bg-slate-900/90 shadow-2xl rounded-2xl border border-amber-600/60 p-5 md:p-6 backdrop-blur">
+                <h2 class="text-base md:text-lg font-semibold text-amber-100 mb-2">
+                  Configuration required
+                </h2>
+                <p class="text-sm text-amber-200">
+                  Please set <code class="bg-slate-800 px-1.5 py-0.5 rounded text-xs">apiRepoOwner</code>
+                  and <code class="bg-slate-800 px-1.5 py-0.5 rounded text-xs">apiRepoName</code> in
+                  <code class="bg-slate-800 px-1.5 py-0.5 rounded text-xs">window.SITE_CONFIG</code>.
+                </p>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        // Base URL & site base path
+        const host = window.location.hostname;
+        const pathname = window.location.pathname || "/";
+        const segments = pathname.split("/").filter(Boolean);
+
+        let siteBasePath = "";
+        let baseUrl = window.location.origin + "/";
+
+        if (host.endsWith(".github.io") && segments.length > 0) {
+          // GitHub Pages: use first segment as repo name
+          const repo = segments[0];
+          siteBasePath = `/${repo}`;
+          baseUrl = `${window.location.origin}${siteBasePath}/`;
+        } else {
+          // Custom domain / subdomain (e.g. registry.jaculus.org):
+          // no site base path; URL path maps directly to repo path
+          siteBasePath = "";
+          baseUrl = `${window.location.origin}/`;
+        }
+
+        const apiContentsUrl = `https://api.github.com/repos/${apiRepoOwner}/${apiRepoName}/contents`;
+
+        // Current path inside the repo
+        let currentPath = window.location.pathname
+          .replace(siteBasePath, "")
+          .replace(/^\/+|\/+$/g, "");
+        const apiPath = currentPath ? `/${currentPath}` : "";
+
+        try {
+          let fetchUrl = `${apiContentsUrl}${apiPath}?ref=${encodeURIComponent(
+            registryBranch
+          )}`;
+          const response = await fetch(fetchUrl);
+          const data = await response.json();
+
+          if (!response.ok) {
+            const message = data && data.message ? data.message : "Unknown error";
+            throw new Error(`${response.status} ${response.statusText}: ${message}`);
+          }
+
+          // If single file -> show file
+          if (!Array.isArray(data) && data && data.type === "file") {
+            viewFile(data.download_url, data.name);
+            return;
+          }
+
+          if (!Array.isArray(data)) {
+            throw new Error("Unexpected API response format");
+          }
+
+          const prettyPath = `/${currentPath || ""}`;
+          let listItems = "";
+
+          // Parent directory entry
+          if (currentPath) {
+            const parentPath = currentPath.split("/").slice(0, -1).join("/");
+            const parentUrl = parentPath ? `/${parentPath}/` : `/`;
+            listItems += `
+              <li class="flex items-center justify-between py-2.5 px-3 text-sm hover:bg-slate-800/60 transition-colors">
+                <div class="flex items-center gap-2">
+                  <span class="text-slate-400">↑</span>
+                  <a href="${parentUrl}" class="text-slate-100 hover:text-jaculus font-medium">
+                    .. (parent directory)
+                  </a>
+                </div>
+                <span class="text-xs text-slate-500">Up</span>
+              </li>
+            `;
+          }
+
+          // Files and dirs
+          for (const file of data) {
+            const isDir = file.type === "dir";
+            const displayName = isDir ? `${file.name}/` : file.name;
+            const icon = isDir ? "📁" : "📄";
+
+            if (isDir) {
+              const dirUrl = `${baseUrl}${file.path}/`;
+              listItems += `
+                <li class="flex items-center justify-between py-2.5 px-3 text-sm hover:bg-slate-800/60 transition-colors">
+                  <div class="flex items-center gap-2">
+                    <span class="text-slate-200">${icon}</span>
+                    <a href="${dirUrl}" class="text-slate-100 hover:text-jaculus font-medium">
+                      ${escapeHtml(displayName)}
+                    </a>
+                  </div>
+                  <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
+                    Directory
+                  </span>
+                </li>
+              `;
+            } else {
+              const fileUrl = `${baseUrl}${file.path}`;
+              const encodedName = encodeURIComponent(file.name);
+              listItems += `
+                <li class="flex items-center justify-between py-2.5 px-3 text-sm hover:bg-slate-800/60 transition-colors">
+                  <div class="flex items-center gap-2">
+                    <span class="text-slate-200">${icon}</span>
+                    <a href="${fileUrl}" class="text-slate-100 hover:text-jaculus font-medium">
+                      ${escapeHtml(displayName)}
+                    </a>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
+                      File
+                    </span>
+                    <a
+                      href="#"
+                      onclick="viewFile('${file.download_url}', decodeURIComponent('${encodedName}')); return false;"
+                      class="text-[11px] font-medium text-jaculus border border-jaculus/60 rounded-full px-2.5 py-0.5 hover:bg-jaculus/10 transition-colors"
+                    >
+                      View inline
+                    </a>
+                  </div>
+                </li>
+              `;
+            }
+          }
+
+          if (!listItems) {
+            listItems = `
+              <li class="py-6 px-4 text-sm text-slate-400 text-center">
+                This directory is empty.
+              </li>
+            `;
+          }
+
+          document.body.innerHTML = `
+            <div class="min-h-screen flex items-start justify-center bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 py-6 px-4">
+              <div class="w-full max-w-4xl bg-slate-900/80 shadow-2xl rounded-2xl border border-slate-800 p-5 md:p-6 backdrop-blur">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="inline-flex items-center gap-2 text-xs font-medium text-jaculus bg-jaculus/15 px-2.5 py-1 rounded-full">
+                      <span class="w-1.5 h-1.5 rounded-full bg-jaculus animate-pulse"></span>
+                      Jaculus Registry
+                    </div>
+                    <h1 class="mt-2 text-lg md:text-xl font-semibold tracking-tight text-slate-50">
+                      Libraries index
+                    </h1>
+                    <p class="text-xs text-slate-400 mt-1">
+                      Branch <span class="font-semibold text-slate-100">${escapeHtml(
+                        registryBranch
+                      )}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-300 bg-slate-900 px-3 py-1.5 rounded-full border border-slate-700">
+                  <span class="uppercase tracking-wide text-[10px] text-slate-500">Path</span>
+                  <code class="text-[11px] text-slate-100">${escapeHtml(prettyPath)}</code>
+                </div>
+
+                <ul class="mt-4 border border-slate-800 rounded-xl divide-y divide-slate-800 bg-slate-900/60">
+                  ${listItems}
+                </ul>
+              </div>
+            </div>
+          `;
+        } catch (error) {
+          document.body.innerHTML = `
+            <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900 px-4">
+              <div class="w-full max-w-xl bg-slate-900/90 shadow-2xl rounded-2xl border border-rose-700/60 p-5 md:p-6 backdrop-blur">
+                <h2 class="text-base md:text-lg font-semibold text-rose-200 mb-2">
+                  Error
+                </h2>
+                <p class="text-sm text-rose-200">
+                  Failed to load content: ${escapeHtml(error.message)}
+                </p>
+              </div>
+            </div>
+          `;
+        }
+      })();
+    </script>
+  </body>
+</html>
