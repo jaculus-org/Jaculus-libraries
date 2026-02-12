@@ -1,0 +1,16 @@
+{
+  "name": "@types/jaculus",
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "Core package for JacLy providing essential functionalities.",
+  "type": "module",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -b && copyfiles -u 2 src/types/*.d.ts dist/types",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

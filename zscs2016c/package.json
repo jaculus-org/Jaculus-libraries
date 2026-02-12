@@ -1,0 +1,20 @@
+{
+  "name": "zscs2016c",
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "ZSCS2016C color sensor library",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@types/jaculus": "workspace:1.0.0"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "robutek",
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "Robůtek is robotic platform designed for teaching programming and robotics",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@types/jaculus": "workspace:1.0.0",
+    "differential-drive": "workspace:1.0.0",
+    "bq2589": "workspace:1.0.0"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

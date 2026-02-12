@@ -1,0 +1,17 @@
+{
+  "name": "colors",
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "Colors utility functions and types",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

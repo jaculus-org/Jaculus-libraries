@@ -1,0 +1,15 @@
+{
+  "name": "jacly-meta-blocks",
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "This is a collection of internal base blocks used by the Jacly. Those blocks contains base Blockly blocks definitions and generators.",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Nothing to build, just Blocks'",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}
