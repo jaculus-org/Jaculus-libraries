@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "ZSCS2016C",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/zscs2016c",
+  "colour": "#AC8FBC",
+  "icon": "ServerCog",
+  "priority": 140,
+  "libraries": ["import { ZSCS2016C } from \"zscs2016c\";"],
+  "contents": []
+}

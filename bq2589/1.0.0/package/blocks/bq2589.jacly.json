@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "bq2589",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/bq2589",
+  "colour": "#AC8FBC",
+  "icon": "BatteryCharging",
+  "priority": 170,
+  "libraries": ["import * as bq2589 from \"./bq2589\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "bq2589_read_adc_oneshot",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "I2C_INSTANCE",
+          "instanceof": "i2c"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await bq2589.readADCOneshot($[I2C_INSTANCE]);",
+      "output": "Number"
+    }
+  ]
+}

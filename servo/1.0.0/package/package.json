@@ -1,0 +1,14 @@
+{
+  "name": "servo",
+  "version": "1.0.0",
+  "description": "Servo motor control library",
+  "dependencies": {
+    "@types/jaculus": "1.0.0"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts"
+}

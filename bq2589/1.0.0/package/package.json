@@ -1,0 +1,14 @@
+{
+  "name": "bq2589",
+  "version": "1.0.0",
+  "description": "BQ2589 battery charger control library",
+  "dependencies": {
+    "@types/jaculus": "1.0.0"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts"
+}

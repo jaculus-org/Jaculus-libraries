@@ -1,5 +1,45 @@
 [
   {
     "id": "empty-template"
+  },
+  {
+    "id": "@types/jaculus"
+  },
+  {
+    "id": "basic"
+  },
+  {
+    "id": "bq2589"
+  },
+  {
+    "id": "colors"
+  },
+  {
+    "id": "differential-drive"
+  },
+  {
+    "id": "jacly-meta-blocks"
+  },
+  {
+    "id": "jacly-template",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "jaculus-template",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "robutek"
+  },
+  {
+    "id": "servo"
+  },
+  {
+    "id": "vl53l0x"
+  },
+  {
+    "id": "zscs2016c"
   }
 ]

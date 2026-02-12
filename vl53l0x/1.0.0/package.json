@@ -1,0 +1,14 @@
+{
+  "name": "vl53l0x",
+  "version": "1.0.0",
+  "description": "VL53L0X time-of-flight distance sensor library",
+  "dependencies": {
+    "@types/jaculus": "1.0.0"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts"
+}

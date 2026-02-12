@@ -1,0 +1,16 @@
+{
+  "name": "robutek",
+  "version": "1.0.0",
+  "description": "Robůtek is robotic platform designed for teaching programming and robotics",
+  "dependencies": {
+    "@types/jaculus": "1.0.0",
+    "differential-drive": "1.0.0",
+    "bq2589": "1.0.0"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts"
+}

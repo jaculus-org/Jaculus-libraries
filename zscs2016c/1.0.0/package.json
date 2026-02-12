@@ -1,0 +1,14 @@
+{
+  "name": "zscs2016c",
+  "version": "1.0.0",
+  "description": "ZSCS2016C color sensor library",
+  "dependencies": {
+    "@types/jaculus": "1.0.0"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts"
+}

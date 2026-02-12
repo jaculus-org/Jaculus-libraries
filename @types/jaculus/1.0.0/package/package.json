@@ -1,0 +1,11 @@
+{
+  "name": "@types/jaculus",
+  "version": "1.0.0",
+  "description": "Core package for JacLy providing essential functionalities.",
+  "dependencies": {},
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "types": "dist/types/index.d.ts"
+}
