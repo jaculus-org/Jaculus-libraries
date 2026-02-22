@@ -1,0 +1,10 @@
+{
+  "LM75A_NAME": "LM75A",
+  "LM75A_DESCRIPTION": "LM75A temperature sensor library",
+  "LM75A_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] LM75A on I2C bus $[I2C_INSTANCE]",
+  "LM75A_CONSTRUCTOR_TOOLTIP": "Create LM75A sensor instance on specified I2C bus",
+  "LM75A_ENABLE_MESSAGE0": "enable $[SENSOR_INSTANCE]",
+  "LM75A_ENABLE_TOOLTIP": "Enables the sensor to start measurements",
+  "LM75A_READ_MESSAGE0": "$[SENSOR_INSTANCE] measure in °C",
+  "LM75A_READ_TOOLTIP": "Perform a temperature measurement and return the result in degrees Celsius"
+}

@@ -1,0 +1,58 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "lm75a",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/lm75a",
+  "colour": "#AC8FBC",
+  "icon": "Thermometer",
+  "priority": 140,
+  "libraries": ["import { LM75A } from \"lm75a\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "i2c_constructor"
+    },
+    {
+      "kind": "block",
+      "type": "lm75a_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "lm75a_?"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "I2C_INSTANCE",
+          "instanceof": "i2c"
+        }
+      ],
+      "constructs": "lm75a",
+      "tooltip": "%T%",
+      "code": "let $[CONSTRUCTED_VAR_NAME] = new LM75A($[I2C_INSTANCE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "lm75a_read",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "lm75a"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[SENSOR_INSTANCE].readTemperature()",
+      "output": "Number"
+    }
+  ]
+}

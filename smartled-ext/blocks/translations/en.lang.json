@@ -1,0 +1,26 @@
+{
+  "SMARTLED_EXT_NAME": "SmartLED Ext",
+  "SMARTLED_EXT_DESCRIPTION": "Extended WS2812 smart LED control blocks with brightness limiting and gamma correction.",
+
+  "STRIP_EXT_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] strip (ext) on pin $[LED_PIN] with $[LED_COUNT] LEDs of type $[LED_TYPE]",
+  "STRIP_EXT_CONSTRUCTOR_TOOLTIP": "Create a new SmartLedExt strip with brightness limiting and gamma linearization support",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812": "LED_WS2812",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B": "LED_WS2812B",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B_2020": "LED_WS2812B_2020",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_SK6812": "LED_SK6812",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2813": "LED_WS2813",
+
+  "STRIP_EXT_SET_ALL_MESSAGE0": "set all LEDs of $[STRIP_INSTANCE] to color $[COLOR_RGB]",
+  "STRIP_EXT_SET_ALL_TOOLTIP": "Set all LEDs in the strip to the given color",
+
+  "STRIP_EXT_MAX_BRIGHTNESS_MESSAGE0": "set max brightness of $[STRIP_INSTANCE] to $[BRIGHTNESS] (0-255)",
+  "STRIP_EXT_MAX_BRIGHTNESS_TOOLTIP": "Set the maximum brightness for the strip (0 = off, 255 = full)",
+
+  "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_MESSAGE0": "set max brightness of $[STRIP_INSTANCE] to $[PERCENT] %",
+  "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_TOOLTIP": "Set the maximum brightness as a percentage (0 = off, 100 = full)",
+
+  "STRIP_EXT_LINEARIZE_MESSAGE0": "set gamma linearization of $[STRIP_INSTANCE] to $[ENABLED]",
+  "STRIP_EXT_LINEARIZE_TOOLTIP": "Enable or disable gamma correction for perceptually linear brightness steps on WS2812 / NeoPixel strips",
+  "STRIP_EXT_LINEARIZE_ENABLED": "enabled",
+  "STRIP_EXT_LINEARIZE_DISABLED": "disabled"
+}

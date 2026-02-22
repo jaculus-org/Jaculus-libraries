@@ -1,0 +1,174 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "ZSCS2016C",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/zscs2016c",
+  "colour": "#AC8FBC",
+  "icon": "Pipette",
+  "priority": 140,
+  "libraries": ["import { ZSCS2016C } from \"zscs2016c\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "zscs2016c_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "colorSensor_?"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "I2C_INSTANCE",
+          "instanceof": "i2c"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "ADDR_BIT",
+          "options": [
+            ["%ON_BOARD%", "true"],
+            ["%EXTERNAL%", "false"]
+          ]
+        }
+      ],
+      "constructs": "colorSensor",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = new ZSCS2016C($[I2C_INSTANCE], $[ADDR_BIT]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_enable",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SENSOR_INSTANCE].enable();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_read_channel",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "CHANNEL",
+          "options": [
+            ["%RED%", "Red"],
+            ["%GREEN%", "Green"],
+            ["%BLUE%", "Blue"],
+            ["%IR%", "IR"],
+            ["%CLEAR%", "Clear"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SENSOR_INSTANCE].read$[CHANNEL]()",
+      "output": "Number"
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_read_rgb",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SENSOR_INSTANCE].readRGB()",
+      "output": "Array"
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_run_calibration",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[SENSOR_INSTANCE].runCalibration();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_save_calibration",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "default"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SENSOR_INSTANCE].saveCalibration($[KEY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "zscs2016c_load_calibration",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR_INSTANCE",
+          "instanceof": "colorSensor"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "default"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SENSOR_INSTANCE].loadCalibration($[KEY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

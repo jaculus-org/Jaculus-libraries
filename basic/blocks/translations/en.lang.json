@@ -1,0 +1,48 @@
+{
+  "BASIC_NAME": "Basic",
+  "BASIC_DESCRIPTION": "Basic task control blocks.",
+
+  "BASIC_ONSTART_MESSAGE0": "on start",
+  "BASIC_ONSTART_TOOLTIP": "Run code when the program starts",
+  "BASIC_FOREVER_MESSAGE0": "forever",
+  "BASIC_FOREVER_TOOLTIP": "Run code repeatedly in the background",
+
+  "BASIC_PAUSE_MESSAGE0": "pause (ms) $[TIME]",
+  "BASIC_PAUSE_TOOLTIP": "Pause execution for the specified time in milliseconds",
+  "BASIC_CONSOLE_LOG_MESSAGE0": "console $[MODE] $[TEXT]",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_LOG": "log",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_WARN": "warn",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_ERROR": "error",
+  "BASIC_CONSOLE_LOG_TOOLTIP": "Log a value to the console",
+
+  "BASIC_SLEEP_MESSAGE0": "sleep (ms) $[TIME]",
+  "BASIC_SLEEP_TOOLTIP": "Pause execution for the specified time in milliseconds",
+
+  "BASIC_LABEL_INTERVALS": "Intervals",
+
+  "BASIC_SET_INTERVAL_MESSAGE0": "set interval name $[CONSTRUCTED_VAR_NAME]\n do $[CODE] every $[TIME] ms",
+  "BASIC_SET_INTERVAL_TOOLTIP": "Set a repeating interval to run code every specified time in milliseconds",
+
+  "BASIC_CLEAR_INTERVAL_MESSAGE0": "clear interval name $[INTERVAL_INSTANCE]",
+  "BASIC_CLEAR_INTERVAL_TOOLTIP": "Clear the specified interval to stop it from running further",
+
+  "BASIC_LABEL_TIMEOUTS": "Timeouts",
+  "BASIC_SET_TIMEOUT_MESSAGE0": "set timeout name $[CONSTRUCTED_VAR_NAME]\n do $[CODE] after $[TIME] ms",
+  "BASIC_SET_TIMEOUT_TOOLTIP": "Set a timeout to run code after the specified time in milliseconds",
+
+  "BASIC_CLEAR_TIMEOUT_MESSAGE0": "clear timeout name $[TIMEOUT_INSTANCE]",
+  "BASIC_CLEAR_TIMEOUT_TOOLTIP": "Clear the specified timeout to stop it from running further",
+
+  "BASIC_EXT_NAME": "Basic Extended",
+  "BASIC_EXT_DESCRIPTION": "Basic extended task control blocks.",
+
+  "BASIC_PROMISE_ALL_MESSAGE0": "promise all",
+  "BASIC_PROMISE_ALL_TOOLTIP": "Promise all tasks and wait for all of them to complete",
+  "BASIC_PROMISE_ALL_CONTAINER": "parallel tasks",
+  "BASIC_PROMISE_ALL_CONTAINER_TOOLTIP": "Add, remove, or reorder task slots",
+  "BASIC_PROMISE_ALL_ITEM": "task",
+  "BASIC_PROMISE_ALL_ITEM_TOOLTIP": "Add a parallel task slot",
+
+  "BASIC_YIELD_MESSAGE0": "yield",
+  "BASIC_YIELD_TOOLTIP": "Yield control to other tasks"
+}

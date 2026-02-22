@@ -1,0 +1,22 @@
+{
+  "name": "hd44780",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "HD44780 LCD display library",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@types/jaculus": "0.1.0"
+  },
+  "scripts": {
+    "install": "jac lib-install",
+    "transpile": "jac lib-build --transpileOnly",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

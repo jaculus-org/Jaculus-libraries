@@ -1,0 +1,6 @@
+{
+  "BQ2589_NAME": "Nabíječka baterií (BQ2589)",
+  "BQ2589_DESCRIPTION": "Knihovna pro řízení nabíječky baterií BQ2589",
+  "BQ2589_READ_ADC_ONESHOT_MESSAGE0": "přečíst hodnotu ADC z BQ2589 jednorázově na I2C sběrnici $[I2C_INSTANCE]",
+  "BQ2589_READ_ADC_ONESHOT_TOOLTIP": "Přečte hodnotu ADC z BQ2589 v jednorázovém režimu"
+}

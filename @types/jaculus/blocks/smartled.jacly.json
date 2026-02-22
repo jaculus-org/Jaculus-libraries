@@ -1,0 +1,168 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "smartled",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/smartled",
+  "colour": "#051F5C",
+  "icon": "Lightbulb",
+  "priority": 130,
+  "libraries": [
+    "import { SmartLed, LED_WS2812, LED_WS2812B, LED_WS2812B_2020, LED_SK6812, LED_WS2813 } from \"smartled\";",
+    "import * as colors from \"colors\";"
+  ],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "strip_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "strip_?"
+        },
+        {
+          "type": "input_value",
+          "name": "LED_PIN",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "LED_COUNT",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 8
+            }
+          }
+        },
+        {
+          "type": "field_dropdown",
+          "name": "LED_TYPE",
+          "options": [
+            ["%LED_WS2812%", "LED_WS2812"],
+            ["%LED_WS2812B%", "LED_WS2812B"],
+            ["%LED_WS2812B_2020%", "LED_WS2812B_2020"],
+            ["%LED_SK6812%", "LED_SK6812"],
+            ["%LED_WS2813%", "LED_WS2813"]
+          ]
+        }
+      ],
+      "constructs": "strip",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = new SmartLed($[LED_PIN], $[LED_COUNT], $[LED_TYPE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "strip_set",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "STRIP_INSTANCE",
+          "instanceof": "strip"
+        },
+        {
+          "type": "input_value",
+          "name": "INDEX",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "COLOR_RGB",
+          "check": "ColorRGB",
+          "shadow": {
+            "type": "dynamic_color_rgb",
+            "fields": {
+              "MODE": "PALETTE",
+              "COLOR_VAL": "#ff0000"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "inputsInline": true,
+      "code": "$[STRIP_INSTANCE].set($[INDEX], $[COLOR_RGB]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "strip_show",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "STRIP_INSTANCE",
+          "instanceof": "strip"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[STRIP_INSTANCE].show();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "strip_get",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "STRIP_INSTANCE",
+          "instanceof": "strip"
+        },
+        {
+          "type": "input_value",
+          "name": "INDEX",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[STRIP_INSTANCE].get($[INDEX])",
+      "output": "ColorRGB"
+    },
+    {
+      "kind": "block",
+      "type": "strip_clear",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "STRIP_INSTANCE",
+          "instanceof": "strip"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[STRIP_INSTANCE].clear();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

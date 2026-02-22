@@ -1,0 +1,143 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "text",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/text",
+  "colour": "#b8860b",
+  "icon": "BookType",
+  "priority": 30,
+  "contents": [
+    {
+      "kind": "block",
+      "type": "text"
+    },
+    {
+      "kind": "block",
+      "type": "text_join"
+    },
+    {
+      "kind": "block",
+      "type": "text_create_join_container"
+    },
+    {
+      "kind": "block",
+      "type": "text_create_join_item"
+    },
+    {
+      "kind": "block",
+      "type": "text_append",
+      "inputs": {
+        "TEXT": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_length",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "abc"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_isEmpty",
+      "inputs": {
+        "VALUE": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": ""
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_indexOf",
+      "inputs": {
+        "VALUE": {
+          "block": {
+            "type": "variables_get"
+          }
+        },
+        "FIND": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "abc"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_charAt",
+      "inputs": {
+        "VALUE": {
+          "block": {
+            "type": "variables_get"
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_getSubstring",
+      "inputs": {
+        "STRING": {
+          "block": {
+            "type": "variables_get"
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_changeCase",
+      "inputs": {
+        "TEXT": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "abc"
+            }
+          }
+        }
+      }
+    },
+    {
+      "kind": "block",
+      "type": "text_to_string",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "output": "String",
+      "tooltip": "%T%",
+      "code": "String($[VALUE])"
+    }
+  ]
+}

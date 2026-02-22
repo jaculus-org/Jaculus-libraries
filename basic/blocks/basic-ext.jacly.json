@@ -1,0 +1,36 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "basic_ext",
+  "parentCategory": "basic",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/basic",
+  "colour": "#1e90ff",
+  "icon": "LayoutGrid",
+  "priority": 10,
+  "libraries": ["import * as basic from \"basic\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "basic_promise_all",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "previousStatement": null,
+      "nextStatement": null,
+      "mutator": "basic_promise_all_mutator"
+    },
+    {
+      "kind": "block",
+      "type": "basic_yield",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "code": "await sleep(0);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

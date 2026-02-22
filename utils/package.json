@@ -1,0 +1,19 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "Jaculus utilities library",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "install": "jac lib-install",
+    "transpile": "jac lib-build --transpileOnly",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "LISTS_NAME": "Lists",
+  "LISTS_DESCRIPTION": "List blocks for performing list operations.",
+
+  "LOGIC_NAME": "Logic",
+  "LOGIC_DESCRIPTION": "Logic control blocks for making decisions and comparisons.",
+
+  "LOOPS_NAME": "Loops",
+  "LOOPS_DESCRIPTION": "Loop blocks for repeating actions.",
+
+  "MATH_NAME": "Math",
+  "MATH_DESCRIPTION": "Math blocks for performing calculations and operations.",
+
+  "FUNCTIONS_NAME": "Functions",
+  "FUNCTIONS_DESCRIPTION": "Procedure blocks for defining and calling functions.",
+
+  "TEXT_NAME": "Text",
+  "TEXT_DESCRIPTION": "Blocks for manipulating text strings.",
+
+  "TEXT_EXT_NAME": "Extended Text",
+  "TEXT_EXT_DESCRIPTION": "Blocks for manipulating text strings.",
+
+  "VARIABLES_NAME": "Variables",
+  "VARIABLES_DESCRIPTION": "Variable blocks for creating and managing variables.",
+
+  "LOGIC_TO_BOOLEAN_MESSAGE0": "to Boolean",
+  "LOGIC_TO_BOOLEAN_TOOLTIP": "Convert a value to a Boolean.",
+
+  "MATH_TO_NUMBER_MESSAGE0": "to Number",
+  "MATH_TO_NUMBER_TOOLTIP": "Convert a value to a Number.",
+  "MATH_TO_INTEGER_MESSAGE0": "to Integer",
+  "MATH_TO_INTEGER_TOOLTIP": "Convert a value to an Integer.",
+
+  "TEXT_TO_STRING_MESSAGE0": "to String",
+  "TEXT_TO_STRING_TOOLTIP": "Convert a value to a String.",
+
+  "MATH_MAP_VALUE_MESSAGE0": "map $[VALUE] from range [$[FROM_LOW], $[FROM_HIGH]] to range [$[TO_LOW], $[TO_HIGH]]",
+  "MATH_MAP_VALUE_TOOLTIP": "Map a value from one range to another."
+}

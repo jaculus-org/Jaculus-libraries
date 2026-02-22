@@ -1,0 +1,192 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "gpio",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/gpio",
+  "colour": "#FF6B35",
+  "icon": "Cable",
+  "priority": 100,
+  "libraries": ["import * as gpio from \"gpio\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "gpio_pinMode",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "MODE",
+          "options": [
+            ["%OUTPUT%", "gpio.PinMode.OUTPUT"],
+            ["%INPUT%", "gpio.PinMode.INPUT"],
+            ["%INPUT_PULLUP%", "gpio.PinMode.INPUT_PULLUP"],
+            ["%INPUT_PULLDOWN%", "gpio.PinMode.INPUT_PULLDOWN"],
+            ["%DISABLE%", "gpio.PinMode.DISABLE"]
+          ]
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "gpio.pinMode($[PIN], $[MODE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "gpio_write",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "Number"
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        },
+        "VALUE": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "gpio.write($[PIN], $[VALUE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "gpio_read",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "output": "Number",
+      "code": "gpio.read($[PIN])"
+    },
+    {
+      "kind": "block",
+      "type": "gpio_onEvent",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "EVENT",
+          "options": [
+            ["%FALLING%", "\"falling\""],
+            ["%RISING%", "\"rising\""],
+            ["%CHANGE%", "\"change\""]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+          "type": "input_statement",
+          "name": "CODE",
+          "check": "Function"
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        }
+      },
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "gpio.on($[EVENT], $[PIN], async function(info) {\n$[CODE]\n});"
+    },
+    {
+      "kind": "block",
+      "type": "gpio_offEvent",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "EVENT",
+          "options": [
+            ["%RISING%", "\"rising\""],
+            ["%FALLING%", "\"falling\""],
+            ["%CHANGE%", "\"change\""]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "gpio.off($[EVENT], $[PIN]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

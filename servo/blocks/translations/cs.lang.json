@@ -1,0 +1,8 @@
+{
+  "SERVO_NAME": "Servo",
+  "SERVO_DESCRIPTION": "Knihovna pro řízení servo motorů",
+  "SERVO_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] servo na pinu $[SERVO_PIN]\n s časovačem $[TIMER] a kanálem $[CHANNEL]",
+  "SERVO_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci servo motoru",
+  "SERVO_WRITE_MESSAGE0": "nastavit $[SERVO_INSTANCE] na pozici $[POSITION] (0-1023)",
+  "SERVO_WRITE_TOOLTIP": "Nastaví servo na zadanou pozici"
+}

@@ -1,0 +1,54 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "logic",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/logic",
+  "colour": "#00a4a6",
+  "icon": "Scale",
+  "priority": 25,
+  "contents": [
+    {
+      "kind": "block",
+      "type": "controls_if"
+    },
+    {
+      "kind": "block",
+      "type": "logic_compare"
+    },
+    {
+      "kind": "block",
+      "type": "logic_operation"
+    },
+    {
+      "kind": "block",
+      "type": "logic_negate"
+    },
+    {
+      "kind": "block",
+      "type": "logic_boolean"
+    },
+    {
+      "kind": "block",
+      "type": "logic_ternary"
+    },
+    {
+      "kind": "block",
+      "type": "logic_to_boolean",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "output": "Boolean",
+      "tooltip": "%T%",
+      "code": "Boolean($[VALUE])"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "motor",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/differential-drive",
+  "icon": "RefreshCcwDot",
+  "priority": 140,
+  "libraries": ["import { DifferentialDrive } from \"differential-drive\";"],
+  "contents": []
+}

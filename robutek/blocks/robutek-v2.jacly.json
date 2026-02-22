@@ -1,0 +1,376 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "robutek2",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/robutek2",
+  "colour": "#b08DA5",
+  "icon": "ServerCog",
+  "priority": 140,
+  "libraries": ["import { createRobutek } from \"robutek\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "robutek2_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "robutek2_?"
+        }
+      ],
+      "constructs": "robutek2",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = createRobutek(\"V2\");",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%PERIPHERALS%"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_readSensor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "SENSOR",
+          "options": [
+            ["%WHEEL_FL%", "WheelFL"],
+            ["%WHEEL_FR%", "WheelFR"],
+            ["%WHEEL_BL%", "WheelBL"],
+            ["%WHEEL_BR%", "WheelBR"],
+            ["%LINE_FL%", "LineFL"],
+            ["%LINE_FR%", "LineFR"],
+            ["%LINE_BL%", "LineBL"],
+            ["%LINE_BR%", "LineBR"]
+          ]
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].readSensor(\"$[SENSOR]\")"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_setStatusLED",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "STATE",
+          "check": "Boolean",
+          "shadow": {
+            "type": "logic_boolean",
+            "fields": {
+              "BOOL": 1
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].setStatusLED($[STATE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%MOVEMENT%"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_move",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "CURVE",
+          "check": "Number",
+          "shadow": {
+            "type": "jacly_field_slider",
+            "fields": {
+              "VALUE": 0,
+              "SLIDER_MIN": -1,
+              "SLIDER_MAX": 1,
+              "SLIDER_STEP": 0.1
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "DURATION",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100
+            }
+          }
+        },
+        {
+          "type": "field_dropdown",
+          "name": "UNIT",
+          "options": [
+            ["%DISTANCE_MM%", "distance"],
+            ["%TIME_MS%", "time"],
+            ["%INFINITE%", "infinite"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "codeConditionals": [
+        {
+          "condition": [{ "$[UNIT]": "distance" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move($[CURVE], { distance: $[DURATION] });"
+        },
+        {
+          "condition": [{ "$[UNIT]": "time" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move($[CURVE], { time: $[DURATION] });"
+        },
+        {
+          "condition": [{ "$[UNIT]": "infinite" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move($[CURVE]);"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_rotate",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "ANGLE",
+          "check": "Number",
+          "shadow": {
+            "type": "jacly_field_slider",
+            "fields": {
+              "VALUE": 0,
+              "SLIDER_MIN": -180,
+              "SLIDER_MAX": 180,
+              "SLIDER_STEP": 5
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[ROBUTEK2_INSTANCE].rotate($[ANGLE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_stop",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "BRAKE",
+          "check": "Boolean",
+          "shadow": {
+            "type": "logic_boolean",
+            "fields": {
+              "BOOL": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[ROBUTEK2_INSTANCE].stop($[BRAKE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%HEADING%"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_getHeading",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].getHeading()"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_getHeadingClamped",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].getHeadingClamped()"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_resetHeading",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].resetHeading();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%SPEED_AND_RAMP%"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_setSpeed",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "SPEED",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].setSpeed($[SPEED]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_getSpeed",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].getSpeed()"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_setRamp",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        },
+        {
+          "type": "input_value",
+          "name": "RAMP",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 500
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].setRamp($[RAMP]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_getRamp",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "$[ROBUTEK2_INSTANCE].getRamp()"
+    },
+    {
+      "kind": "label",
+      "text": "%ADDITIONAL%"
+    },
+    {
+      "kind": "block",
+      "type": "robutek2_close",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "ROBUTEK2_INSTANCE",
+          "instanceof": "robutek2"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[ROBUTEK2_INSTANCE].close();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

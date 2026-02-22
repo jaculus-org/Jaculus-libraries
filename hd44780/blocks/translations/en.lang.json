@@ -1,0 +1,18 @@
+{
+  "HD44780_NAME": "HD44780 LCD",
+  "HD44780_DESCRIPTION": "HD44780 LCD display library for I2C.",
+  "HD44780_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] HD44780 LCD on I2C bus $[I2C_INSTANCE]",
+  "HD44780_CONSTRUCTOR_TOOLTIP": "Create an HD44780 LCD instance on the specified I2C bus",
+  "HD44780_CLEAR_MESSAGE0": "clear $[HD44780_INSTANCE]",
+  "HD44780_CLEAR_TOOLTIP": "Clear the LCD display and return cursor to home position",
+  "HD44780_PRINT_MESSAGE0": "$[HD44780_INSTANCE] print $[TEXT]",
+  "HD44780_PRINT_TOOLTIP": "Print text at the current cursor position on the LCD",
+  "HD44780_SETCURSOR_MESSAGE0": "set $[HD44780_INSTANCE] cursor to column $[COL] row $[ROW]",
+  "HD44780_SETCURSOR_TOOLTIP": "Set the cursor position on the LCD (top left = 0, 0)",
+  "HD44780_CURSOR_MESSAGE0": "set $[HD44780_INSTANCE] cursor style $[CURSOR_TYPE]",
+  "HD44780_CURSOR_TOOLTIP": "Set the cursor style to blinking block or underline",
+  "HD44780_CURSOR_ARGS0_FIELD_DROPDOWN_BLOCK_CURSOR": "blinking block",
+  "HD44780_CURSOR_ARGS0_FIELD_DROPDOWN_UNDERLINE_CURSOR": "underline",
+  "HD44780_CREATECHAR_MESSAGE0": "$[HD44780_INSTANCE] define custom character $[CHAR_INDEX] with data $[CHAR_DATA]",
+  "HD44780_CREATECHAR_TOOLTIP": "Define a custom character (0–7) from an array of 8 bytes"
+}

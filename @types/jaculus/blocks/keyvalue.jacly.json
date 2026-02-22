@@ -1,0 +1,242 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "Storage",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/keyvalue",
+  "colour": "#751F5C",
+  "icon": "Key",
+  "priority": 120,
+  "libraries": ["import * as keyvalue from \"keyvalue\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "kv_open",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "keyValue_?"
+        },
+        {
+          "type": "input_value",
+          "name": "NAMESPACE",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "default"
+            }
+          }
+        }
+      ],
+      "constructs": "keyValue",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = keyvalue.open($[NAMESPACE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "kv_set_string",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_value"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].set($[KEY], $[VALUE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "kv_set_number",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].set($[KEY], $[VALUE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "kv_get_string",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].getString($[KEY])",
+      "output": "String"
+    },
+    {
+      "kind": "block",
+      "type": "kv_get_number",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].getNumber($[KEY])",
+      "output": "Number"
+    },
+    {
+      "kind": "block",
+      "type": "kv_erase",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].erase($[KEY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "kv_exists",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        },
+        {
+          "type": "input_value",
+          "name": "KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].exists($[KEY])",
+      "output": "Boolean"
+    },
+    {
+      "kind": "block",
+      "type": "kv_commit",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "KV_INSTANCE",
+          "instanceof": "keyValue"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[KV_INSTANCE].commit();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

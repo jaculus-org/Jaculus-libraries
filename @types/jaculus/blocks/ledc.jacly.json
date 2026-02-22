@@ -1,0 +1,226 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "ledc",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/ledc",
+  "colour": "#9C27B0",
+  "icon": "AudioWaveform",
+  "priority": 105,
+  "libraries": ["import * as ledc from \"ledc\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "ledc_configureTimer",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIMER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "FREQUENCY",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1000
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "RESOLUTION",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 10
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.configureTimer($[TIMER], $[FREQUENCY], $[RESOLUTION]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ledc_configureChannel",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANNEL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "TIMER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "DUTY",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 512
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.configureChannel($[CHANNEL], $[PIN], $[TIMER], $[DUTY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ledc_setFrequency",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIMER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "FREQUENCY",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1000
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.setFrequency($[TIMER], $[FREQUENCY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ledc_setDuty",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANNEL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "DUTY",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 512
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.setDuty($[CHANNEL], $[DUTY]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ledc_stopTimer",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIMER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.stopTimer($[TIMER]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ledc_stopChannel",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "CHANNEL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "ledc.stopChannel($[CHANNEL]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

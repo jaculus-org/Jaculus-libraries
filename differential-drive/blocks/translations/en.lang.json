@@ -1,0 +1,4 @@
+{
+  "MOTOR_NAME": "Differential Drive",
+  "MOTOR_DESCRIPTION": "Differential drive motor control library"
+}

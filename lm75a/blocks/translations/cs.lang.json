@@ -1,0 +1,10 @@
+{
+  "LM75A_NAME": "LM75A",
+  "LM75A_DESCRIPTION": "LM75A knihovna pro teplotní senzor LM75A",
+  "LM75A_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] LM75A na I2C sběrnici $[I2C_INSTANCE]",
+  "LM75A_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci LM75A senzoru na zadané I2C sběrnici",
+  "LM75A_ENABLE_MESSAGE0": "povolit $[SENSOR_INSTANCE]",
+  "LM75A_ENABLE_TOOLTIP": "Povolení senzoru pro zahájení měření",
+  "LM75A_READ_MESSAGE0": "$[SENSOR_INSTANCE] měření v °C",
+  "LM75A_READ_TOOLTIP": "Provede měření teploty a vrátí výsledek ve stupních Celsia"
+}

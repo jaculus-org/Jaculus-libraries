@@ -1,0 +1,230 @@
+{
+  "$schema": "https://jacly.jaculus.org/schema.json",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "basic",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/basic",
+  "colour": "#1e90ff",
+  "icon": "LayoutGrid",
+  "priority": 10,
+  "libraries": ["import * as basic from \"basic\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "basic_onStart",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "CODE",
+          "check": "Function"
+        }
+      ],
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "$[CODE]\n"
+    },
+    {
+      "kind": "block",
+      "type": "basic_forever",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "CODE",
+          "check": "Function"
+        }
+      ],
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "basic.forever(async () => {\n$[CODE]\n});"
+    },
+    {
+      "kind": "block",
+      "type": "basic_pause",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIME",
+          "check": "Number"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await pause($[TIME]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "basic_console_log",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MODE",
+          "options": [
+            ["%LOG%", "log"],
+            ["%WARN%", "warn"],
+            ["%ERROR%", "error"]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "TEXT"
+        }
+      ],
+      "inputs": {
+        "TEXT": {
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": ""
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "console.$[MODE]($[TEXT]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "basic_sleep",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIME",
+          "check": "Number"
+        }
+      ],
+      "inputs": {
+        "TIME": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1000
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "await sleep($[TIME]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%INTERVALS%"
+    },
+    {
+      "kind": "block",
+      "type": "basic_set_interval",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "interval_?"
+        },
+        {
+          "type": "input_statement",
+          "name": "CODE",
+          "check": "Function"
+        },
+        {
+          "type": "input_value",
+          "name": "TIME",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1000
+            }
+          }
+        }
+      ],
+      "constructs": "interval",
+      "tooltip": "%T%",
+      "code": "let $[CONSTRUCTED_VAR_NAME] = setInterval(async () => {\n$[CODE]\n}, $[TIME]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "basic_clear_interval",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "INTERVAL_INSTANCE",
+          "instanceof": "interval"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "clearInterval($[INTERVAL_INSTANCE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%TIMEOUTS%"
+    },
+    {
+      "kind": "block",
+      "type": "basic_set_timeout",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "timeout_?"
+        },
+        {
+          "type": "input_statement",
+          "name": "CODE",
+          "check": "Function"
+        },
+        {
+          "type": "input_value",
+          "name": "TIME",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1000
+            }
+          }
+        }
+      ],
+      "constructs": "timeout",
+      "tooltip": "%T%",
+      "code": "let $[CONSTRUCTED_VAR_NAME] = setTimeout(async () => {\n$[CODE]\n}, $[TIME]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "basic_clear_timeout",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "TIMEOUT_INSTANCE",
+          "instanceof": "timeout"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "clearTimeout($[TIMEOUT_INSTANCE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

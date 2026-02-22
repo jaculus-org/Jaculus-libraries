@@ -1,0 +1,26 @@
+{
+  "SMARTLED_EXT_NAME": "SmartLED Ext",
+  "SMARTLED_EXT_DESCRIPTION": "Rozšířené bloky pro ovládání WS2812 LED pásků s omezením jasu a gama korekcí.",
+
+  "STRIP_EXT_CONSTRUCTOR_MESSAGE0": "vytvoř $[CONSTRUCTED_VAR_NAME] páský (ext) na pinu $[LED_PIN] s $[LED_COUNT] LED typu $[LED_TYPE]",
+  "STRIP_EXT_CONSTRUCTOR_TOOLTIP": "Vytvoří nový SmartLedExt pásky s podporou omezení jasu a gama linearizace",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812": "LED_WS2812",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B": "LED_WS2812B",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B_2020": "LED_WS2812B_2020",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_SK6812": "LED_SK6812",
+  "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2813": "LED_WS2813",
+
+  "STRIP_EXT_SET_ALL_MESSAGE0": "nastav všechny LED pásku $[STRIP_INSTANCE] na barvu $[COLOR_RGB]",
+  "STRIP_EXT_SET_ALL_TOOLTIP": "Nastaví všechny LED v pásku na danou barvu",
+
+  "STRIP_EXT_MAX_BRIGHTNESS_MESSAGE0": "nastav maximální jas pásku $[STRIP_INSTANCE] na $[BRIGHTNESS] (0-255)",
+  "STRIP_EXT_MAX_BRIGHTNESS_TOOLTIP": "Nastaví maximální jas pásku (0 = vypnuto, 255 = plný jas)",
+
+  "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_MESSAGE0": "nastav maximální jas pásku $[STRIP_INSTANCE] na $[PERCENT] %",
+  "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_TOOLTIP": "Nastaví maximální jas jako procento (0 = vypnuto, 100 = plný jas)",
+
+  "STRIP_EXT_LINEARIZE_MESSAGE0": "nastav gama linearizaci pásku $[STRIP_INSTANCE] na $[ENABLED]",
+  "STRIP_EXT_LINEARIZE_TOOLTIP": "Zapne nebo vypne gama korekci pro lineárně vnímané kroky jasu na WS2812 / NeoPixel páscích",
+  "STRIP_EXT_LINEARIZE_ENABLED": "zapnuto",
+  "STRIP_EXT_LINEARIZE_DISABLED": "vypnuto"
+}

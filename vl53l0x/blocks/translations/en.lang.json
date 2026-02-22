@@ -1,0 +1,12 @@
+{
+  "VL53L0X_NAME": "VL53L0X",
+  "VL53L0X_DESCRIPTION": "VL53L0X time-of-flight distance sensor library",
+  "VL53L0X_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] VL53L0X on I2C bus $[I2C_INSTANCE]",
+  "VL53L0X_CONSTRUCTOR_TOOLTIP": "Create VL53L0X sensor instance on specified I2C bus",
+  "VL53L0X_READ_MESSAGE0": "read from $[SENSOR_INSTANCE] $[VALUE_TYPE]",
+  "VL53L0X_READ_TOOLTIP": "Perform a distance measurement and return the result in millimeters",
+  "VL53L0X_READ_ARGS0_FIELD_DROPDOWN_DISTANCE": "distance",
+  "VL53L0X_READ_ARGS0_FIELD_DROPDOWN_SIGNAL_RATE": "signal rate",
+  "VL53L0X_READ_ARGS0_FIELD_DROPDOWN_AMBIENT_RATE": "ambient rate",
+  "VL53L0X_READ_ARGS0_FIELD_DROPDOWN_EFFECTIVE_SPAD": "effective SPAD count"
+}

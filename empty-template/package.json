@@ -1,17 +1,19 @@
 {
-    "name": "empty-template",
-    "version": "1.0.0",
-    "author": "cubicap",
-    "license": "MIT",
-    "description": "Minimal template for a new library",
-    "type": "module",
-    "main": "dist/js/index.js",
-    "types": "dist/types/index.d.ts",
-    "scripts": {
-        "build": "tsc -b",
-        "clean": "rm -rf dist"
-    },
-    "jaculus": {
-        "blocks": "blocks"
-    }
+  "name": "empty-template",
+  "version": "0.1.0",
+  "author": "cubicap",
+  "license": "MIT",
+  "description": "Minimal template for a new library",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "install": "jac lib-install",
+    "transpile": "jac lib-build --transpileOnly",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
 }

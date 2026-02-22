@@ -2,3 +2,5 @@ node_modules
 dist
 
 .jaculus-libs-dist/
+.DS_Store
+tsconfig.tsbuildinfo

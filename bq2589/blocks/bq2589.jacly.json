@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "bq2589",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/bq2589",
+  "colour": "#AC8FBC",
+  "icon": "BatteryCharging",
+  "priority": 170,
+  "libraries": ["import * as bq2589 from \"./bq2589\";"],
+  "contents": []
+}

@@ -1,0 +1,125 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "utils",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/utils",
+  "colour": "#AC8FBC",
+  "icon": "Toolbox",
+  "priority": 140,
+  "libraries": ["import * as utils from \"utils\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "utils_map",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 512
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "FROM_LOW",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "FROM_HIGH",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1023
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "TO_LOW",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "TO_HIGH",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 255
+            }
+          }
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "utils.map($[VALUE], $[FROM_LOW], $[FROM_HIGH], $[TO_LOW], $[TO_HIGH])"
+    },
+    {
+      "kind": "block",
+      "type": "utils_scale",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "VALUE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 512
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MIN",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MAX",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1023
+            }
+          }
+        }
+      ],
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "utils.scale($[VALUE], $[MIN], $[MAX])"
+    }
+  ]
+}

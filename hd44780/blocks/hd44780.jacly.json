@@ -1,0 +1,182 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "hd44780",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/hd44780",
+  "colour": "#AC8FBC",
+  "icon": "Monitor",
+  "priority": 140,
+  "libraries": ["import { HD44780 } from \"hd44780\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "i2c_constructor"
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "hd44780_?"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "I2C_INSTANCE",
+          "instanceof": "i2c"
+        }
+      ],
+      "constructs": "hd44780",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = new HD44780($[I2C_INSTANCE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_clear",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "HD44780_INSTANCE",
+          "instanceof": "hd44780"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[HD44780_INSTANCE].clear();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_print",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "HD44780_INSTANCE",
+          "instanceof": "hd44780"
+        },
+        {
+          "type": "input_value",
+          "name": "TEXT",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "Hello World"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[HD44780_INSTANCE].print($[TEXT]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_setCursor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "HD44780_INSTANCE",
+          "instanceof": "hd44780"
+        },
+        {
+          "type": "input_value",
+          "name": "COL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "ROW",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "inputsInline": true,
+      "code": "$[HD44780_INSTANCE].setCursor($[COL], $[ROW]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_cursor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "HD44780_INSTANCE",
+          "instanceof": "hd44780"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "CURSOR_TYPE",
+          "options": [
+            ["%BLOCK_CURSOR%", "true"],
+            ["%UNDERLINE_CURSOR%", "false"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[HD44780_INSTANCE].cursor($[CURSOR_TYPE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "hd44780_createChar",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "HD44780_INSTANCE",
+          "instanceof": "hd44780"
+        },
+        {
+          "type": "input_value",
+          "name": "CHAR_INDEX",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "CHAR_DATA",
+          "check": "Array"
+        }
+      ],
+      "tooltip": "%T%",
+      "inputsInline": true,
+      "code": "$[HD44780_INSTANCE].createChar($[CHAR_INDEX], $[CHAR_DATA]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "motor",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/motor",
+  "colour": "#AC0F0C",
+  "icon": "RefreshCcwDot",
+  "priority": 140,
+  "libraries": ["import { Motor } from \"motor\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "motor_constructor_pins",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "MOT_A",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 2
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MOT_B",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 3
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "ENC_A",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 4
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "ENC_B",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5
+            }
+          }
+        }
+      ],
+      "hideInToolbox": true,
+      "inputsInline": true,
+      "tooltip": "%T%",
+      "code": "{ motA: $[MOT_A], motB: $[MOT_B], encA: $[ENC_A], encB: $[ENC_B] }",
+      "output": "MotorPins"
+    },
+    {
+      "kind": "block",
+      "type": "motor_constructor_ledc",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "TIMER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "CHANNEL_A",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "CHANNEL_B",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        }
+      ],
+      "hideInToolbox": true,
+      "inputsInline": true,
+      "tooltip": "%T%",
+      "code": "{ timer: $[TIMER], channelA: $[CHANNEL_A], channelB: $[CHANNEL_B] }",
+      "output": "LedcConfig"
+    },
+    {
+      "kind": "block",
+      "type": "motor_constructor_regparams",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "KP",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "KI",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "KD",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "KV",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "KA",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "KC",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MAX_IOUT",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "UNWIND_FACTOR",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "hideInToolbox": true,
+      "tooltip": "%T%",
+      "code": "{ kp: $[KP], ki: $[KI], kd: $[KD], kv: $[KV], ka: $[KA], kc: $[KC], maxIOut: $[MAX_IOUT], unwindFactor: $[UNWIND_FACTOR] }",
+      "output": "RegParams"
+    },
+    {
+      "kind": "block",
+      "type": "motor_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "motor_?"
+        },
+        {
+          "type": "input_value",
+          "name": "PINS",
+          "check": "MotorPins",
+          "shadow": {
+            "type": "motor_constructor_pins",
+            "inputs": {
+              "MOT_A": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 2 } }
+              },
+              "MOT_B": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 3 } }
+              },
+              "ENC_A": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 4 } }
+              },
+              "ENC_B": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 5 } }
+              }
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "LEDC",
+          "check": "LedcConfig",
+          "shadow": {
+            "type": "motor_constructor_ledc",
+            "inputs": {
+              "TIMER": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "CHANNEL_A": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "CHANNEL_B": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 1 } }
+              }
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "REG_PARAMS",
+          "check": "RegParams",
+          "shadow": {
+            "type": "motor_constructor_regparams",
+            "inputs": {
+              "KP": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "KI": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "KD": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "KV": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "KA": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "KC": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "MAX_IOUT": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              },
+              "UNWIND_FACTOR": {
+                "shadow": { "type": "math_number", "fields": { "NUM": 0 } }
+              }
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "ENC_TICKS",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1440
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "CIRCUMFERENCE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 62.8
+            }
+          }
+        }
+      ],
+      "constructs": "motor",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = new Motor({ pins: $[PINS], ledc: $[LEDC], reg: $[REG_PARAMS], encTicks: $[ENC_TICKS], circumference: $[CIRCUMFERENCE] });",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_setSpeed",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "input_value",
+          "name": "SPEED",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[MOTOR_INSTANCE].setSpeed($[SPEED]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_setRamp",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "input_value",
+          "name": "RAMP",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[MOTOR_INSTANCE].setRamp($[RAMP]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_move",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "input_value",
+          "name": "DISTANCE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[MOTOR_INSTANCE].move({ distance: $[DISTANCE] });",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_move_time",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "input_value",
+          "name": "DURATION",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100
+            }
+          }
+        },
+        {
+          "type": "field_dropdown",
+          "name": "UNIT",
+          "options": [
+            ["%DISTANCE_MM%", "distance"],
+            ["%TIME_MS%", "time"],
+            ["%INFINITE%", "infinite"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "codeConditionals": [
+        {
+          "condition": [{ "$[UNIT]": "distance" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move({ distance: $[DURATION] });"
+        },
+        {
+          "condition": [{ "$[UNIT]": "time" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move({ time: $[DURATION] });"
+        },
+        {
+          "condition": [{ "$[UNIT]": "infinite" }],
+          "code": "await $[ROBUTEK2_INSTANCE].move();"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_setRaw",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "input_value",
+          "name": "POWER",
+          "check": "Number",
+          "shadow": {
+            "type": "jacly_field_slider",
+            "fields": {
+              "VALUE": 0,
+              "SLIDER_MIN": -1023,
+              "SLIDER_MAX": 1023,
+              "SLIDER_STEP": 1
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[MOTOR_INSTANCE].setRaw($[POWER]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_stop",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "BRAKE",
+          "options": [
+            ["%TRUE%", "true"],
+            ["%FALSE%", "false"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "await $[MOTOR_INSTANCE].stop($[BRAKE] === 'true');",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "motor_getPosition",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[MOTOR_INSTANCE].getPosition()",
+      "output": "Number"
+    },
+    {
+      "kind": "block",
+      "type": "motor_close",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "MOTOR_INSTANCE",
+          "instanceof": "motor"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[MOTOR_INSTANCE].close();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

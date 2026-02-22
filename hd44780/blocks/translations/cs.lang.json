@@ -1,0 +1,18 @@
+{
+  "HD44780_NAME": "HD44780 LCD",
+  "HD44780_DESCRIPTION": "Knihovna pro LCD displej HD44780 přes I2C.",
+  "HD44780_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] HD44780 LCD na I2C sběrnici $[I2C_INSTANCE]",
+  "HD44780_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci LCD displeje HD44780 na zadané I2C sběrnici",
+  "HD44780_CLEAR_MESSAGE0": "vymazat $[HD44780_INSTANCE]",
+  "HD44780_CLEAR_TOOLTIP": "Vymaže LCD displej a vrátí kurzor na počáteční pozici",
+  "HD44780_PRINT_MESSAGE0": "$[HD44780_INSTANCE] vypsat $[TEXT]",
+  "HD44780_PRINT_TOOLTIP": "Vypíše text na aktuální pozici kurzoru na LCD",
+  "HD44780_SETCURSOR_MESSAGE0": "nastavit $[HD44780_INSTANCE] kurzor na sloupec $[COL] řádek $[ROW]",
+  "HD44780_SETCURSOR_TOOLTIP": "Nastaví pozici kurzoru na LCD (levý horní roh = 0, 0)",
+  "HD44780_CURSOR_MESSAGE0": "nastavit $[HD44780_INSTANCE] styl kurzoru $[CURSOR_TYPE]",
+  "HD44780_CURSOR_TOOLTIP": "Nastaví styl kurzoru na blikající blok nebo podtržení",
+  "HD44780_CURSOR_ARGS0_FIELD_DROPDOWN_BLOCK_CURSOR": "blikající blok",
+  "HD44780_CURSOR_ARGS0_FIELD_DROPDOWN_UNDERLINE_CURSOR": "podtržení",
+  "HD44780_CREATECHAR_MESSAGE0": "$[HD44780_INSTANCE] definovat vlastní znak $[CHAR_INDEX] s daty $[CHAR_DATA]",
+  "HD44780_CREATECHAR_TOOLTIP": "Definuje vlastní znak (0–7) z pole 8 bajtů"
+}

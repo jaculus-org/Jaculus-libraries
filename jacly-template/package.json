@@ -1,0 +1,20 @@
+{
+  "name": "jacly-template",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "basic": "0.1.0",
+    "jacly-meta-blocks": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "registry": [
+    "http://127.0.0.1:3737/",
+    "https://registry.jaculus.org/"
+  ],
+  "jaculus": {
+    "projectType": "jacly",
+    "template": true
+  }
+}

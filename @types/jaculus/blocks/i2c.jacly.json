@@ -1,0 +1,80 @@
+{
+  "$schema": "http://jacly.jaculus.org/schema.json",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "i2c",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/i2c",
+  "colour": "#0F5ACA",
+  "icon": "Cable",
+  "priority": 130,
+  "libraries": ["import { I2C1, I2C2 } from \"i2c\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "i2c_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "i2c_?"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "I2C",
+          "options": [
+            ["%I2C1%", "I2C1"],
+            ["%I2C2_MAYBE%", "I2C2"]
+          ]
+        },
+        {
+          "type": "input_value",
+          "name": "SDA",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "SCL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 8
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "BITRATE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 100000
+            }
+          }
+        }
+      ],
+      "constructs": "i2c",
+      "tooltip": "%T%",
+      "code": "$[I2C].setup({ sda: $[SDA], scl: $[SCL], bitrate: $[BITRATE] });\nconst $[CONSTRUCTED_VAR_NAME] = $[I2C];",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%IN_FUTURE_RELEASES%"
+    }
+  ]
+}

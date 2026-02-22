@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "control",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/control",
+  "colour": "#9C27B0",
+  "icon": "Bolt",
+  "priority": 125,
+  "libraries": ["import * as adc from \"adc\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "control_exit",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "EXIT_CODE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "tooltip": "%T%",
+      "code": "exit($[EXIT_CODE]);"
+    },
+    {
+      "kind": "block",
+      "type": "control_dateNow",
+      "message0": "%T%",
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "Date.now()"
+    }
+  ]
+}

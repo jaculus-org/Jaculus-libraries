@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "functions",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/functions",
+  "colour": "#3455db",
+  "icon": "SquareFunction",
+  "priority": 60,
+  "custom": "PROCEDURE"
+}

@@ -1,0 +1,48 @@
+{
+  "BASIC_NAME": "Základní",
+  "BASIC_DESCRIPTION": "Základní bloky pro řízení úloh.",
+
+  "BASIC_ONSTART_MESSAGE0": "při spuštění",
+  "BASIC_ONSTART_TOOLTIP": "Spustí kód při startu programu",
+  "BASIC_FOREVER_MESSAGE0": "opakuj stále",
+  "BASIC_FOREVER_TOOLTIP": "Spustí kód opakovaně na pozadí",
+
+  "BASIC_PAUSE_MESSAGE0": "pauza (ms) $[TIME]",
+  "BASIC_PAUSE_TOOLTIP": "Pozastaví provádění na zadanou dobu v milisekundách",
+  "BASIC_CONSOLE_LOG_MESSAGE0": "konzole $[MODE] $[TEXT]",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_LOG": "log",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_WARN": "varování",
+  "BASIC_CONSOLE_LOG_ARGS0_FIELD_DROPDOWN_ERROR": "chyba",
+  "BASIC_CONSOLE_LOG_TOOLTIP": "Vypíše hodnotu do konzole",
+
+  "BASIC_SLEEP_MESSAGE0": "čekej (ms) $[TIME]",
+  "BASIC_SLEEP_TOOLTIP": "Pozastaví provádění na zadanou dobu v milisekundách",
+
+  "BASIC_LABEL_INTERVALS": "Intervaly",
+
+  "BASIC_SET_INTERVAL_MESSAGE0": "nastavit interval $[CONSTRUCTED_VAR_NAME]\n proveď $[CODE] každých $[TIME] ms",
+  "BASIC_SET_INTERVAL_TOOLTIP": "Nastaví opakující se interval pro spouštění kódu každých zadaných milisekund",
+
+  "BASIC_CLEAR_INTERVAL_MESSAGE0": "zrušit interval $[INTERVAL_INSTANCE]",
+  "BASIC_CLEAR_INTERVAL_TOOLTIP": "Zruší zadaný interval, aby se dále nespouštěl",
+
+  "BASIC_LABEL_TIMEOUTS": "Časovače",
+  "BASIC_SET_TIMEOUT_MESSAGE0": "nastavit časovač $[CONSTRUCTED_VAR_NAME]\n proveď $[CODE] po $[TIME] ms",
+  "BASIC_SET_TIMEOUT_TOOLTIP": "Nastaví časovač pro spuštění kódu po zadané době v milisekundách",
+
+  "BASIC_CLEAR_TIMEOUT_MESSAGE0": "zrušit časovač $[TIMEOUT_INSTANCE]",
+  "BASIC_CLEAR_TIMEOUT_TOOLTIP": "Zruší zadaný časovač, aby se nespustil",
+
+  "BASIC_EXT_NAME": "Základní rozšířené",
+  "BASIC_EXT_DESCRIPTION": "Rozšířené základní bloky pro řízení úloh.",
+
+  "BASIC_PROMISE_ALL_MESSAGE0": "spusť paralelně",
+  "BASIC_PROMISE_ALL_TOOLTIP": "Spustí více úloh paralelně a počká na dokončení všech",
+  "BASIC_PROMISE_ALL_CONTAINER": "paralelní úlohy",
+  "BASIC_PROMISE_ALL_CONTAINER_TOOLTIP": "Přidej, odeber nebo změň pořadí úloh",
+  "BASIC_PROMISE_ALL_ITEM": "úloha",
+  "BASIC_PROMISE_ALL_ITEM_TOOLTIP": "Přidej slot pro paralelní úlohu",
+
+  "BASIC_YIELD_MESSAGE0": "předej řízení",
+  "BASIC_YIELD_TOOLTIP": "Předá řízení ostatním úlohám"
+}

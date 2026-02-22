@@ -1,0 +1,173 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "pulseCounter",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/pulse-counter",
+  "colour": "#051F5C",
+  "icon": "Activity",
+  "priority": 135,
+  "libraries": [
+    "import { PulseCounter, LevelAction, EdgeAction } from \"pulseCounter\";"
+  ],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "pc_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "pCounter_?"
+        },
+        {
+          "type": "input_value",
+          "name": "PIN_LEVEL",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 12
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "PIN_EDGE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 13
+            }
+          }
+        },
+        {
+          "type": "field_dropdown",
+          "name": "LEVEL_LOW_ACTION",
+          "options": [
+            ["%KEEP%", "LevelAction.Keep"],
+            ["%INVERSE%", "LevelAction.Inverse"],
+            ["%HOLD%", "LevelAction.Hold"]
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "LEVEL_HIGH_ACTION",
+          "options": [
+            ["Keep", "LevelAction.Keep"],
+            ["Inverse", "LevelAction.Inverse"],
+            ["Hold", "LevelAction.Hold"]
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "EDGE_POS_ACTION",
+          "options": [
+            ["%HOLD%", "EdgeAction.Hold"],
+            ["%INCREASE%", "EdgeAction.Increase"],
+            ["%DECREASE%", "EdgeAction.Decrease"]
+          ]
+        },
+        {
+          "type": "field_dropdown",
+          "name": "EDGE_NEG_ACTION",
+          "options": [
+            ["Hold", "EdgeAction.Hold"],
+            ["Increase", "EdgeAction.Increase"],
+            ["Decrease", "EdgeAction.Decrease"]
+          ]
+        }
+      ],
+      "constructs": "pCounter",
+      "tooltip": "%T%",
+      "code": "const $[PC_CONSTRUCTED_VAR_NAME] = new PulseCounter({ pinLevel: $[PIN_LEVEL], pinEdge: $[PIN_EDGE], levelMode: { low: $[LEVEL_LOW_ACTION], high: $[LEVEL_HIGH_ACTION] }, edgeMode: { pos: $[EDGE_POS_ACTION], neg: $[EDGE_NEG_ACTION] } });",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "pc_read",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PC_INSTANCE",
+          "instanceof": "pCounter"
+        }
+      ],
+      "tooltip": "%T%",
+      "output": "Number",
+      "code": "$[PC_INSTANCE].read()"
+    },
+    {
+      "kind": "block",
+      "type": "pc_clear",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PC_INSTANCE",
+          "instanceof": "pCounter"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[PC_INSTANCE].clear();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "pc_start",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PC_INSTANCE",
+          "instanceof": "pCounter"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[PC_INSTANCE].start();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "pc_stop",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PC_INSTANCE",
+          "instanceof": "pCounter"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[PC_INSTANCE].stop();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "pc_close",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PC_INSTANCE",
+          "instanceof": "pCounter"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[PC_INSTANCE].close();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "smartled-ext",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "license": "MIT",
+  "description": "Extended SmartLED utility functions and types",
+  "type": "module",
+  "main": "dist/js/index.js",
+  "types": "dist/types/index.d.ts",
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "scripts": {
+    "install": "jac lib-install",
+    "transpile": "jac lib-build --transpileOnly",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "jaculus": {
+    "blocks": "blocks"
+  }
+}

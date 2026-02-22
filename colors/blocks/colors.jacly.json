@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "colors",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/colors",
+  "colour": "#A58F5C",
+  "icon": "Lightbulb",
+  "priority": 135,
+  "libraries": ["import * as colors from \"colors\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "dynamic_color_rgb"
+    }
+  ]
+}

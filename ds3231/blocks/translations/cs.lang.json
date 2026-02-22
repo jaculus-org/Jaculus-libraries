@@ -1,0 +1,21 @@
+{
+  "DS3231_NAME": "DS3231",
+  "DS3231_DESCRIPTION": "DS3231 knihovna pro real-time hodiny",
+  "DS3231_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] DS3231 na I2C sběrnici $[I2C_INSTANCE]",
+  "DS3231_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci DS3231 RTC na zadané I2C sběrnici",
+  "DS3231_READ_FIELD_MESSAGE0": "$[RTC_INSTANCE] číst $[FIELD]",
+  "DS3231_READ_FIELD_TOOLTIP": "Čte vybranou položku z RTC",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_YEAR": "rok",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_MONTH": "měsíc",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_DATE": "datum",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_DAY": "den v týdnu",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_HOURS": "hodiny",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_MINUTES": "minuty",
+  "DS3231_READ_FIELD_ARGS0_FIELD_DROPDOWN_SECONDS": "sekundy",
+  "DS3231_READ_ARRAY_MESSAGE0": "$[RTC_INSTANCE] číst datum/čas jako pole",
+  "DS3231_READ_ARRAY_TOOLTIP": "Čte datum/čas jako pole [rok, měsíc, datum, den, hodiny, minuty, sekundy]",
+  "DS3231_SET_TIME_MESSAGE0": "nastavit čas $[RTC_INSTANCE]: R $[YEAR] M $[MONTH] D $[DATE] DVT $[DAY] H $[HOURS] M $[MINUTES] S $[SECONDS]",
+  "DS3231_SET_TIME_TOOLTIP": "Nastaví datum a čas v RTC",
+  "DS3231_READ_TEMPERATURE_MESSAGE0": "$[RTC_INSTANCE] číst teplotu (°C)",
+  "DS3231_READ_TEMPERATURE_TOOLTIP": "Čte vnitřní teplotu RTC ve stupních Celsia"
+}

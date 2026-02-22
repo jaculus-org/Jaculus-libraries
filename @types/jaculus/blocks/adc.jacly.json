@@ -1,0 +1,78 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "adc",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/adc",
+  "colour": "#9C27B0",
+  "icon": "AudioWaveform",
+  "priority": 105,
+  "libraries": ["import * as adc from \"adc\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "adc_configure",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "ATTEN",
+          "options": [
+            ["12 dB", "adc.Attenuation.Db12"],
+            ["0 dB", "adc.Attenuation.Db0"],
+            ["2.5 dB", "adc.Attenuation.Db2_5"],
+            ["6 dB", "adc.Attenuation.Db6"]
+          ]
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        }
+      },
+      "tooltip": "%T%",
+      "code": "adc.configure($[PIN], $[ATTEN]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "adc_read",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "PIN",
+          "check": "Number"
+        }
+      ],
+      "inputs": {
+        "PIN": {
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        }
+      },
+      "output": "Number",
+      "tooltip": "%T%",
+      "code": "adc.read($[PIN])"
+    }
+  ]
+}

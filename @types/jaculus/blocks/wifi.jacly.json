@@ -1,0 +1,44 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "wifi",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/wifi",
+  "colour": "#9C27B0",
+  "icon": "AudioWaveform",
+  "priority": 105,
+  "libraries": ["import * as wifi from \"wifi\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "wifi_currentIP",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "code": "wifi.currentIP()",
+      "output": "String"
+    },
+    {
+      "kind": "block",
+      "type": "wifi_waitForConnection",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "PRINT_DOTS",
+          "options": [
+            ["%PRINT_DOTS%", "true"],
+            ["%NO_PRINT_DOTS%", "false"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "while (!wifi.isConnected()) {\n  if ($[PRINT_DOTS] === 'true') {\n    console.log('.');\n  }\n  await sleep(500);\n}\n",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

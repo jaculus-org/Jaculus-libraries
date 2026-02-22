@@ -1,0 +1,39 @@
+{
+  "LISTS_NAME": "Seznamy",
+  "LISTS_DESCRIPTION": "Bloky pro práci se seznamy.",
+
+  "LOGIC_NAME": "Logika",
+  "LOGIC_DESCRIPTION": "Logické bloky pro rozhodování a porovnávání.",
+
+  "LOOPS_NAME": "Smyčky",
+  "LOOPS_DESCRIPTION": "Bloky pro opakování akcí.",
+
+  "MATH_NAME": "Matematika",
+  "MATH_DESCRIPTION": "Matematické bloky pro výpočty a operace.",
+
+  "FUNCTIONS_NAME": "Funkce",
+  "FUNCTIONS_DESCRIPTION": "Bloky pro definování a volání funkcí.",
+
+  "TEXT_NAME": "Text",
+  "TEXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+  "TEXT_EXT_NAME": "Rozšířený text",
+  "TEXT_EXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+  "VARIABLES_NAME": "Proměnné",
+  "VARIABLES_DESCRIPTION": "Bloky pro vytváření a správu proměnných.",
+
+  "LOGIC_TO_BOOLEAN_MESSAGE0": "na logickou hodnotu",
+  "LOGIC_TO_BOOLEAN_TOOLTIP": "Převede hodnotu na Boolean.",
+
+  "MATH_TO_NUMBER_MESSAGE0": "na číslo",
+  "MATH_TO_NUMBER_TOOLTIP": "Převede hodnotu na číslo.",
+  "MATH_TO_INTEGER_MESSAGE0": "na celé číslo",
+  "MATH_TO_INTEGER_TOOLTIP": "Převede hodnotu na celé číslo.",
+
+  "TEXT_TO_STRING_MESSAGE0": "na text",
+  "TEXT_TO_STRING_TOOLTIP": "Převede hodnotu na text.",
+
+  "MATH_MAP_VALUE_MESSAGE0": "mapovat $[VALUE] z rozsahu [$[FROM_LOW], $[FROM_HIGH]] do rozsahu [$[TO_LOW], $[TO_HIGH]]",
+  "MATH_MAP_VALUE_TOOLTIP": "Mapuje hodnotu z jednoho rozsahu do druhého."
+}

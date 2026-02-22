@@ -1,0 +1,194 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "ds3231",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/ds3231",
+  "colour": "#AC8FBC",
+  "icon": "Clock",
+  "priority": 140,
+  "libraries": ["import { DS3231 } from \"ds3231\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "i2c_constructor"
+    },
+    {
+      "kind": "block",
+      "type": "ds3231_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "rtc_?"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "I2C_INSTANCE",
+          "instanceof": "i2c"
+        }
+      ],
+      "constructs": "ds3231",
+      "tooltip": "%T%",
+      "code": "let $[CONSTRUCTED_VAR_NAME] = new DS3231($[I2C_INSTANCE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ds3231_read_field",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "RTC_INSTANCE",
+          "instanceof": "ds3231"
+        },
+        {
+          "type": "field_dropdown",
+          "name": "FIELD",
+          "options": [
+            ["%YEAR%", "year"],
+            ["%MONTH%", "month"],
+            ["%DATE%", "date"],
+            ["%DAY%", "day"],
+            ["%HOURS%", "hours"],
+            ["%MINUTES%", "minutes"],
+            ["%SECONDS%", "seconds"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[RTC_INSTANCE].readTime().$[FIELD]",
+      "output": "Number"
+    },
+    {
+      "kind": "block",
+      "type": "ds3231_read_array",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "RTC_INSTANCE",
+          "instanceof": "ds3231"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[RTC_INSTANCE].readTimeArray()",
+      "output": "Array"
+    },
+    {
+      "kind": "block",
+      "type": "ds3231_set_time",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "RTC_INSTANCE",
+          "instanceof": "ds3231"
+        },
+        {
+          "type": "input_value",
+          "name": "YEAR",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 2026
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MONTH",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "DATE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "DAY",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 1
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "HOURS",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "MINUTES",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "SECONDS",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[RTC_INSTANCE].setTime({ year: $[YEAR], month: $[MONTH], date: $[DATE], day: $[DAY], hours: $[HOURS], minutes: $[MINUTES], seconds: $[SECONDS] });",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "ds3231_read_temperature",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "RTC_INSTANCE",
+          "instanceof": "ds3231"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[RTC_INSTANCE].readTemperature()",
+      "output": "Number"
+    }
+  ]
+}

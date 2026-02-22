@@ -1,0 +1,6 @@
+{
+  "BQ2589_NAME": "Battery charger (BQ2589)",
+  "BQ2589_DESCRIPTION": "BQ2589 battery charger control library",
+  "BQ2589_READ_ADC_ONESHOT_MESSAGE0": "read BQ2589 ADC oneshot value on I2C bus $[I2C_INSTANCE]",
+  "BQ2589_READ_ADC_ONESHOT_TOOLTIP": "Read the ADC value from BQ2589 in oneshot mode"
+}

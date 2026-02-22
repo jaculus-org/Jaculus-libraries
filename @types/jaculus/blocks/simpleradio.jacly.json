@@ -1,0 +1,250 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+  "category": "simpleradio",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/simpleradio",
+  "colour": "#9C27B0",
+  "icon": "RadioTower",
+  "priority": 105,
+  "libraries": ["import * as simpleradio from \"simpleradio\";"],
+  "contents": [
+    {
+      "kind": "block",
+      "type": "sr_begin",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SR_GROUP",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "simpleradio.begin($[SR_GROUP]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_setGroup",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SR_GROUP",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 0
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "simpleradio.setGroup($[SR_GROUP]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_getGroup",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "code": "simpleradio.group()",
+      "output": "Number"
+    },
+    {
+      "kind": "block",
+      "type": "sr_getAddress",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "code": "simpleradio.address()",
+      "output": "String"
+    },
+    {
+      "kind": "block",
+      "type": "sr_sendString",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SR_STRING",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "Hello, World!"
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "simpleradio.sendString($[SR_STRING]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_sendNumber",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SR_NUMBER",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "simpleradio.sendNumber($[SR_NUMBER]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_sendKeyValue",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "SR_KV_KEY",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "my_key"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "SR_KV_VALUE",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 42
+            }
+          }
+        }
+      ],
+      "inputsInline": true,
+      "tooltip": "%T%",
+      "code": "simpleradio.sendKeyValue($[SR_KV_KEY], $[SR_KV_VALUE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_end",
+      "message0": "%T%",
+      "tooltip": "%T%",
+      "code": "simpleradio.end();",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "block",
+      "type": "sr_onReceiveNumber",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "SR_CODE"
+        }
+      ],
+      "callbackVars": [
+        { "name": "receivedNumber", "type": "Number", "codeName": "num" },
+        {
+          "name": "senderAddress",
+          "type": "String",
+          "codeName": "info.address"
+        }
+      ],
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "simpleradio.on(\"number\", function(num, info) {\n$[SR_CODE]\n});"
+    },
+    {
+      "kind": "block",
+      "type": "sr_onReceiveString",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "SR_CODE"
+        }
+      ],
+      "callbackVars": [
+        { "name": "receivedString", "type": "String", "codeName": "str" },
+        {
+          "name": "senderAddress",
+          "type": "String",
+          "codeName": "info.address"
+        }
+      ],
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "simpleradio.on(\"string\", function(str, info) {\n$[SR_CODE]\n});"
+    },
+    {
+      "kind": "block",
+      "type": "sr_onReceiveKeyValue",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "input_statement",
+          "name": "SR_CODE"
+        }
+      ],
+      "callbackVars": [
+        { "name": "receivedKey", "type": "String", "codeName": "key" },
+        { "name": "receivedValue", "type": "Number", "codeName": "value" },
+        {
+          "name": "senderAddress",
+          "type": "String",
+          "codeName": "info.address"
+        }
+      ],
+      "isProgramStart": true,
+      "tooltip": "%T%",
+      "code": "simpleradio.on(\"keyvalue\", function(key, value, info) {\n$[SR_CODE]\n});"
+    },
+    {
+      "kind": "block",
+      "type": "sr_offReceive",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SR_TYPE",
+          "options": [
+            ["%NUMBER%", "number"],
+            ["%STRING%", "string"],
+            ["%KEY_VALUE%", "keyvalue"]
+          ]
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "simpleradio.off($[SR_TYPE]);",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "SERVO_NAME": "Servo",
+  "SERVO_DESCRIPTION": "Servo motor control library",
+  "SERVO_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] servo on pin $[SERVO_PIN]\n with timer $[TIMER] and channel $[CHANNEL]",
+  "SERVO_CONSTRUCTOR_TOOLTIP": "Create a new Servo instance",
+  "SERVO_WRITE_MESSAGE0": "set $[SERVO_INSTANCE] to position $[POSITION] (0-1023)",
+  "SERVO_WRITE_TOOLTIP": "Set the servo to the specified position"
+}
