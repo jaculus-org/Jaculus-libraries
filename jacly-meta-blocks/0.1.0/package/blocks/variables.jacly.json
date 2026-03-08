@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "variables",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/variables",
+  "colour": "#dc143c",
+  "icon": "Variable",
+  "priority": 50,
+  "custom": "VARIABLE"
+}

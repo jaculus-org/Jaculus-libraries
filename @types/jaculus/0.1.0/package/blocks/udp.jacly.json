@@ -1,0 +1,149 @@
+{
+  "$schema": "http://jacly.jaculus.org/schema.json",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "udp",
+  "parentCategory": "communication",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/udp",
+  "colour": "#16A085",
+  "icon": "RadioTower",
+  "priority": 112,
+  "import": ["import { UdpSocket } from \"udp\";"],
+  "contents": [
+    {
+      "kind": "label",
+      "text": "%OPEN%"
+    },
+    {
+      "kind": "block",
+      "type": "udp_constructor",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "CONSTRUCTED_VAR_NAME",
+          "text": "udpSocket_?"
+        },
+        {
+          "type": "input_value",
+          "name": "ADDRESS",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "0.0.0.0"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "PORT",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5000
+            }
+          }
+        }
+      ],
+      "constructs": "udpSocket",
+      "tooltip": "%T%",
+      "code": "const $[CONSTRUCTED_VAR_NAME] = new UdpSocket({ address: $[ADDRESS], port: $[PORT] });",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%IO%"
+    },
+    {
+      "kind": "block",
+      "type": "udp_read",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SOCKET_INSTANCE",
+          "instanceof": "udpSocket"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SOCKET_INSTANCE].read()",
+      "output": "ArrayBuffer"
+    },
+    {
+      "kind": "block",
+      "type": "udp_write",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SOCKET_INSTANCE",
+          "instanceof": "udpSocket"
+        },
+        {
+          "type": "input_value",
+          "name": "DATA",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "hello"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "ADDRESS",
+          "check": "String",
+          "shadow": {
+            "type": "text",
+            "fields": {
+              "TEXT": "192.168.1.100"
+            }
+          }
+        },
+        {
+          "type": "input_value",
+          "name": "PORT",
+          "check": "Number",
+          "shadow": {
+            "type": "math_number",
+            "fields": {
+              "NUM": 5000
+            }
+          }
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SOCKET_INSTANCE].write($[DATA], $[ADDRESS], $[PORT]);",
+      "previousStatement": null,
+      "nextStatement": null
+    },
+    {
+      "kind": "label",
+      "text": "%OTHER%"
+    },
+    {
+      "kind": "block",
+      "type": "udp_close",
+      "message0": "%T%",
+      "args0": [
+        {
+          "type": "field_dropdown",
+          "name": "SOCKET_INSTANCE",
+          "instanceof": "udpSocket"
+        }
+      ],
+      "tooltip": "%T%",
+      "code": "$[SOCKET_INSTANCE].close();",
+      "previousStatement": null,
+      "nextStatement": null
+    }
+  ]
+}

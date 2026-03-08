@@ -1,0 +1,8 @@
+{
+  "UTILS_NAME": "Utils",
+  "UTILS_DESCRIPTION": "Jaculus utilities library with mapping and scaling functions",
+  "UTILS_MAP_MESSAGE0": "map %[VALUE] from range [%FROM_LOW%, %FROM_HIGH%] to range [%TO_LOW%, %TO_HIGH%]",
+  "UTILS_MAP_TOOLTIP": "Maps a number from one range to another",
+  "UTILS_SCALE_MESSAGE0": "scale %[VALUE] from range [%FROM_LOW%, %FROM_HIGH%] to range [0, 1]",
+  "UTILS_SCALE_TOOLTIP": "Scales a number to a range of 0-1 based on the given minimum and maximum values"
+}

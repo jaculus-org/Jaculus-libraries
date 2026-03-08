@@ -1,0 +1,17 @@
+{
+  "$schema": "http://jacly.jaculus.org/schema.json",
+  "version": "0.1.0",
+  "author": "Jakub Andrysek",
+  "github": "JakubAndrysek",
+  "license": "MIT",
+
+  "category": "communication",
+  "name": "%T%",
+  "description": "%T%",
+  "docs": "/docs/blocks/communication",
+  "colour": "#007A4B",
+  "icon": "Cable",
+  "priority": 118,
+  "import": [],
+  "contents": []
+}

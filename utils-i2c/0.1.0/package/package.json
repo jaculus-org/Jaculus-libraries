@@ -1,0 +1,17 @@
+{
+  "name": "utils-i2c",
+  "version": "0.1.0",
+  "description": "Jaculus utilities library for I2C communication",
+  "dependencies": {
+    "@types/jaculus": "0.1.0"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "install": "jac lib-install",
+    "transpile": "jac lib-build --transpileOnly",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "types": "dist/types/index.d.ts"
+}

@@ -1,5 +1,63 @@
 [
   {
     "id": "empty-template"
+  },
+  {
+    "id": "@types/jaculus"
+  },
+  {
+    "id": "basic"
+  },
+  {
+    "id": "bq2589"
+  },
+  {
+    "id": "colors"
+  },
+  {
+    "id": "differential-drive"
+  },
+  {
+    "id": "ds3231"
+  },
+  {
+    "id": "hd44780"
+  },
+  {
+    "id": "jacly-meta-blocks"
+  },
+  {
+    "id": "jacly-template",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "jaculus-template",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "lm75a"
+  },
+  {
+    "id": "robutek"
+  },
+  {
+    "id": "servo"
+  },
+  {
+    "id": "smartled-ext"
+  },
+  {
+    "id": "utils"
+  },
+  {
+    "id": "utils-i2c"
+  },
+  {
+    "id": "vl53l0x"
+  },
+  {
+    "id": "zscs2016c"
   }
 ]

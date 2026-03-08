@@ -1,0 +1,8 @@
+{
+  "UTILS_NAME": "Nástroje",
+  "UTILS_DESCRIPTION": "Knihovna nástrojů pro Jaculus s funkcemi pro mapování a škálování",
+  "UTILS_MAP_MESSAGE0": "převeď %[VALUE] z rozsahu [%FROM_LOW%, %FROM_HIGH%] do rozsahu [%TO_LOW%, %TO_HIGH%]",
+  "UTILS_MAP_TOOLTIP": "Převede číslo z jednoho rozsahu do druhého",
+  "UTILS_SCALE_MESSAGE0": "škáluj %[VALUE] z rozsahu [%FROM_LOW%, %FROM_HIGH%] do rozsahu [0, 1]",
+  "UTILS_SCALE_TOOLTIP": "Škáluje číslo do rozsahu 0-1 na základě zadaných minimálních a maximálních hodnot"
+}
