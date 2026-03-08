@@ -1,0 +1,67 @@
+{
+  "LISTS_NAME": "Lists",
+  "LISTS_DESCRIPTION": "List blocks for performing list operations.",
+
+  "LOGIC_NAME": "Logic",
+  "LOGIC_DESCRIPTION": "Logic control blocks for making decisions and comparisons.",
+
+  "LOOPS_NAME": "Loops",
+  "LOOPS_DESCRIPTION": "Loop blocks for repeating actions.",
+
+  "MATH_NAME": "Math",
+  "MATH_DESCRIPTION": "Math blocks for performing calculations and operations.",
+
+  "FUNCTIONS_NAME": "Functions",
+  "FUNCTIONS_DESCRIPTION": "Procedure blocks for defining and calling functions.",
+
+  "TEXT_NAME": "Text",
+  "TEXT_DESCRIPTION": "Blocks for manipulating text strings.",
+
+  "TEXT_EXT_NAME": "Extended Text",
+  "TEXT_EXT_DESCRIPTION": "Blocks for manipulating text strings.",
+
+  "VARIABLES_NAME": "Variables",
+  "VARIABLES_DESCRIPTION": "Variable blocks for creating and managing variables.",
+
+  "CONSTANTS_NAME": "Constants",
+  "CONSTANTS_DESCRIPTION": "Constant blocks for creating and managing constants.",
+
+
+
+	"RENAME_CONSTANT": "Rename constant...",
+	"RENAME_CONSTANT_TITLE": "Rename all '%1' constants to:",
+	"NEW_CONSTANT": "Create constant...",
+	"NEW_CONSTANT_TYPE_TITLE": "New constant type:",
+	"NEW_CONSTANT_TITLE": "New constant name:",
+	"CONSTANT_ALREADY_EXISTS": "A constant named '%1' already exists.",
+	"CONSTANT_ALREADY_EXISTS_FOR_ANOTHER_TYPE": "A constant named '%1' already exists for another type: '%2'.",
+	"CONSTANT_ALREADY_EXISTS_FOR_A_PARAMETER": "A constant named '%1' already exists as a parameter in the procedure '%2'.",
+	"DELETE_CONSTANT_CONFIRMATION": "Delete %1 uses of the '%2' constant?",
+	"CANNOT_DELETE_CONSTANT_PROCEDURE": "Can't delete the constant '%1' because it's part of the definition of the function '%2'",
+	"DELETE_CONSTANT": "Delete the '%1' constant",
+
+	"CONSTANTS_GET_HELPURL": "https://en.wikipedia.org/wiki/Constant_(mathematics)",
+	"CONSTANTS_GET_TOOLTIP": "Returns the value of this constant.",
+	"CONSTANTS_GET_CREATE_SET": "Create 'set %1'",
+	"CONSTANTS_SET_HELPURL": "https://en.wikipedia.org/wiki/Constant_(mathematics)",
+	"CONSTANTS_SET": "set const %1 to %2",
+	"CONSTANTS_SET_TOOLTIP": "Sets this constant to be equal to the input.",
+	"CONSTANTS_SET_CREATE_GET": "Create 'get %1'",
+	"CONSTANTS_SET_DUPLICATE_WARNING": "This constant is already set by another block.",
+
+
+
+  "LOGIC_TO_BOOLEAN_MESSAGE0": "to Boolean",
+  "LOGIC_TO_BOOLEAN_TOOLTIP": "Convert a value to a Boolean.",
+
+  "MATH_TO_NUMBER_MESSAGE0": "to Number",
+  "MATH_TO_NUMBER_TOOLTIP": "Convert a value to a Number.",
+  "MATH_TO_INTEGER_MESSAGE0": "to Integer",
+  "MATH_TO_INTEGER_TOOLTIP": "Convert a value to an Integer.",
+
+  "TEXT_TO_STRING_MESSAGE0": "to String",
+  "TEXT_TO_STRING_TOOLTIP": "Convert a value to a String.",
+
+  "MATH_MAP_VALUE_MESSAGE0": "map $[VALUE] from range [$[FROM_LOW], $[FROM_HIGH]] to range [$[TO_LOW], $[TO_HIGH]]",
+  "MATH_MAP_VALUE_TOOLTIP": "Map a value from one range to another."
+}

@@ -1,0 +1,10 @@
+{
+  "UTILS_I2C_NAME": "I2C Utils",
+  "UTILS_I2C_DESCRIPTION": "Utility blocks for I2C peripherals, such as scanning for devices on the bus.",
+
+  "UTILS_I2C_SCAN_MESSAGE0": "scan I2C bus of $[I2C_INSTANCE]",
+  "UTILS_I2C_SCAN_TOOLTIP": "Scan the I2C bus for connected devices and return an array of their addresses",
+
+  "UTILS_I2C_SCAN_PRINT_MESSAGE0": "print scan of I2C bus of $[I2C_INSTANCE]",
+  "UTILS_I2C_SCAN_PRINT_TOOLTIP": "Scan the I2C bus and print the addresses of connected devices to the console"
+}

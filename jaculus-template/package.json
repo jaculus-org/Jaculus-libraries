@@ -1,0 +1,22 @@
+{
+  "name": "jaculus-template",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "npx copyfiles src/* dist",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "registry": [
+    "http://127.0.0.1:3737/",
+    "https://registry.jaculus.org/"
+  ],
+  "jaculus": {
+    "projectType": "code",
+    "template": true
+  }
+}

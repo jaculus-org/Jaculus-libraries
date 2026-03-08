@@ -1,0 +1,24 @@
+{
+  "COLORS_NAME": "Barvy",
+  "COLORS_DESCRIPTION": "Bloky pro práci s barvami.",
+  "DYNAMIC_COLOR_RGB_MESSAGE0": "Barva podle",
+  "DYNAMIC_COLOR_RGB_DROPDOWN_NAMES": "názvu",
+  "DYNAMIC_COLOR_RGB_DROPDOWN_RGB": "RGB",
+  "DYNAMIC_COLOR_RGB_DROPDOWN_HSL": "HSL",
+  "DYNAMIC_COLOR_RGB_DROPDOWN_HEX": "Hex",
+  "DYNAMIC_COLOR_RGB_DROPDOWN_PALETTE": "Palety",
+  "DYNAMIC_COLOR_RGB_TOOLTIP": "Vytvoří barvu pomocí dynamických RGB hodnot",
+  "DYNAMIC_COLOR_RED": "Červená",
+  "DYNAMIC_COLOR_ORANGE": "Oranžová",
+  "DYNAMIC_COLOR_YELLOW": "Žlutá",
+  "DYNAMIC_COLOR_GREEN": "Zelená",
+  "DYNAMIC_COLOR_LIGHT_BLUE": "Světle modrá",
+  "DYNAMIC_COLOR_BLUE": "Modrá",
+  "DYNAMIC_COLOR_PURPLE": "Fialová",
+  "DYNAMIC_COLOR_PINK": "Růžová",
+  "DYNAMIC_COLOR_WHITE": "Bílá",
+  "DYNAMIC_COLOR_OFF": "Vypnuto",
+
+  "COLORS_RGB_TO_STRING_MESSAGE0": "Převést RGB $[RGB_VALUE] na text",
+  "COLORS_RGB_TO_STRING_TOOLTIP": "Převést RGB hodnotu do čitelného textového řetězce (CSS formát)"
+}

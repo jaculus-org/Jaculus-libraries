@@ -11,118 +11,137 @@ permissions:
   contents: write
 
 jobs:
-    publish:
-        runs-on: ubuntu-latest
-        env:
-          TZ: Europe/Prague
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Set to 'true' to allow the workflow to push updates to the registry branch
-          PUSH_REGISTRY: 'true'
-          # Set to 'true' to override whole branch with generated content (keeps just one commit history)
-          OVERRIDE_BRANCH: 'false'
-          # Default registry repo URL; derived from the current repository
-          REGISTRY_GIT_URL: https://github.com/${{ github.repository }}.git
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v5
-              with:
-                fetch-depth: 0  # Full history for tags
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Prague
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Set to 'true' to allow the workflow to push updates to the registry branch
+      PUSH_REGISTRY: "true"
+      # Set to 'true' to override whole branch with generated content (keeps just one commit history)
+      OVERRIDE_BRANCH: "false"
+      # Default registry repo URL; derived from the current repository
+      REGISTRY_GIT_URL: https://github.com/${{ github.repository }}.git
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # Full history for tags
 
-            - name: Set up Node.js
-              uses: actions/setup-node@v3
-              with:
-                node-version: '24.x'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "24.x"
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v3
-              with:
-                version: latest
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
 
-            - name: Get pnpm store directory
-              id: pnpm-cache
-              shell: bash
-              run: |
-                echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-            - name: Setup pnpm cache
-              uses: actions/cache@v4
-              with:
-                path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-                key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-                restore-keys: |
-                  ${{ runner.os }}-pnpm-store-
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-            - name: Checkout Jaculus-tools
-              run: |
-                git clone https://github.com/jaculus-org/Jaculus-tools.git --branch feat/lib ../Jaculus-tools
-                cd ../Jaculus-tools
-                pnpm install
-                pnpm build
+      - name: Install dependencies
+        run: pnpm install
 
-            - name: Clone and Build Registry Tool
-              run: |
-                git clone https://github.com/jaculus-org/Jaculus-registry.git ../jaculus-registry
-                cd ../jaculus-registry
-                pnpm install
-                # Link local jaculus packages (if any) from the previously cloned Jaculus-tools
-                for pkg in ../Jaculus-tools/packages/*; do
-                  if [ -f "$pkg/package.json" ]; then
-                    echo "Linking local package: $pkg"
-                    pnpm link "$pkg" || true
-                  fi
-                done
-                pnpm build || true
-                pnpm link || true
+      - name: Checkout Jaculus-tools
+        run: |
+          git clone https://github.com/jaculus-org/Jaculus-tools.git --branch feat/lib ../Jaculus-tools
+          cd ../Jaculus-tools
+          pnpm install
+          pnpm build
+          cd packages/tools
+          pnpm link -g
+          cd -
 
-            - name: Clone target registry repo (dist)
-              run: |
-                git clone $REGISTRY_GIT_URL ../jaculus-registry-dist
-                cd ../jaculus-registry-dist
-                git fetch --all
-                git checkout registry || git checkout -b registry
-                cd -
+      - name: Clone and Build Registry Tool
+        run: |
+          git clone https://github.com/jaculus-org/Jaculus-registry.git ../jaculus-registry
+          cd ../jaculus-registry
+          pnpm install
+          # Link local jaculus packages (if any) from the previously cloned Jaculus-tools
+          for pkg in ../Jaculus-tools/packages/*; do
+            if [ -f "$pkg/package.json" ]; then
+              echo "Linking local package: $pkg"
+              pnpm link "$pkg" || true
+            fi
+          done
+          pnpm build || true
+          pnpm link || true
 
-            - name: Prepare filtered registry source and Generate registry
-              run: |
-                # Use the previously cloned dist repo as the destination
-                jaculus-registry generate ./ ../jaculus-registry-dist
+      - name: Clone target registry repo (dist)
+        run: |
+          git clone $REGISTRY_GIT_URL ../jaculus-registry-dist
+          cd ../jaculus-registry-dist
+          git fetch --all
+          git checkout registry || git checkout -b registry
+          cd -
 
-            - name: Copy dist to accessible location
-              run: |
-                mkdir -p jaculus-registry-artifact
-                cp -r ../jaculus-registry-dist/* jaculus-registry-artifact/
+      - name: Start local registry server
+        run: |
+          jaculus-registry serve ./ ../jaculus-registry-dist &
+          echo "REGISTRY_PID=$!" >> $GITHUB_ENV
+          # Wait for server to be ready
+          for i in $(seq 1 10); do
+            curl -sf http://127.0.0.1:3737/ && break || sleep 1
+          done
 
-            - name: Upload registry dist artifact
-              uses: actions/upload-artifact@v4
-              with:
-                name: registry-dist
-                path: jaculus-registry-artifact/
+      - name: Prepare filtered registry source and Generate registry
+        run: |
+          # Use the previously cloned dist repo as the destination
+          jaculus-registry generate ./ ../jaculus-registry-dist
 
-            - name: Push registry branch (optional)
-              if: ${{ env.PUSH_REGISTRY == 'true' && github.event_name == 'push' }}
-              run: |
-                set -euo pipefail
-                cd ../jaculus-registry-dist
+      - name: Stop local registry server
+        if: always()
+        run: kill $REGISTRY_PID || true
 
-                # Configure git (email is optional - GitHub Actions provides defaults)
-                git config user.name "github-actions[bot]"
-                git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Copy dist to accessible location
+        run: |
+          mkdir -p jaculus-registry-artifact
+          cp -r ../jaculus-registry-dist/* jaculus-registry-artifact/
 
-                # Set up authentication
-                git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-                git checkout registry || git checkout -b registry
+      - name: Upload registry dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: registry-dist
+          path: jaculus-registry-artifact/
 
-                # If OVERRIDE_BRANCH is enabled, reset to single commit, otherwise just add commit
-                if [ "${{ env.OVERRIDE_BRANCH }}" = "true" ]; then
-                  # Remove all history and keep only current state
-                  git add -A
-                  git commit --allow-empty -m "Update registry via GitHub Actions (${GITHUB_SHA})"
-                  git reset --soft $(git rev-list --max-parents=0 HEAD)
-                  git commit --amend -m "Registry build from $(git rev-parse --short HEAD:../Jaculus-libraries/.git/HEAD || echo 'main')"
-                  git push --force origin registry
-                else
-                  # Regular commit and push
-                  git add -A
-                  git commit -m "Update registry via GitHub Actions (${GITHUB_SHA})" || echo "No changes to commit"
-                  git push origin registry
-                fi
+      - name: Push registry branch (optional)
+        if: ${{ env.PUSH_REGISTRY == 'true' && github.event_name == 'push' }}
+        run: |
+          set -euo pipefail
+          cd ../jaculus-registry-dist
+
+          # Configure git (email is optional - GitHub Actions provides defaults)
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Set up authentication
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git checkout registry || git checkout -b registry
+
+          # If OVERRIDE_BRANCH is enabled, reset to single commit, otherwise just add commit
+          if [ "${{ env.OVERRIDE_BRANCH }}" = "true" ]; then
+            # Remove all history and keep only current state
+            git add -A
+            git commit --allow-empty -m "Update registry via GitHub Actions (${GITHUB_SHA})"
+            git reset --soft $(git rev-list --max-parents=0 HEAD)
+            git commit --amend -m "Registry build from $(git rev-parse --short HEAD:../Jaculus-libraries/.git/HEAD || echo 'main')"
+            git push --force origin registry
+          else
+            # Regular commit and push
+            git add -A
+            git commit -m "Update registry via GitHub Actions (${GITHUB_SHA})" || echo "No changes to commit"
+            git push origin registry
+          fi
