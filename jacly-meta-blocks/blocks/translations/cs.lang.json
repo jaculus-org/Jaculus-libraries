@@ -1,0 +1,63 @@
+{
+    "LISTS_NAME": "Seznamy",
+    "LISTS_DESCRIPTION": "Bloky pro práci se seznamy.",
+
+    "LOGIC_NAME": "Logika",
+    "LOGIC_DESCRIPTION": "Logické bloky pro rozhodování a porovnávání.",
+
+    "LOOPS_NAME": "Smyčky",
+    "LOOPS_DESCRIPTION": "Bloky pro opakování akcí.",
+
+    "MATH_NAME": "Matematika",
+    "MATH_DESCRIPTION": "Matematické bloky pro výpočty a operace.",
+
+    "FUNCTIONS_NAME": "Funkce",
+    "FUNCTIONS_DESCRIPTION": "Bloky pro definování a volání funkcí.",
+
+    "TEXT_NAME": "Text",
+    "TEXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+    "TEXT_EXT_NAME": "Rozšířený text",
+    "TEXT_EXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+    "VARIABLES_NAME": "Proměnné",
+    "VARIABLES_DESCRIPTION": "Bloky pro vytváření a správu proměnných.",
+
+    "CONSTANTS_NAME": "Konstanty",
+    "CONSTANTS_DESCRIPTION": "Bloky pro vytváření a správu konstant.",
+
+    "RENAME_CONSTANT": "Přejmenovat konstantu...",
+    "RENAME_CONSTANT_TITLE": "Přejmenuj všech '%1' konstant na:",
+    "NEW_CONSTANT": "Vytvořit konstantu...",
+    "NEW_CONSTANT_TYPE_TITLE": "Nový typ konstanty:",
+    "NEW_CONSTANT_TITLE": "Nový název konstanty:",
+    "CONSTANT_ALREADY_EXISTS": "Konstanta jménem '%1' již existuje.",
+    "CONSTANT_ALREADY_EXISTS_FOR_ANOTHER_TYPE": "Konstanta pojmenovaná jako '%1' již existuje pro jiný typ: '%2'.",
+    "CONSTANT_ALREADY_EXISTS_FOR_A_PARAMETER": "Konstanta pojmenovaná '%1' již jako parametr v proceduře '%2' existuje.",
+    "DELETE_CONSTANT_CONFIRMATION": "Odstranit %1 použití konstanty '%2'?",
+    "CANNOT_DELETE_CONSTANT_PROCEDURE": "Konstantu '%1' není možné odstranit, protože je součástí definice funkce '%2'.",
+    "DELETE_CONSTANT": "Odstranit konstantu '%1'",
+
+    "CONSTANTS_GET_HELPURL": "https://cs.wikipedia.org/wiki/Konstanta",
+    "CONSTANTS_GET_TOOLTIP": "Vrátí hodnotu této konstanty.",
+    "CONSTANTS_GET_CREATE_SET": "Vytvořit \"nastavit %1\"",
+    "CONSTANTS_SET_HELPURL": "https://cs.wikipedia.org/wiki/Konstanta",
+    "CONSTANTS_SET": "nastavit konst. %1 na %2",
+    "CONSTANTS_SET_TOOLTIP": "Nastaví tuto konstantu, aby se rovnala vstupu.",
+    "CONSTANTS_SET_CREATE_GET": "Vytvořit \"získej %1\"",
+    "CONSTANTS_SET_DUPLICATE_WARNING": "Tato konstanta je již nastavena jiným blokem.",
+
+    "LOGIC_TO_BOOLEAN_MESSAGE0": "na logickou hodnotu",
+    "LOGIC_TO_BOOLEAN_TOOLTIP": "Převede hodnotu na Boolean.",
+
+    "MATH_TO_NUMBER_MESSAGE0": "na číslo",
+    "MATH_TO_NUMBER_TOOLTIP": "Převede hodnotu na číslo.",
+    "MATH_TO_INTEGER_MESSAGE0": "na celé číslo",
+    "MATH_TO_INTEGER_TOOLTIP": "Převede hodnotu na celé číslo.",
+
+    "TEXT_TO_STRING_MESSAGE0": "na text",
+    "TEXT_TO_STRING_TOOLTIP": "Převede hodnotu na text.",
+
+    "MATH_MAP_VALUE_MESSAGE0": "mapovat $[VALUE] z rozsahu [$[FROM_LOW], $[FROM_HIGH]] do rozsahu [$[TO_LOW], $[TO_HIGH]]",
+    "MATH_MAP_VALUE_TOOLTIP": "Mapuje hodnotu z jednoho rozsahu do druhého."
+}

@@ -1,0 +1,40 @@
+{
+    "DIFFERENTIAL_DRIVE_NAME": "Differential Drive",
+    "DIFFERENTIAL_DRIVE_DESCRIPTION": "Differential drive motor control library",
+
+    "DIFFERENTIAL_DRIVE_LABEL_SETUP": "Setup",
+    "DIFFERENTIAL_DRIVE_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] differential drive\nleft motor $[LEFT_MOTOR] right motor $[RIGHT_MOTOR]\nwheel distance (mm) $[DIAMETER]",
+    "DIFFERENTIAL_DRIVE_CONSTRUCTOR_TOOLTIP": "Create a new differential drive instance from two motors and wheel distance",
+
+    "DIFFERENTIAL_DRIVE_LABEL_MOVEMENT": "Movement",
+
+    "DIFFERENTIAL_DRIVE_MOVE_DISTANCE_MESSAGE0": "on $[DRIVE_INSTANCE] move\n-1 is full left, 0 is straight and 1 is full right\ncurve $[CURVE] (range -1 to 1)\nfor $[DISTANCE] mm",
+    "DIFFERENTIAL_DRIVE_MOVE_DISTANCE_TOOLTIP": "Move the robot with the specified curve for the given distance (in millimeters)",
+    "DIFFERENTIAL_DRIVE_MOVE_TIME_MESSAGE0": "on $[DRIVE_INSTANCE] move\n-1 is full left, 0 is straight and 1 is full right\ncurve $[CURVE] (range -1 to 1)\nfor $[TIME] ms",
+    "DIFFERENTIAL_DRIVE_MOVE_TIME_TOOLTIP": "Move the robot with the specified curve for the given time (in milliseconds)",
+    "DIFFERENTIAL_DRIVE_MOVE_INFINITE_MESSAGE0": "on $[DRIVE_INSTANCE] move\n-1 is full left, 0 is straight and 1 is full right\ncurve $[CURVE] (range -1 to 1)\nuntil stopped brake and block",
+    "DIFFERENTIAL_DRIVE_MOVE_INFINITE_TOOLTIP": "Move the robot with the specified curve indefinitely",
+
+    "DIFFERENTIAL_DRIVE_ROTATE_MESSAGE0": "on $[DRIVE_INSTANCE] rotate by $[ANGLE] degrees",
+    "DIFFERENTIAL_DRIVE_ROTATE_TOOLTIP": "Rotate the robot by the specified angle (in degrees)",
+    "DIFFERENTIAL_DRIVE_STOP_MESSAGE0": "on $[DRIVE_INSTANCE] stop robot brake $[BRAKE]",
+    "DIFFERENTIAL_DRIVE_STOP_TOOLTIP": "Stop the robot, optionally braking",
+
+    "DIFFERENTIAL_DRIVE_LABEL_HEADING": "Heading",
+    "DIFFERENTIAL_DRIVE_GETHEADING_MESSAGE0": "on $[DRIVE_INSTANCE] get heading",
+    "DIFFERENTIAL_DRIVE_GETHEADING_TOOLTIP": "Get the current heading of the robot (in degrees)",
+    "DIFFERENTIAL_DRIVE_GETHEADINGCLAMPED_MESSAGE0": "on $[DRIVE_INSTANCE] get clamped heading",
+    "DIFFERENTIAL_DRIVE_GETHEADINGCLAMPED_TOOLTIP": "Get the current heading of the robot, clamped to 0-360 degrees",
+    "DIFFERENTIAL_DRIVE_RESETHEADING_MESSAGE0": "on $[DRIVE_INSTANCE] reset heading",
+    "DIFFERENTIAL_DRIVE_RESETHEADING_TOOLTIP": "Reset the heading of the robot to 0 degrees",
+
+    "DIFFERENTIAL_DRIVE_LABEL_SPEED_AND_RAMP": "Speed and Ramp",
+    "DIFFERENTIAL_DRIVE_SETSPEED_MESSAGE0": "on $[DRIVE_INSTANCE] set speed to $[SPEED]",
+    "DIFFERENTIAL_DRIVE_SETSPEED_TOOLTIP": "Set the speed of the robot (in mm/s)",
+    "DIFFERENTIAL_DRIVE_GETSPEED_MESSAGE0": "on $[DRIVE_INSTANCE] get speed",
+    "DIFFERENTIAL_DRIVE_GETSPEED_TOOLTIP": "Get the current speed of the robot (in mm/s)",
+    "DIFFERENTIAL_DRIVE_SETRAMP_MESSAGE0": "on $[DRIVE_INSTANCE] set ramp to $[RAMP] ms",
+    "DIFFERENTIAL_DRIVE_SETRAMP_TOOLTIP": "Set the acceleration/deceleration ramp time (in milliseconds)",
+    "DIFFERENTIAL_DRIVE_GETRAMP_MESSAGE0": "on $[DRIVE_INSTANCE] get ramp",
+    "DIFFERENTIAL_DRIVE_GETRAMP_TOOLTIP": "Get the current acceleration/deceleration ramp time (in milliseconds)"
+}

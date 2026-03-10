@@ -1,0 +1,14 @@
+{
+    "VL53L0X_NAME": "VL53L0X",
+    "VL53L0X_DESCRIPTION": "Knihovna pro senzor vzdálenosti VL53L0X (time-of-flight)",
+    "VL53L0X_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] VL53L0X na I2C sběrnici $[I2C_INSTANCE]",
+    "VL53L0X_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci senzoru VL53L0X na zadané I2C sběrnici",
+    "VL53L0X_READ_MEASUREMENT_MESSAGE0": "přečíst měření z $[SENSOR_INSTANCE]",
+    "VL53L0X_READ_MEASUREMENT_TOOLTIP": "Provede měření a vrátí výsledný objekt",
+    "VL53L0X_UNPACK_MEASUREMENT_MESSAGE0": "z $[MEASUREMENT] získat $[FIELD]",
+    "VL53L0X_UNPACK_MEASUREMENT_TOOLTIP": "Získat konkrétní hodnotu z výsledku měření VL53L0X",
+    "VL53L0X_UNPACK_MEASUREMENT_ARGS0_FIELD_DROPDOWN_DISTANCE": "vzdálenost (mm)",
+    "VL53L0X_UNPACK_MEASUREMENT_ARGS0_FIELD_DROPDOWN_SIGNAL_RATE": "úroveň signálu",
+    "VL53L0X_UNPACK_MEASUREMENT_ARGS0_FIELD_DROPDOWN_AMBIENT_RATE": "úroveň okolního světla",
+    "VL53L0X_UNPACK_MEASUREMENT_ARGS0_FIELD_DROPDOWN_EFFECTIVE_SPAD": "efektivní počet SPAD"
+}

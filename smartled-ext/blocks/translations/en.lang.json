@@ -1,0 +1,34 @@
+{
+    "SMARTLED_EXT_NAME": "SmartLED Ext",
+    "SMARTLED_EXT_DESCRIPTION": "Extended WS2812 smart LED control blocks with brightness limiting and gamma correction.",
+
+    "STRIP_EXT_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] strip (ext) from $[STRIP_INSTANCE]",
+    "STRIP_EXT_CONSTRUCTOR_TOOLTIP": "Create a new SmartLedExt strip wrapper from an existing SmartLed strip",
+    "STRIP_EXT_CONSTRUCTOR_RANGE_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] strip (ext) from $[STRIP_INSTANCE] indices $[INDEX_FROM] to $[INDEX_TO] (inclusive)",
+    "STRIP_EXT_CONSTRUCTOR_RANGE_TOOLTIP": "Create a new SmartLedExt strip wrapper for a range of LEDs. Both start and end indices are inclusive.",
+    "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812": "LED_WS2812",
+    "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B": "LED_WS2812B",
+    "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2812B_2020": "LED_WS2812B_2020",
+    "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_SK6812": "LED_SK6812",
+    "STRIP_EXT_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LED_WS2813": "LED_WS2813",
+
+    "STRIP_EXT_SET_ALL_MESSAGE0": "set all LEDs of $[STRIP_EXT_INSTANCE] to color $[COLOR_RGB]",
+    "STRIP_EXT_SET_ALL_TOOLTIP": "Set all LEDs in the strip to the given color",
+
+    "STRIP_EXT_MAX_BRIGHTNESS_MESSAGE0": "set max brightness of $[STRIP_EXT_INSTANCE] to $[BRIGHTNESS] (0-255)",
+    "STRIP_EXT_MAX_BRIGHTNESS_TOOLTIP": "Set the maximum brightness for the strip (0 = off, 255 = full)",
+
+    "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_MESSAGE0": "set max brightness of $[STRIP_EXT_INSTANCE] to $[PERCENT] %",
+    "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_TOOLTIP": "Set the maximum brightness as a percentage (0 = off, 100 = full)",
+
+    "STRIP_EXT_LINEARIZE_MESSAGE0": "set gamma linearization of $[STRIP_EXT_INSTANCE] to $[ENABLED]",
+    "STRIP_EXT_LINEARIZE_TOOLTIP": "Enable or disable gamma correction for perceptually linear brightness steps on WS2812 / NeoPixel strips",
+    "STRIP_EXT_LINEARIZE_ARGS0_FIELD_DROPDOWN_LINEARIZE_ENABLED": "enabled",
+    "STRIP_EXT_LINEARIZE_ARGS0_FIELD_DROPDOWN_LINEARIZE_DISABLED": "disabled",
+
+    "STRIP_EXT_SET_MESSAGE0": "set LED of $[STRIP_EXT_INSTANCE] at index $[INDEX] to color $[COLOR_RGB]",
+    "STRIP_EXT_SET_TOOLTIP": "Set a single LED in the strip to the given color",
+
+    "STRIP_EXT_CLEAR_MESSAGE0": "turn off all LEDs of $[STRIP_EXT_INSTANCE]",
+    "STRIP_EXT_CLEAR_TOOLTIP": "Turn off all LEDs in the strip"
+}

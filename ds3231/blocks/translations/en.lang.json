@@ -1,0 +1,23 @@
+{
+    "DS3231_NAME": "DS3231",
+    "DS3231_DESCRIPTION": "DS3231 real-time clock library",
+    "DS3231_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] DS3231 on I2C bus $[I2C_INSTANCE]",
+    "DS3231_CONSTRUCTOR_TOOLTIP": "Create DS3231 RTC instance on specified I2C bus",
+    "DS3231_READ_FIELD_MESSAGE0": "read time from $[SENSOR_INSTANCE]",
+    "DS3231_READ_FIELD_TOOLTIP": "Read current date and time from the RTC as a DateTime object",
+    "DS3231_UNPACK_TIME_MESSAGE0": "get $[FIELD] from $[DATETIME]",
+    "DS3231_UNPACK_TIME_TOOLTIP": "Get a specific field from a DateTime value",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_YEAR": "year",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_MONTH": "month",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_DATE": "date",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_DAY": "day",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_HOURS": "hours",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_MINUTES": "minutes",
+    "DS3231_UNPACK_TIME_ARGS0_FIELD_DROPDOWN_SECONDS": "seconds",
+    "DS3231_CREATE_DATETIME_MESSAGE0": "create DateTime\nY $[YEAR] M $[MONTH] D $[DATE] W $[DAY]\nH $[HOURS] M $[MINUTES] S $[SECONDS]",
+    "DS3231_CREATE_DATETIME_TOOLTIP": "Create a DateTime object with the specified date and time values",
+    "DS3231_SET_TIME_MESSAGE0": "set $[SENSOR_INSTANCE] time $[DATETIME]",
+    "DS3231_SET_TIME_TOOLTIP": "Set date and time on the RTC",
+    "DS3231_READ_TEMPERATURE_MESSAGE0": "$[SENSOR_INSTANCE] read temperature (°C)",
+    "DS3231_READ_TEMPERATURE_TOOLTIP": "Read RTC internal temperature in degrees Celsius"
+}
