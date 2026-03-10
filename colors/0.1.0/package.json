@@ -1,0 +1,18 @@
+{
+  "name": "colors",
+  "version": "0.1.0",
+  "description": "Colors utility functions and types",
+  "dependencies": {},
+  "jaculus": {
+    "blocks": "blocks"
+  },
+  "type": "module",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "install": "jac lib-install",
+    "build-no-check": "jac lib-build --no-check",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "types": "dist/types/index.d.ts"
+}

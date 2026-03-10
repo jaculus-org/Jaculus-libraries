@@ -1,0 +1,24 @@
+{
+    "COLORS_NAME": "Colors",
+    "COLORS_DESCRIPTION": "Blocks for working with colors.",
+    "DYNAMIC_COLOR_RGB_MESSAGE0": "Color by",
+    "DYNAMIC_COLOR_RGB_DROPDOWN_NAMES": "Name",
+    "DYNAMIC_COLOR_RGB_DROPDOWN_RGB": "RGB",
+    "DYNAMIC_COLOR_RGB_DROPDOWN_HSL": "HSL",
+    "DYNAMIC_COLOR_RGB_DROPDOWN_HEX": "Hex",
+    "DYNAMIC_COLOR_RGB_DROPDOWN_PALETTE": "Palette",
+    "DYNAMIC_COLOR_RGB_TOOLTIP": "Create a color using dynamic RGB values",
+    "DYNAMIC_COLOR_RED": "Red",
+    "DYNAMIC_COLOR_ORANGE": "Orange",
+    "DYNAMIC_COLOR_YELLOW": "Yellow",
+    "DYNAMIC_COLOR_GREEN": "Green",
+    "DYNAMIC_COLOR_LIGHT_BLUE": "Light Blue",
+    "DYNAMIC_COLOR_BLUE": "Blue",
+    "DYNAMIC_COLOR_PURPLE": "Purple",
+    "DYNAMIC_COLOR_PINK": "Pink",
+    "DYNAMIC_COLOR_WHITE": "White",
+    "DYNAMIC_COLOR_OFF": "Off",
+
+    "COLORS_RGB_TO_STRING_MESSAGE0": "Convert RGB $[RGB_VALUE] to string",
+    "COLORS_RGB_TO_STRING_TOOLTIP": "Convert an RGB color value to readable text string (CSS format)"
+}

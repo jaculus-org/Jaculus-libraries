@@ -1,5 +1,81 @@
 [
   {
     "id": "empty-template"
+  },
+  {
+    "id": "@types/jaculus",
+    "description": "Core package for JacLy providing essential functionalities."
+  },
+  {
+    "id": "basic",
+    "description": "Jacly basic blocks"
+  },
+  {
+    "id": "bq2589",
+    "description": "BQ2589 battery charger control library"
+  },
+  {
+    "id": "colors",
+    "description": "Colors utility functions and types"
+  },
+  {
+    "id": "differential-drive",
+    "description": "Differential drive motor control library"
+  },
+  {
+    "id": "ds3231",
+    "description": "DS3231 real-time clock library"
+  },
+  {
+    "id": "hd44780",
+    "description": "HD44780 LCD display library"
+  },
+  {
+    "id": "jacly-meta-blocks",
+    "description": "This is a collection of internal base blocks used by the Jacly. Those blocks contains base Blockly blocks definitions and generators."
+  },
+  {
+    "id": "jacly-template",
+    "description": "Default Jacly template project",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "jaculus-template",
+    "description": "Default Jaculus template project",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "lm75a",
+    "description": "LM75A temperature sensor library"
+  },
+  {
+    "id": "robutek",
+    "description": "Robůtek is robotic platform designed for teaching programming and robotics"
+  },
+  {
+    "id": "servo",
+    "description": "Servo motor control library"
+  },
+  {
+    "id": "smartled-ext",
+    "description": "Extended SmartLED utility functions and types"
+  },
+  {
+    "id": "utils",
+    "description": "Jaculus utilities library"
+  },
+  {
+    "id": "utils-i2c",
+    "description": "Jaculus utilities library for I2C communication"
+  },
+  {
+    "id": "vl53l0x",
+    "description": "VL53L0X time-of-flight distance sensor library"
+  },
+  {
+    "id": "zscs2016c",
+    "description": "ZSCS2016C color sensor library"
   }
 ]
