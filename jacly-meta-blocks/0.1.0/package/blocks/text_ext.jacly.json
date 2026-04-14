@@ -1,0 +1,94 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "jacly-meta-blocks",
+    "category": "text_ext",
+    "parentCategory": "text",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/text",
+    "colour": "#b8860b",
+    "icon": "BookType",
+    "priority": 30,
+    "contents": [
+        {
+            "kind": "block",
+            "type": "text_trim",
+            "inputs": {
+                "TEXT": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "abc"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "text_count",
+            "inputs": {
+                "SUB": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "a"
+                        }
+                    }
+                },
+                "TEXT": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "abc"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "text_replace",
+            "inputs": {
+                "FROM": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "a"
+                        }
+                    }
+                },
+                "TO": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "b"
+                        }
+                    }
+                },
+                "TEXT": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "abc"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "text_reverse",
+            "inputs": {
+                "TEXT": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "abc"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

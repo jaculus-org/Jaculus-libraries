@@ -1,0 +1,201 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "robutek",
+    "category": "robutek2",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/robutek2",
+    "colour": "#96a609",
+    "icon": "Bot",
+    "priority": 140,
+    "import": [
+        "import { createRobutek } from \"robutek\";",
+        "import { I2C1 } from \"i2c\";\n"
+    ],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "robutek2_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "robutek2_?"
+                }
+            ],
+            "constructs": "robutek2",
+            "virtualInstances": [
+                {
+                    "instanceof": "d_drive",
+                    "name": "differentialDrive",
+                    "connection": "$[CONSTRUCTED_VAR_NAME]"
+                },
+                {
+                    "instanceof": "motor",
+                    "name": "leftMotor",
+                    "connection": "$[CONSTRUCTED_VAR_NAME].leftMotor"
+                },
+                {
+                    "instanceof": "motor",
+                    "name": "rightMotor",
+                    "connection": "$[CONSTRUCTED_VAR_NAME].rightMotor"
+                },
+                {
+                    "instanceof": "i2c_inst",
+                    "name": "i2c",
+                    "connection": "I2C1"
+                },
+                {
+                    "instanceof": "bq2589",
+                    "name": "batteryChecker",
+                    "connection": "$[CONSTRUCTED_VAR_NAME].bq2589"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = createRobutek(\"V2\");",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%PERIPHERALS%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_readSensor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ROBUTEK2_INSTANCE",
+                    "instanceof": "robutek2"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR",
+                    "options": [
+                        ["%WHEEL_FL%", "WheelFL"],
+                        ["%WHEEL_FR%", "WheelFR"],
+                        ["%WHEEL_BL%", "WheelBL"],
+                        ["%WHEEL_BR%", "WheelBR"],
+                        ["%LINE_FL%", "LineFL"],
+                        ["%LINE_FR%", "LineFR"],
+                        ["%LINE_BL%", "LineBL"],
+                        ["%LINE_BR%", "LineBR"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[ROBUTEK2_INSTANCE].readSensor(\"$[SENSOR]\")"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_setStatusLED",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ROBUTEK2_INSTANCE",
+                    "instanceof": "robutek2"
+                },
+                {
+                    "type": "input_value",
+                    "name": "STATE",
+                    "check": "Boolean",
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[ROBUTEK2_INSTANCE].setStatusLED($[STATE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%MOVEMENT%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_distance"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_time"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_infinite"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_rotate"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_stop"
+        },
+        {
+            "kind": "label",
+            "text": "%HEADING%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getHeading"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getHeadingClamped"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_resetHeading"
+        },
+        {
+            "kind": "label",
+            "text": "%SPEED_AND_RAMP%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_setSpeed"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getSpeed"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_setRamp"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getRamp"
+        },
+        {
+            "kind": "label",
+            "text": "%ADDITIONAL%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ROBUTEK2_INSTANCE",
+                    "instanceof": "robutek2"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[ROBUTEK2_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

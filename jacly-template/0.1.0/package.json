@@ -1,0 +1,24 @@
+{
+  "name": "jacly-template",
+  "version": "0.1.0",
+  "description": "Default Jacly template project",
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "basic": "0.1.0",
+    "jacly-meta-blocks": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "type": "module",
+  "main": "./build/index.js",
+  "jaculus": {
+    "packageFormat": 1,
+    "registry": [
+      "https://registry.jaculus.org/"
+    ],
+    "template": true,
+    "projectType": "jacly"
+  }
+}

@@ -1,0 +1,87 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "vl53l0x",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/vl53l0x",
+    "colour": "#AC8FBC",
+    "icon": "RulerDimensionLine",
+    "priority": 140,
+    "import": ["import { VL53L0X } from \"vl53l0x\";"],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "i2c_constructor"
+        },
+        {
+            "kind": "block",
+            "type": "vl53l0x_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "vl53l0x_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "I2C_INSTANCE",
+                    "instanceof": "i2c_inst"
+                }
+            ],
+            "constructs": "vl53l0x",
+            "tooltip": "%T%",
+            "code": "let $[CONSTRUCTED_VAR_NAME] = new VL53L0X($[I2C_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "vl53l0x_read_measurement",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "vl53l0x"
+                }
+            ],
+            "hideInToolbox": true,
+            "tooltip": "%T%",
+            "code": "(await $[SENSOR_INSTANCE].read())",
+            "output": "VL53L0XMeasurement"
+        },
+        {
+            "kind": "block",
+            "type": "vl53l0x_unpack_measurement",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "MEASUREMENT",
+                    "check": "VL53L0XMeasurement",
+                    "block": {
+                        "type": "vl53l0x_read_measurement",
+                        "fields": {
+                            "SENSOR_INSTANCE": "vl53l0x_?"
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FIELD",
+                    "options": [
+                        ["%DISTANCE%", "distance"],
+                        ["%SIGNAL_RATE%", "signalRate"],
+                        ["%AMBIENT_RATE%", "ambientRate"],
+                        ["%EFFECTIVE_SPAD%", "effectiveSpadRtnCount"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[MEASUREMENT].$[FIELD]",
+            "output": "Number"
+        }
+    ]
+}

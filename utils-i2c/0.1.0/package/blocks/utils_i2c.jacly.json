@@ -1,0 +1,48 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "utils-i2c",
+    "category": "utils_i2c",
+    "parentCategory": "protocols",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/i2c_utils",
+    "colour": "#0F5ACA",
+    "icon": "Cable",
+    "priority": 135,
+    "import": ["import { i2cScan, i2cScanPrint } from \"utils-i2c\";"],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "utils_i2c_scan",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "I2C_INSTANCE",
+                    "instanceof": "i2c_inst"
+                }
+            ],
+            "output": "Array",
+            "tooltip": "%T%",
+            "code": "i2cScan($[I2C_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "utils_i2c_scan_print",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "I2C_INSTANCE",
+                    "instanceof": "i2c_inst"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "i2cScanPrint($[I2C_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

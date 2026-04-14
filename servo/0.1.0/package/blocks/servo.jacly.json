@@ -1,0 +1,100 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "servo",
+    "parentCategory": "movement",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/servo",
+    "colour": "#AC8FBC",
+    "icon": "ServerCog",
+    "priority": 140,
+    "import": ["import { Servo } from \"servo\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "servo_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "servo_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SERVO_PIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 42
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "TIMER",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "CHANNEL",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "servo",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "const $[CONSTRUCTED_VAR_NAME] = new Servo($[SERVO_PIN], $[TIMER], $[CHANNEL]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%WRITE%"
+        },
+        {
+            "kind": "block",
+            "type": "servo_write",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SERVO_INSTANCE",
+                    "instanceof": "servo"
+                },
+                {
+                    "type": "input_value",
+                    "name": "POSITION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SERVO_INSTANCE].write($[POSITION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

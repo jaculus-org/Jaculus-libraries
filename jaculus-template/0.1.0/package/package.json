@@ -1,0 +1,22 @@
+{
+  "name": "jaculus-template",
+  "version": "0.1.0",
+  "description": "Default Jaculus template project",
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "files": [
+    "src/**/*"
+  ],
+  "type": "module",
+  "main": "./build/index.js",
+  "jaculus": {
+    "packageFormat": 1,
+    "registry": [
+      "https://registry.jaculus.org/"
+    ],
+    "template": true,
+    "projectType": "code"
+  }
+}

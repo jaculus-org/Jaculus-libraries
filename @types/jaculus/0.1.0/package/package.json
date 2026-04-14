@@ -1,0 +1,25 @@
+{
+  "name": "@types/jaculus",
+  "version": "0.1.0",
+  "description": "Core package for JacLy providing essential functionalities.",
+  "dependencies": {
+    "colors": "0.1.0"
+  },
+  "files": [
+    "dist/**/*.d.ts"
+  ],
+  "type": "module",
+  "scripts": {
+    "install": "jac lib-install",
+    "build-no-check": "npx copyfiles -u 2 src/types/*.d.ts dist/types",
+    "build": "npx copyfiles -u 2 src/types/*.d.ts dist/types",
+    "clean": "rm -rf dist"
+  },
+  "types": "dist/types/index.d.ts",
+  "jaculus": {
+    "packageFormat": 1,
+    "blocks": "blocks"
+  },
+  "author": "Petr Kubica (cubicap)",
+  "license": "MIT"
+}

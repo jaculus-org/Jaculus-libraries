@@ -1,0 +1,234 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "smartled-ext",
+    "category": "smartled_ext",
+    "parentCategory": "smartled",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/smartled-ext",
+    "colour": "#00A4A6",
+    "icon": "Lightbulb",
+    "priority": 135,
+    "import": [
+        "import { SmartLedExt } from \"smartled-ext\";",
+        "import * as colors from \"colors\";"
+    ],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "strip_ext_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "stripExt_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_INSTANCE",
+                    "instanceof": "strip"
+                }
+            ],
+            "hideInToolbox": true,
+            "constructs": "stripExt",
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = new SmartLedExt($[STRIP_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_constructor_range",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "stripExt_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_INSTANCE",
+                    "instanceof": "strip"
+                },
+                {
+                    "type": "input_value",
+                    "name": "INDEX_FROM",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 0 }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "INDEX_TO",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 7 }
+                    }
+                }
+            ],
+            "constructs": "stripExt",
+            "tooltip": "%T%",
+            "code": "// indices are inclusive\nconst $[CONSTRUCTED_VAR_NAME] = new SmartLedExt($[STRIP_INSTANCE], $[INDEX_FROM], $[INDEX_TO]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_set_all",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR_RGB",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].setAll($[COLOR_RGB]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_max_brightness",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BRIGHTNESS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 255 }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].maxBrightness = $[BRIGHTNESS];",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_max_brightness_percent",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PERCENT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 100 }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].setMaxBrightnessPercent($[PERCENT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_linearize",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ENABLED",
+                    "options": [
+                        ["%LINEARIZE_ENABLED%", "true"],
+                        ["%LINEARIZE_DISABLED%", "false"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].doLinearize = $[ENABLED];",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_set",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                },
+                {
+                    "type": "input_value",
+                    "name": "INDEX",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 0 }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR_RGB",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].set($[INDEX], $[COLOR_RGB]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "strip_ext_clear",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "STRIP_EXT_INSTANCE",
+                    "instanceof": "stripExt"
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[STRIP_EXT_INSTANCE].clear();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

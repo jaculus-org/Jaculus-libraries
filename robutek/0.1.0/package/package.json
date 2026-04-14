@@ -1,0 +1,30 @@
+{
+  "name": "robutek",
+  "version": "0.1.0",
+  "description": "Robůtek is robotic platform designed for teaching programming and robotics",
+  "dependencies": {
+    "@types/jaculus": "0.1.0",
+    "differential-drive": "0.1.0",
+    "bq2589": "0.1.0",
+    "colors": "0.1.0"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "type": "module",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "install": "jac lib-install",
+    "build-no-check": "jac lib-build --no-check",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "types": "dist/types/index.d.ts",
+  "jaculus": {
+    "packageFormat": 1,
+    "blocks": "blocks"
+  },
+  "author": "Jakub Andrysek",
+  "license": "MIT"
+}

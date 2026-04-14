@@ -1,0 +1,231 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "elks",
+    "category": "elks_pins",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/elks",
+    "colour": "#A51F5C",
+    "icon": "Palette",
+    "priority": 135,
+    "import": ["import * as elks from \"elks\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%PINS%"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_BUTTONS%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_buttons",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%BUTTON_SW0%", "elks.Pins.SW0"],
+                        ["%BUTTON_SW1%", "elks.Pins.SW1"],
+                        ["%BUTTON_SW2%", "elks.Pins.SW2"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_LEDS%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_leds",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%LED_G%", "elks.Pins.LED_G"],
+                        ["%LED_Y%", "elks.Pins.LED_Y"],
+                        ["%LED_R%", "elks.Pins.LED_R"],
+                        ["%LED_B%", "elks.Pins.LED_B"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_SMARTLEDS%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_smartleds",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%ILED_ESP32%", "elks.Pins.ILED_ESP32"],
+                        ["%ILED_EXTERNAL%", "elks.Pins.ILED_EXTERNAL"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_POTENTIOMETERS%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_potentiometers",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%POT0%", "elks.Pins.POT0"],
+                        ["%POT1%", "elks.Pins.POT1"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_BUZZER%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_buzzer",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%BUZZER_PIN_A%", "elks.Pins.BUZZER_PIN_A"],
+                        ["%BUZZER_PIN_B%", "elks.Pins.BUZZER_PIN_B"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_SERVOS%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_servos",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SER0%", "elks.Pins.SER0"],
+                        ["%SER1%", "elks.Pins.SER1"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_I2C%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_i2c",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SDA%", "elks.Pins.SDA"],
+                        ["%SCL%", "elks.Pins.SCL"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_PMOD1%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_pmod1",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SIDE1_PIN1%", "elks.pmod0.side1.Pin1"],
+                        ["%SIDE1_PIN2%", "elks.pmod0.side1.Pin2"],
+                        ["%SIDE1_PIN3%", "elks.pmod0.side1.Pin3"],
+                        ["%SIDE1_PIN4%", "elks.pmod0.side1.Pin4"],
+                        ["%SIDE2_PIN1%", "elks.pmod0.side2.Pin1"],
+                        ["%SIDE2_PIN2%", "elks.pmod0.side2.Pin2"],
+                        ["%SIDE2_PIN3%", "elks.pmod0.side2.Pin3"],
+                        ["%SIDE2_PIN4%", "elks.pmod0.side2.Pin4"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_PMOD2%"
+        },
+        {
+            "kind": "block",
+            "type": "elks_pins_pmod2",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SIDE1_PIN1%", "elks.pmod1.side1.Pin1"],
+                        ["%SIDE1_PIN2%", "elks.pmod1.side1.Pin2"],
+                        ["%SIDE1_PIN3%", "elks.pmod1.side1.Pin3"],
+                        ["%SIDE1_PIN4%", "elks.pmod1.side1.Pin4"],
+                        ["%SIDE2_PIN1%", "elks.pmod1.side2.Pin1"],
+                        ["%SIDE2_PIN2%", "elks.pmod1.side2.Pin2"],
+                        ["%SIDE2_PIN3%", "elks.pmod1.side2.Pin3"],
+                        ["%SIDE2_PIN4%", "elks.pmod1.side2.Pin4"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "algorithms",
+  "version": "0.1.0",
+  "description": "Collection of algorithmic functions (Moving Average and PID controller)",
+  "dependencies": {},
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts"
+  ],
+  "type": "module",
+  "main": "dist/js/index.js",
+  "scripts": {
+    "install": "jac lib-install",
+    "build-no-check": "jac lib-build --no-check",
+    "build": "jac lib-build",
+    "clean": "rm -rf dist"
+  },
+  "types": "dist/types/index.d.ts",
+  "jaculus": {
+    "packageFormat": 1,
+    "blocks": "blocks"
+  },
+  "author": "Jakub Andrysek",
+  "license": "MIT"
+}
