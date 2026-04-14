@@ -1,0 +1,24 @@
+{
+    "name": "colors",
+    "version": "0.1.0",
+    "author": "Jakub Andrysek",
+    "license": "MIT",
+    "description": "Colors utility functions and types",
+    "type": "module",
+    "main": "dist/js/index.js",
+    "types": "dist/types/index.d.ts",
+    "files": [
+        "dist/**/*.js",
+        "dist/**/*.d.ts"
+    ],
+    "scripts": {
+        "install": "jac lib-install",
+        "build-no-check": "jac lib-build --no-check",
+        "build": "jac lib-build",
+        "clean": "rm -rf dist"
+    },
+    "jaculus": {
+        "packageFormat": 1,
+        "blocks": "blocks"
+    }
+}

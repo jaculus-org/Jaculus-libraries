@@ -1,0 +1,240 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "spi",
+    "parentCategory": "protocols",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/spi",
+    "colour": "#E67E22",
+    "icon": "Cable",
+    "priority": 118,
+    "import": ["import { SPI1, SPI2, SPI3 } from \"spi\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "spi_setup",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "spi_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SPI",
+                    "options": [
+                        ["%SPI1%", "SPI1"],
+                        ["%SPI2%", "SPI2"],
+                        ["%SPI3_MAYBE%", "SPI3"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCK",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 18
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "MOSI",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 23
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "MISO",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 19
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "BAUD",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1000000
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "MODE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ORDER",
+                    "options": [
+                        ["%MSB%", "\"msb\""],
+                        ["%LSB%", "\"lsb\""]
+                    ]
+                }
+            ],
+            "constructs": "spi",
+            "tooltip": "%T%",
+            "code": "$[SPI].setup({ sck: $[SCK], mosi: $[MOSI], miso: $[MISO], baud: $[BAUD], mode: $[MODE], order: $[ORDER] });\nconst $[CONSTRUCTED_VAR_NAME] = $[SPI];",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%TRANSACTIONS%"
+        },
+        {
+            "kind": "block",
+            "type": "spi_send",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SPI_INSTANCE",
+                    "instanceof": "spi"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DATA",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "hello"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "CS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SPI_INSTANCE].send($[DATA], $[CS])",
+            "output": "ArrayBuffer"
+        },
+        {
+            "kind": "block",
+            "type": "spi_write",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SPI_INSTANCE",
+                    "instanceof": "spi"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DATA",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "hello"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "CS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SPI_INSTANCE].write($[DATA], $[CS]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "spi_transfer",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SPI_INSTANCE",
+                    "instanceof": "spi"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DATA",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "hello"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "CS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "RX_LENGTH",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "QIO",
+                    "options": [
+                        ["%FALSE%", "false"],
+                        ["%TRUE%", "true"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SPI_INSTANCE].transfer($[DATA], $[CS], $[RX_LENGTH], $[QIO])",
+            "output": "ArrayBuffer"
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "jacly-meta-blocks",
+    "category": "variables",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/variables",
+    "colour": "#dc143c",
+    "icon": "Variable",
+    "priority": 50,
+    "custom": "VARIABLE"
+}

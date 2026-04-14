@@ -1,0 +1,233 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "algorithms",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/algorithms",
+    "colour": "#7A9E65",
+    "icon": "Sigma",
+    "priority": 140,
+    "import": ["import * as algorithms from \"algorithms\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%EMA%"
+        },
+        {
+            "kind": "block",
+            "type": "algorithms_ema_create",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "ema_filter_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SHIFT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 4
+                        }
+                    }
+                }
+            ],
+            "constructs": "ema_filter",
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = algorithms.createEmaFilter($[SHIFT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "algorithms_ema_apply",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FILTER_INSTANCE",
+                    "instanceof": "ema_filter"
+                },
+                {
+                    "type": "input_value",
+                    "name": "VALUE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[FILTER_INSTANCE]($[VALUE])",
+            "output": "Number"
+        },
+        {
+            "kind": "label",
+            "text": "%PID%"
+        },
+        {
+            "kind": "block",
+            "type": "algorithms_pid_create",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "pid_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "KP",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0.1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "KI",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0.05
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "KD",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0.005
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "OUTPUT_MIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": -120
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "OUTPUT_MAX",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 120
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "INTEGRAL_MIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": -400
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "INTEGRAL_MAX",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 400
+                        }
+                    }
+                }
+            ],
+            "constructs": "pid",
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = algorithms.createPidController({ kp: $[KP], ki: $[KI], kd: $[KD], outputMin: $[OUTPUT_MIN], outputMax: $[OUTPUT_MAX], integralMin: $[INTEGRAL_MIN], integralMax: $[INTEGRAL_MAX] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "algorithms_pid_update",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PID_INSTANCE",
+                    "instanceof": "pid"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SETPOINT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "MEASUREMENT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0.01
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PID_INSTANCE].update({ setpoint: $[SETPOINT], measurement: $[MEASUREMENT], dt: $[DT] })",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "algorithms_pid_reset",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PID_INSTANCE",
+                    "instanceof": "pid"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PID_INSTANCE].reset();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

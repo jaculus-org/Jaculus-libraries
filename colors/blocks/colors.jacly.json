@@ -1,0 +1,32 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "colors",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/colors",
+    "colour": "#A58F5C",
+    "icon": "Palette",
+    "priority": 135,
+    "import": ["import * as colors from \"colors\";"],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "dynamic_color_rgb"
+        },
+        {
+            "kind": "block",
+            "type": "colors_rgb_to_string",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "RGB_VALUE",
+                    "check": "Color"
+                }
+            ],
+            "output": "String",
+            "tooltip": "%T%",
+            "code": "colors.rgbToString($[RGB_VALUE])"
+        }
+    ]
+}

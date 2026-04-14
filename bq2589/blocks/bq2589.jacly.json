@@ -1,0 +1,52 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "bq2589",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/bq2589",
+    "colour": "#AC8FBC",
+    "icon": "BatteryCharging",
+    "priority": 170,
+    "import": ["import { BQ2589 } from \"bq2589\";"],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "bq2589_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "bq2589_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "I2C_INSTANCE",
+                    "instanceof": "i2c_inst"
+                }
+            ],
+            "constructs": "bq2589",
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = new BQ2589($[I2C_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "bq2589_read_adc_oneshot",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BQ2589_INSTANCE",
+                    "instanceof": "bq2589"
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "output": "Number",
+            "code": "(await $[BQ2589_INSTANCE].readADCOneshot())"
+        }
+    ]
+}

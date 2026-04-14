@@ -1,0 +1,40 @@
+{
+    "DIFFERENTIAL_DRIVE_NAME": "Diferenciální pohon",
+    "DIFFERENTIAL_DRIVE_DESCRIPTION": "Knihovna pro řízení diferenciálního pohonu",
+
+    "DIFFERENTIAL_DRIVE_LABEL_SETUP": "Nastavení",
+    "DIFFERENTIAL_DRIVE_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] diferenciální pohon\nlevý motor $[LEFT_MOTOR] pravý motor $[RIGHT_MOTOR]\nrozchod kol (mm) $[DIAMETER]",
+    "DIFFERENTIAL_DRIVE_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci diferenciálního pohonu ze dvou motorů a rozchodu kol",
+
+    "DIFFERENTIAL_DRIVE_LABEL_MOVEMENT": "Pohyb",
+
+    "DIFFERENTIAL_DRIVE_MOVE_DISTANCE_MESSAGE0": "na $[DRIVE_INSTANCE] pohnout\n-1 je plná levá, 0 je rovně a 1 je plná pravá\nkřivka $[CURVE] (rozsah -1 až 1)\npro $[DISTANCE] mm",
+    "DIFFERENTIAL_DRIVE_MOVE_DISTANCE_TOOLTIP": "Pohne robotem se zadanou křivkou pro zadanou vzdálenost (v milimetrech)",
+    "DIFFERENTIAL_DRIVE_MOVE_TIME_MESSAGE0": "na $[DRIVE_INSTANCE] pohnout\n-1 je plná levá, 0 je rovně a 1 je plná pravá\nkřivka $[CURVE] (rozsah -1 až 1)\npro $[TIME] ms",
+    "DIFFERENTIAL_DRIVE_MOVE_TIME_TOOLTIP": "Pohne robotem se zadanou křivkou pro zadanou dobu (v milisekundách)",
+    "DIFFERENTIAL_DRIVE_MOVE_INFINITE_MESSAGE0": "na $[DRIVE_INSTANCE] pohnout\n-1 je plná levá, 0 je rovně a 1 je plná pravá\nkřivka $[CURVE] (rozsah -1 až 1)\ndokud nezastaveno jiným blokem",
+    "DIFFERENTIAL_DRIVE_MOVE_INFINITE_TOOLTIP": "Pohne robotem se zadanou křivkou dokud jiný blok nezastaví pohon",
+
+    "DIFFERENTIAL_DRIVE_ROTATE_MESSAGE0": "na $[DRIVE_INSTANCE] otočit o $[ANGLE] stupňů",
+    "DIFFERENTIAL_DRIVE_ROTATE_TOOLTIP": "Otočí robota o zadaný úhel (ve stupních)",
+    "DIFFERENTIAL_DRIVE_STOP_MESSAGE0": "na $[DRIVE_INSTANCE] zastavit robota s brzdou $[BRAKE]",
+    "DIFFERENTIAL_DRIVE_STOP_TOOLTIP": "Zastaví robota, volitelně s brzdou",
+
+    "DIFFERENTIAL_DRIVE_LABEL_HEADING": "Směr",
+    "DIFFERENTIAL_DRIVE_GETHEADING_MESSAGE0": "na $[DRIVE_INSTANCE] získat směr",
+    "DIFFERENTIAL_DRIVE_GETHEADING_TOOLTIP": "Získá aktuální směr robota (ve stupních)",
+    "DIFFERENTIAL_DRIVE_GETHEADINGCLAMPED_MESSAGE0": "na $[DRIVE_INSTANCE] získat omezený směr",
+    "DIFFERENTIAL_DRIVE_GETHEADINGCLAMPED_TOOLTIP": "Získá aktuální směr robota, omezený na 0-360 stupňů",
+    "DIFFERENTIAL_DRIVE_RESETHEADING_MESSAGE0": "na $[DRIVE_INSTANCE] resetovat směr",
+    "DIFFERENTIAL_DRIVE_RESETHEADING_TOOLTIP": "Resetuje směr robota na 0 stupňů",
+
+    "DIFFERENTIAL_DRIVE_LABEL_SPEED_AND_RAMP": "Rychlost a rampa",
+    "DIFFERENTIAL_DRIVE_SETSPEED_MESSAGE0": "na $[DRIVE_INSTANCE] nastavit rychlost na $[SPEED]",
+    "DIFFERENTIAL_DRIVE_SETSPEED_TOOLTIP": "Nastaví rychlost robota (v mm/s)",
+    "DIFFERENTIAL_DRIVE_GETSPEED_MESSAGE0": "na $[DRIVE_INSTANCE] získat rychlost",
+    "DIFFERENTIAL_DRIVE_GETSPEED_TOOLTIP": "Získá aktuální rychlost robota (v mm/s)",
+    "DIFFERENTIAL_DRIVE_SETRAMP_MESSAGE0": "na $[DRIVE_INSTANCE] nastavit rampu na $[RAMP] ms",
+    "DIFFERENTIAL_DRIVE_SETRAMP_TOOLTIP": "Nastaví dobu zrychlení/zpomalení (v milisekundách)",
+    "DIFFERENTIAL_DRIVE_GETRAMP_MESSAGE0": "na $[DRIVE_INSTANCE] získat rampu",
+    "DIFFERENTIAL_DRIVE_GETRAMP_TOOLTIP": "Získá aktuální dobu zrychlení/zpomalení (v milisekundách)"
+}

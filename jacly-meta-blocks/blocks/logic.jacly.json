@@ -1,0 +1,176 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "jacly-meta-blocks",
+    "category": "logic",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/logic",
+    "colour": "#00a4a6",
+    "icon": "Scale",
+    "priority": 25,
+    "contents": [
+        {
+            "kind": "block",
+            "type": "controls_if",
+            "inputs": {
+                "IF0": {
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "TRUE"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "logic_compare",
+            "inputs": {
+                "A": {
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                "B": {
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "logic_operation",
+            "inputs": {
+                "A": {
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "TRUE"
+                        }
+                    }
+                },
+                "B": {
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "TRUE"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "logic_negate",
+            "inputs": {
+                "BOOL": {
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "TRUE"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "logic_boolean"
+        },
+        {
+            "kind": "block",
+            "type": "logic_ternary",
+            "inputs": {
+                "IF": {
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "TRUE"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "logic_to_boolean",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "VALUE"
+                }
+            ],
+            "output": "Boolean",
+            "tooltip": "%T%",
+            "code": "Boolean($[VALUE])"
+        },
+        {
+            "kind": "block",
+            "type": "logic_calc",
+            "message0": "calc $[CALC]\na: $[A]\nb: $[B]\nc: $[C]\nd: $[D]",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CALC",
+                    "text": "(a && b) || c"
+                },
+                {
+                    "type": "input_value",
+                    "name": "A",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "B",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 2
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "C",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 3
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "D",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 4
+                        }
+                    }
+                }
+            ],
+            "output": "Number",
+            "tooltip": "TODO",
+            "code": "((a, b, c, d) => ($[CALC]))($[A], $[B], $[C], $[D])"
+        }
+    ]
+}

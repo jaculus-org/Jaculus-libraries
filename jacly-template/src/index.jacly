@@ -1,0 +1,19 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "basic_onStart",
+        "id": "N#c!0i;vxI:x1JWmcoX:",
+        "x": 70,
+        "y": 30
+      },
+      {
+        "type": "basic_forever",
+        "id": "rH^*3,Q-@Jd2x$b}K1fz",
+        "x": 370,
+        "y": 30
+      }
+    ]
+  }
+}

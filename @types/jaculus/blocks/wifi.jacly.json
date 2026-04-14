@@ -1,0 +1,50 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "wifi",
+    "parentCategory": "communication",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/wifi",
+    "colour": "#9C27B0",
+    "icon": "Wifi",
+    "priority": 105,
+    "import": ["import * as wifi from \"wifi\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%CURRENT_IP%"
+        },
+        {
+            "kind": "block",
+            "type": "wifi_currentIp",
+            "message0": "%T%",
+            "tooltip": "%T%",
+            "code": "wifi.currentIp()",
+            "output": "String"
+        },
+        {
+            "kind": "label",
+            "text": "%WAIT_FOR_CONNECTION%"
+        },
+        {
+            "kind": "block",
+            "type": "wifi_waitForConnection",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PRINT_DOTS",
+                    "options": [
+                        ["%PRINT_DOTS%", "true"],
+                        ["%NO_PRINT_DOTS%", "false"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "while (!wifi.currentIp()) {\n  if ($[PRINT_DOTS]) {\n    console.log('.');\n  }\n  await sleep(500);\n}\n",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

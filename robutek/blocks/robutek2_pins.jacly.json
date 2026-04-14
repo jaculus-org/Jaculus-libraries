@@ -1,0 +1,165 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "robutek",
+    "category": "robutek2_pins",
+    "parentCategory": "robutek2",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/robutek2",
+    "colour": "#96a609",
+    "icon": "Bot",
+    "priority": 140,
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%PINS%"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_LED%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_led",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%STATUS_LED%", "46"],
+                        ["%ILED%", "48"],
+                        ["%ILED_CONNECTOR%", "36"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+
+        {
+            "kind": "label",
+            "text": "%PINS_BUTTONS%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_buttons",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%BUTTON_LEFT%", "2"],
+                        ["%BUTTON_RIGHT%", "0"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+
+        {
+            "kind": "label",
+            "text": "%PINS_SERVO%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_servo",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SERVO1%", "21"],
+                        ["%SERVO2%", "38"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+
+        {
+            "kind": "label",
+            "text": "%PINS_LINE_SENS%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_line_sens",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%LINE_SENS1%", "4"],
+                        ["%LINE_SENS2%", "5"],
+                        ["%LINE_SENS3%", "6"],
+                        ["%LINE_SENS4%", "7"],
+                        ["%LINE_SENS_SW%", "8"],
+                        ["%LINE_SENS_EN%", "47"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+        {
+            "kind": "label",
+            "text": "%PINS_MOTOR_ENC%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_motor_enc",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%MOTOR1A%", "11"],
+                        ["%MOTOR1B%", "12"],
+                        ["%MOTOR2A%", "45"],
+                        ["%MOTOR2B%", "13"],
+                        ["%ENC1A%", "40"],
+                        ["%ENC1B%", "39"],
+                        ["%ENC2A%", "41"],
+                        ["%ENC2B%", "42"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        },
+
+        {
+            "kind": "label",
+            "text": "%PINS_I2C%"
+        },
+        {
+            "kind": "block",
+            "type": "robutek2_pins_i2c",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%SDA%", "10"],
+                        ["%SCL%", "3"]
+                    ]
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[PIN]"
+        }
+    ]
+}

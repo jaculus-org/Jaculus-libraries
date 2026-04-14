@@ -1,0 +1,16 @@
+{
+    "ALGORITHMS_NAME": "Algorithms",
+    "ALGORITHMS_DESCRIPTION": "Algorithm blocks for data processing and filtering.",
+    "ALGORITHMS_LABEL_EMA": "Exponential Moving Average (EMA)",
+    "ALGORITHMS_LABEL_PID": "PID Controller",
+    "ALGORITHMS_EMA_CREATE_MESSAGE0": "create EMA filter $[CONSTRUCTED_VAR_NAME] with shift $[SHIFT]",
+    "ALGORITHMS_EMA_CREATE_TOOLTIP": "Create an Exponential Moving Average filter instance",
+    "ALGORITHMS_EMA_APPLY_MESSAGE0": "apply EMA filter $[FILTER_INSTANCE] to value $[VALUE]",
+    "ALGORITHMS_EMA_APPLY_TOOLTIP": "Apply filter to input value and return smoothed output",
+    "ALGORITHMS_PID_CREATE_MESSAGE0": "create PID controller $[CONSTRUCTED_VAR_NAME]\nkp $[KP] ki $[KI] kd $[KD]\noutput min $[OUTPUT_MIN] max $[OUTPUT_MAX]\nintegral min $[INTEGRAL_MIN] max $[INTEGRAL_MAX]",
+    "ALGORITHMS_PID_CREATE_TOOLTIP": "Create a PID controller instance with gains and limits",
+    "ALGORITHMS_PID_UPDATE_MESSAGE0": "PID $[PID_INSTANCE] update\nsetpoint $[SETPOINT] measurement $[MEASUREMENT] dt $[DT] s",
+    "ALGORITHMS_PID_UPDATE_TOOLTIP": "Compute PID output from setpoint, measurement, and loop time",
+    "ALGORITHMS_PID_RESET_MESSAGE0": "reset PID controller $[PID_INSTANCE]",
+    "ALGORITHMS_PID_RESET_TOOLTIP": "Reset PID integral and derivative history"
+}

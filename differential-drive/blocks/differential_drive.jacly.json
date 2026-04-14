@@ -1,0 +1,356 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "differential-drive",
+    "category": "differential_drive",
+    "parentCategory": "movement",
+    "name": "%T%",
+    "description": "%T%",
+    "docs": "/docs/blocks/differential-drive",
+    "colour": "#7d5834",
+    "icon": "ChevronsLeftRightEllipsis",
+    "priority": 140,
+    "import": ["import { DifferentialDrive } from \"differential-drive\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "d_drive_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "LEFT_MOTOR",
+                    "instanceof": "motor"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "RIGHT_MOTOR",
+                    "instanceof": "motor"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DIAMETER",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 83
+                        }
+                    }
+                }
+            ],
+            "constructs": "d_drive",
+            "tooltip": "%T%",
+            "code": "const $[CONSTRUCTED_VAR_NAME] = new DifferentialDrive($[LEFT_MOTOR], $[RIGHT_MOTOR], $[DIAMETER]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%MOVEMENT%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_distance",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CURVE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DISTANCE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 100
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[DRIVE_INSTANCE].move($[CURVE], { distance: $[DISTANCE] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_time",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CURVE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "TIME",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 100
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[DRIVE_INSTANCE].move($[CURVE], { time: $[TIME] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_move_infinite",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CURVE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].move($[CURVE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_rotate",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "ANGLE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 90
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[DRIVE_INSTANCE].rotate($[ANGLE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_stop",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BRAKE",
+                    "check": "Boolean",
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[DRIVE_INSTANCE].stop($[BRAKE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%HEADING%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getHeading",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].getHeading()"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getHeadingClamped",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].getHeadingClamped()"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_resetHeading",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].resetHeading();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%SPEED_AND_RAMP%"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_setSpeed",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SPEED",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 100
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].setSpeed($[SPEED]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getSpeed",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].getSpeed()"
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_setRamp",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                },
+                {
+                    "type": "input_value",
+                    "name": "RAMP",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 2000
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].setRamp($[RAMP]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "differential_drive_getRamp",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "DRIVE_INSTANCE",
+                    "instanceof": "d_drive"
+                }
+            ],
+            "output": "Number",
+            "tooltip": "%T%",
+            "code": "$[DRIVE_INSTANCE].getRamp()"
+        }
+    ]
+}
