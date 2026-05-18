@@ -1,0 +1,335 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "simpleradio",
+    "parentCategory": "communication",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#9C27B0",
+    "icon": "RadioTower",
+    "priority": 105,
+    "import": ["import * as simpleradio from \"simpleradio\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%BEGIN%"
+        },
+        {
+            "kind": "block",
+            "type": "sr_begin",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_GROUP",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.begin($[SR_GROUP]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%SEND%"
+        },
+        {
+            "kind": "block",
+            "type": "sr_sendString",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_STRING",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "Hello, World!"
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.sendString($[SR_STRING]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "sr_sendNumber",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_NUMBER",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 42
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.sendNumber($[SR_NUMBER]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "sr_sendKeyValue",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_KV_KEY",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "my_key"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SR_KV_VALUE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 42
+                        }
+                    }
+                }
+            ],
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "simpleradio.sendKeyValue($[SR_KV_KEY], $[SR_KV_VALUE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "sr_sendJson",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_JSON",
+                    "check": "JsonObject"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.sendString(JSON.stringify($[SR_JSON]));",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%RECEIVE%"
+        },
+        {
+            "kind": "block",
+            "type": "sr_onReceiveNumber",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "SR_CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "receivedNumber",
+                    "message": "%receivedNumber%",
+                    "type": "Number",
+                    "codeName": "num"
+                },
+                {
+                    "identifier": "senderAddress",
+                    "message": "%senderAddress%",
+                    "type": "String",
+                    "codeName": "info.address"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "simpleradio.on(\"number\", function(num, info) {\n$[SR_CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "sr_onReceiveString",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "SR_CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "receivedString",
+                    "message": "%receivedString%",
+                    "type": "String",
+                    "codeName": "str"
+                },
+                {
+                    "identifier": "senderAddress",
+                    "message": "%senderAddress%",
+                    "type": "String",
+                    "codeName": "info.address"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "simpleradio.on(\"string\", function(str, info) {\n$[SR_CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "sr_onReceiveJson",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "SR_CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "receivedJson",
+                    "message": "%receivedJson%",
+                    "type": "JsonObject",
+                    "codeName": "obj"
+                },
+                {
+                    "identifier": "senderAddress",
+                    "message": "%senderAddress%",
+                    "type": "String",
+                    "codeName": "info.address"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "simpleradio.on(\"string\", function(str, info) {\n\tconst obj = JSON.parse(str);\n$[SR_CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "sr_onReceiveKeyValue",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "SR_CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "receivedKey",
+                    "message": "%receivedKey%",
+                    "type": "String",
+                    "codeName": "key"
+                },
+                {
+                    "identifier": "receivedValue",
+                    "message": "%receivedValue%",
+                    "type": "Number",
+                    "codeName": "value"
+                },
+                {
+                    "identifier": "senderAddress",
+                    "message": "%senderAddress%",
+                    "type": "String",
+                    "codeName": "info.address"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "simpleradio.on(\"keyvalue\", function(key, value, info) {\n$[SR_CODE]\n});"
+        },
+        {
+            "kind": "label",
+            "text": "%END_RECEIVE%"
+        },
+        {
+            "kind": "block",
+            "type": "sr_offReceive",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SR_TYPE",
+                    "options": [
+                        ["%NUMBER%", "number"],
+                        ["%STRING%", "string"],
+                        ["%KEY_VALUE%", "keyvalue"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.off($[SR_TYPE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%OTHER%"
+        },
+        {
+            "kind": "block",
+            "type": "sr_setGroup",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "SR_GROUP",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "simpleradio.setGroup($[SR_GROUP]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "sr_getGroup",
+            "message0": "%T%",
+            "tooltip": "%T%",
+            "code": "simpleradio.group()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "sr_getAddress",
+            "message0": "%T%",
+            "tooltip": "%T%",
+            "code": "simpleradio.address()",
+            "output": "String"
+        },
+        {
+            "kind": "block",
+            "type": "sr_end",
+            "message0": "%T%",
+            "tooltip": "%T%",
+            "code": "simpleradio.end();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

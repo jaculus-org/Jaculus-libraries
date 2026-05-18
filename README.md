@@ -2,7 +2,6 @@
 
 This repository contains libraries for Jaculus.
 
-
 ## Creating a new library
 
 Libraries mostly follow the same structure as npm packages, i.e. they use a `package.json` file to define metadata and dependencies. An additional field `jaculus` can be used to specify additional options for Jaculus, such as block definitions.

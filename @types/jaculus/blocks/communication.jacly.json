@@ -1,0 +1,12 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "communication",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#007A4B",
+    "icon": "Cable",
+    "priority": 118,
+    "import": [],
+    "contents": []
+}

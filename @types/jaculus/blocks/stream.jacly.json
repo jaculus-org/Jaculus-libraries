@@ -1,0 +1,117 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "stream",
+    "parentCategory": "communication",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#14B8A6",
+    "icon": "TextCursorInput",
+    "priority": 108,
+    "import": [
+        "import { readline } from \"@types/jaculus\";",
+        "import { stdin, stdout, stderr } from \"stdio\";"
+    ],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "stream_stdout_write",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "TEXT",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": ""
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "stdout.write($[TEXT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "stream_stderr_write",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "TEXT",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": ""
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "stderr.write($[TEXT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "stream_onChar",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "charText",
+                    "message": "%CHAR_TEXT%",
+                    "type": "String",
+                    "codeName": "char"
+                },
+                {
+                    "identifier": "charLength",
+                    "message": "%CHAR_LENGTH%",
+                    "type": "Number",
+                    "codeName": "char.length"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "{\n\tasync function streamOnCharLoop() {\n\t\ttry {\n\t\t\tconst char = await stdin.get();\n$[CODE]\n\t\t\tstreamOnCharLoop();\n\t\t} catch (_reason) {\n\t\t\tconsole.warn(\"stdin character read failed:\", _reason);\n\t\t\tstreamOnCharLoop();\n\t\t}\n\t}\n\tstreamOnCharLoop();\n}"
+        },
+        {
+            "kind": "block",
+            "type": "stream_onChunk",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_statement",
+                    "name": "CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "chunkText",
+                    "message": "%CHUNK_TEXT%",
+                    "type": "String",
+                    "codeName": "chunk"
+                },
+                {
+                    "identifier": "chunkLength",
+                    "message": "%CHUNK_LENGTH%",
+                    "type": "Number",
+                    "codeName": "chunk.length"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "{\n\tasync function streamOnChunkLoop() {\n\t\ttry {\n\t\t\tconst chunk = await stdin.read();\n$[CODE]\n\t\t\tstreamOnChunkLoop();\n\t\t} catch (_reason) {\n\t\t\tconsole.warn(\"stdin chunk read failed:\", _reason);\n\t\t\tstreamOnChunkLoop();\n\t\t}\n\t}\n\tstreamOnChunkLoop();\n}"
+        }
+    ]
+}
