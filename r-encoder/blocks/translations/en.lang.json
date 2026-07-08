@@ -1,0 +1,20 @@
+{
+    "R_ENCODER_NAME": "Rotary Encoder",
+    "R_ENCODER_DESCRIPTION": "Rotary encoder control library based on PulseCounter",
+    "R_ENCODER_LABEL_SETUP": "Setup (this is required to use other Rotary Encoder blocks)",
+    "R_ENCODER_LABEL_READ": "Reading",
+    "R_ENCODER_LABEL_OTHER": "Other Rotary Encoder operations",
+
+    "R_ENCODER_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] rotary encoder\n on level pin $[PIN_LEVEL] edge pin $[PIN_EDGE]",
+    "R_ENCODER_CONSTRUCTOR_TOOLTIP": "Create a new Rotary Encoder instance",
+    "R_ENCODER_READ_MESSAGE0": "read value from rotary encoder $[R_ENCODER_INSTANCE]",
+    "R_ENCODER_READ_TOOLTIP": "Read the current value of the rotary encoder",
+    "R_ENCODER_CLEAR_MESSAGE0": "clear rotary encoder $[R_ENCODER_INSTANCE]",
+    "R_ENCODER_CLEAR_TOOLTIP": "Reset the rotary encoder to 0",
+    "R_ENCODER_START_MESSAGE0": "start rotary encoder $[R_ENCODER_INSTANCE]",
+    "R_ENCODER_START_TOOLTIP": "Start the rotary encoder",
+    "R_ENCODER_STOP_MESSAGE0": "stop rotary encoder $[R_ENCODER_INSTANCE]",
+    "R_ENCODER_STOP_TOOLTIP": "Stop the rotary encoder",
+    "R_ENCODER_CLOSE_MESSAGE0": "close rotary encoder $[R_ENCODER_INSTANCE]",
+    "R_ENCODER_CLOSE_TOOLTIP": "Close the rotary encoder"
+}

@@ -1,0 +1,143 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "r_encoder",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#059669",
+    "icon": "RotateCw",
+    "priority": 136,
+    "import": ["import { RotaryEncoder } from \"r-encoder\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "rEncoder_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN_LEVEL",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 12
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN_EDGE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 13
+                        }
+                    }
+                }
+            ],
+            "constructs": "rEncoder",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new RotaryEncoder($[PIN_LEVEL], $[PIN_EDGE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%READ%"
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_read",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENCODER_INSTANCE",
+                    "instanceof": "rEncoder"
+                }
+            ],
+            "tooltip": "%T%",
+            "output": "Number",
+            "code": "$[RENCODER_INSTANCE].read()"
+        },
+        {
+            "kind": "label",
+            "text": "%OTHER%"
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_clear",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENCODER_INSTANCE",
+                    "instanceof": "rEncoder"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENCODER_INSTANCE].clear();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_start",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENCODER_INSTANCE",
+                    "instanceof": "rEncoder"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENCODER_INSTANCE].start();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_stop",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENCODER_INSTANCE",
+                    "instanceof": "rEncoder"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENCODER_INSTANCE].stop();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "rEncoder_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENCODER_INSTANCE",
+                    "instanceof": "rEncoder"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENCODER_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}
