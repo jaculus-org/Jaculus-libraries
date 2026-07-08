@@ -1,0 +1,10 @@
+{
+    "UTILS_I2C_NAME": "I2C Nástroje",
+    "UTILS_I2C_DESCRIPTION": "Užitečné bloky pro I2C periferie, jako je skenování zařízení na sběrnici.",
+
+    "UTILS_I2C_SCAN_MESSAGE0": "skenovat I2C sběrnici $[I2C_INSTANCE]",
+    "UTILS_I2C_SCAN_TOOLTIP": "Skenuje I2C sběrnici pro připojená zařízení a vrací pole jejich adres",
+
+    "UTILS_I2C_SCAN_PRINT_MESSAGE0": "vytisknout sken I2C sběrnice $[I2C_INSTANCE]",
+    "UTILS_I2C_SCAN_PRINT_TOOLTIP": "Skenuje I2C sběrnici a vytiskne adresy připojených zařízení do konzole"
+}

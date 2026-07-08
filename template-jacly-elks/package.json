@@ -1,0 +1,25 @@
+{
+    "name": "template-jacly-elks",
+    "version": "0.1.0",
+    "description": "Jacly Block template for ELKS (ESP Learning Kit Starter)",
+    "type": "module",
+    "main": "./build/index.js",
+    "files": [
+        "src/**/*"
+    ],
+    "dependencies": {
+        "@types/jaculus": "0.1.0",
+        "basic": "0.1.0",
+        "jacly-meta-blocks": "0.1.0",
+        "colors": "0.1.0",
+        "elks": "0.1.0"
+    },
+    "jaculus": {
+        "packageFormat": 1,
+        "projectType": "jacly",
+        "template": true,
+        "registry": [
+            "https://registry.jaculus.org/"
+        ]
+    }
+}

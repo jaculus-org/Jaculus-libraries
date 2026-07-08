@@ -1,0 +1,20 @@
+{
+    "DS18B20_NAME": "DS18B20",
+    "DS18B20_DESCRIPTION": "Knihovna pro teplotní čidlo DS18B20 (1-Wire)",
+    "DS18B20_LABEL_SETUP": "Nastavení (je potřeba pro použití ostatních bloků DS18B20)",
+    "DS18B20_LABEL_READ": "Čtení",
+    "DS18B20_LABEL_OTHER": "Ostatní operace s DS18B20",
+
+    "DS18B20_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] DS18B20 na pinu $[PIN] s přesností $[RESOLUTION]",
+    "DS18B20_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci teplotního čidla DS18B20",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_9BITS": "9 bitů",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_10BITS": "10 bitů",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_11BITS": "11 bitů",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_12BITS": "12 bitů",
+
+    "DS18B20_READ_TEMPERATURE_MESSAGE0": "přečíst teplotu z $[SENSOR_INSTANCE]",
+    "DS18B20_READ_TEMPERATURE_TOOLTIP": "Přečte aktuální teplotu ve stupních Celsia",
+
+    "DS18B20_CLOSE_MESSAGE0": "zavřít $[SENSOR_INSTANCE]",
+    "DS18B20_CLOSE_TOOLTIP": "Uvolní prostředky čidla DS18B20"
+}

@@ -1,0 +1,16 @@
+{
+    "ALGORITHMS_NAME": "Algoritmy",
+    "ALGORITHMS_DESCRIPTION": "Bloky algoritmů pro zpracování dat a filtrování.",
+    "ALGORITHMS_LABEL_EMA": "Exponenciální klouzavý průměr (EMA)",
+    "ALGORITHMS_LABEL_PID": "PID regulátor",
+    "ALGORITHMS_EMA_CREATE_MESSAGE0": "vytvořit EMA filtr $[CONSTRUCTED_VAR_NAME] s posunem $[SHIFT]",
+    "ALGORITHMS_EMA_CREATE_TOOLTIP": "Vytvoří instanci filtru Exponenciální klouzavý průměr",
+    "ALGORITHMS_EMA_APPLY_MESSAGE0": "aplikovat EMA filtr $[FILTER_INSTANCE] na hodnotu $[VALUE]",
+    "ALGORITHMS_EMA_APPLY_TOOLTIP": "Aplikuje filtr na vstupní hodnotu a vrátí vyhlazený výstup",
+    "ALGORITHMS_PID_CREATE_MESSAGE0": "vytvořit PID regulátor $[CONSTRUCTED_VAR_NAME]\nkp $[KP] ki $[KI] kd $[KD]\nvýstup min $[OUTPUT_MIN] max $[OUTPUT_MAX]\nintegrál min $[INTEGRAL_MIN] max $[INTEGRAL_MAX]",
+    "ALGORITHMS_PID_CREATE_TOOLTIP": "Vytvoří instanci PID regulátoru se zesílením a limity",
+    "ALGORITHMS_PID_UPDATE_MESSAGE0": "PID $[PID_INSTANCE] výpočet\nžádaná hodnota $[SETPOINT] měření $[MEASUREMENT] dt $[DT] s",
+    "ALGORITHMS_PID_UPDATE_TOOLTIP": "Vypočítá výstup PID podle žádané hodnoty, měření a času smyčky",
+    "ALGORITHMS_PID_RESET_MESSAGE0": "resetovat PID regulátor $[PID_INSTANCE]",
+    "ALGORITHMS_PID_RESET_TOOLTIP": "Vynuluje integrál a historii derivace PID regulátoru"
+}

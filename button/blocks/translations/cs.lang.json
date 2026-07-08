@@ -1,0 +1,32 @@
+{
+    "BUTTON_NAME": "Tlačítko",
+    "BUTTON_DESCRIPTION": "Knihovna pro obsluhu událostí tlačítka",
+    "BUTTON_LABEL_SETUP": "Nastavení (je potřeba pro použití ostatních bloků tlačítka)",
+    "BUTTON_LABEL_EVENTS": "Události",
+    "BUTTON_LABEL_OTHER": "Ostatní operace s tlačítkem",
+
+    "BUTTON_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] tlačítko na pinu $[PIN] s limitem dvojkliku $[DOUBLE_CLICK_LIMIT] ms",
+    "BUTTON_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci tlačítka na zadaném GPIO pinu",
+
+    "BUTTON_ON_MESSAGE0": "při $[EVENT] na $[BUTTON_INSTANCE] proveď\n$[CODE]",
+    "BUTTON_ON_TOOLTIP": "Zaregistruje obsluhu pro vybranou událost tlačítka",
+
+    "BUTTON_ON_CLICK_MESSAGE0": "při kliknutí na $[BUTTON_INSTANCE] proveď\n$[CODE]",
+    "BUTTON_ON_CLICK_TOOLTIP": "Zaregistruje obsluhu pro událost kliknutí. Proměnná doba trvání obsahuje délku stisknutí v milisekundách.",
+    "BUTTON_ON_CLICK_CALLBACK_DURATION": "doba trvání (ms)",
+
+    "BUTTON_OFF_MESSAGE0": "odstranit obsluhu $[EVENT] z $[BUTTON_INSTANCE]",
+    "BUTTON_OFF_TOOLTIP": "Odstraní zaregistrovanou obsluhu pro vybranou událost tlačítka",
+
+    "BUTTON_CLOSE_MESSAGE0": "zavřít $[BUTTON_INSTANCE]",
+    "BUTTON_CLOSE_TOOLTIP": "Odregistruje GPIO obsluhy událostí pro tlačítko",
+
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_PRESS": "stisknutí",
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_RELEASE": "puštění",
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_DOUBLE_CLICK": "dvojité kliknutí",
+
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_PRESS": "stisknutí",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_RELEASE": "puštění",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_CLICK": "kliknutí",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_DOUBLE_CLICK": "dvojité kliknutí"
+}

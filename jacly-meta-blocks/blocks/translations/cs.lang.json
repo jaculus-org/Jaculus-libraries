@@ -1,0 +1,100 @@
+{
+    "LISTS_NAME": "Seznamy",
+    "LISTS_DESCRIPTION": "Bloky pro práci se seznamy.",
+
+    "LOGIC_NAME": "Logika",
+    "LOGIC_DESCRIPTION": "Logické bloky pro rozhodování a porovnávání.",
+
+    "LOOPS_NAME": "Smyčky",
+    "LOOPS_DESCRIPTION": "Bloky pro opakování akcí.",
+
+    "MATH_NAME": "Matematika",
+    "MATH_DESCRIPTION": "Matematické bloky pro výpočty a operace.",
+
+    "FUNCTIONS_NAME": "Funkce",
+    "FUNCTIONS_DESCRIPTION": "Bloky pro definování a volání funkcí.",
+
+    "TEXT_NAME": "Text",
+    "TEXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+    "TEXT_EXT_NAME": "Rozšířený text",
+    "TEXT_EXT_DESCRIPTION": "Bloky pro práci s textovými řetězci.",
+
+    "VARIABLES_NAME": "Proměnné",
+    "VARIABLES_DESCRIPTION": "Bloky pro vytváření a správu proměnných.",
+
+    "CONSTANTS_NAME": "Konstanty",
+    "CONSTANTS_DESCRIPTION": "Bloky pro vytváření a správu konstant.",
+
+    "RENAME_CONSTANT": "Přejmenovat konstantu...",
+    "RENAME_CONSTANT_TITLE": "Přejmenuj všech '%1' konstant na:",
+    "NEW_CONSTANT": "Vytvořit konstantu...",
+    "NEW_CONSTANT_TYPE_TITLE": "Nový typ konstanty:",
+    "NEW_CONSTANT_TITLE": "Nový název konstanty:",
+    "CONSTANT_ALREADY_EXISTS": "Konstanta jménem '%1' již existuje.",
+    "CONSTANT_ALREADY_EXISTS_FOR_ANOTHER_TYPE": "Konstanta pojmenovaná jako '%1' již existuje pro jiný typ: '%2'.",
+    "CONSTANT_ALREADY_EXISTS_FOR_A_PARAMETER": "Konstanta pojmenovaná '%1' již jako parametr v proceduře '%2' existuje.",
+    "DELETE_CONSTANT_CONFIRMATION": "Odstranit %1 použití konstanty '%2'?",
+    "CANNOT_DELETE_CONSTANT_PROCEDURE": "Konstantu '%1' není možné odstranit, protože je součástí definice funkce '%2'.",
+    "DELETE_CONSTANT": "Odstranit konstantu '%1'",
+
+    "CONSTANTS_GET_HELPURL": "https://cs.wikipedia.org/wiki/Konstanta",
+    "CONSTANTS_GET_TOOLTIP": "Vrátí hodnotu této konstanty.",
+    "CONSTANTS_GET_CREATE_SET": "Vytvořit \"nastavit %1\"",
+    "CONSTANTS_SET_HELPURL": "https://cs.wikipedia.org/wiki/Konstanta",
+    "CONSTANTS_SET": "nastavit konst. %1 na %2",
+    "CONSTANTS_SET_TOOLTIP": "Nastaví tuto konstantu, aby se rovnala vstupu.",
+    "CONSTANTS_SET_CREATE_GET": "Vytvořit \"získej %1\"",
+    "CONSTANTS_SET_DUPLICATE_WARNING": "Tato konstanta je již nastavena jiným blokem.",
+
+    "LOGIC_TO_BOOLEAN_MESSAGE0": "na logickou hodnotu",
+    "LOGIC_TO_BOOLEAN_TOOLTIP": "Převede hodnotu na Boolean.",
+    "LOGIC_CALC_MESSAGE0": "vyhodnotit $[CALC]\na: $[A]\nb: $[B]\nc: $[C]\nd: $[D]",
+    "LOGIC_CALC_TOOLTIP": "Vyhodnotí logický výraz pomocí vstupních hodnot. Použij a, b, c, d jako zástupce pro vstupy.",
+
+    "MATH_ROUND_DECIMAL_MESSAGE0": "zaokrouhlit $[VALUE] na $[DECIMALS] desetinných míst",
+    "MATH_ROUND_DECIMAL_TOOLTIP": "Zaokrouhlí číslo na zadaný počet desetinných míst.",
+    "MATH_NUMBER_BETWEEN_MESSAGE0": "je $[VALUE] mezi $[LOW] a $[HIGH] ?",
+    "MATH_NUMBER_BETWEEN_TOOLTIP": "Vrátí true, pokud je číslo mezi dolní a horní hranicí, včetně.",
+
+    "MATH_TO_NUMBER_MESSAGE0": "na číslo",
+    "MATH_TO_NUMBER_TOOLTIP": "Převede hodnotu na číslo.",
+    "MATH_TO_INTEGER_MESSAGE0": "na celé číslo",
+    "MATH_TO_INTEGER_TOOLTIP": "Převede hodnotu na celé číslo.",
+
+    "TEXT_TO_STRING_MESSAGE0": "na text",
+    "TEXT_TO_STRING_TOOLTIP": "Převede hodnotu na text.",
+
+    "TEXT_SPLIT_PART_MESSAGE0": "index $[INDEX] z $[TEXT] rozdělená podle $[SEP]",
+    "TEXT_SPLIT_PART_TOOLTIP": "Rozdělí text separátorem a vrátí n-tou část (počítáno od 0). Pokud část neexistuje, vrátí prázdný řetězec.",
+    "TEXT_STARTS_WITH_MESSAGE0": "$[TEXT] začíná na $[PREFIX]",
+    "TEXT_STARTS_WITH_TOOLTIP": "Vrátí true, pokud text začíná zadaným prefixem.",
+    "TEXT_ENDS_WITH_MESSAGE0": "$[TEXT] končí na $[SUFFIX]",
+    "TEXT_ENDS_WITH_TOOLTIP": "Vrátí true, pokud text končí zadaným sufixem.",
+
+    "MATH_MAP_VALUE_MESSAGE0": "mapovat $[VALUE] z rozsahu [$[FROM_LOW], $[FROM_HIGH]] do rozsahu [$[TO_LOW], $[TO_HIGH]]",
+    "MATH_MAP_VALUE_TOOLTIP": "Mapuje hodnotu z jednoho rozsahu do druhého.",
+    "MATH_CALC_MESSAGE0": "vyhodnotit $[CALC]\na: $[A]\nb: $[B]\nc: $[C]\nd: $[D]",
+    "MATH_CALC_TOOLTIP": "Vyhodnotí matematický výraz pomocí vstupních hodnot. Použij a, b, c, d jako zástupce pro vstupy.",
+
+    "JSON_NAME": "JSON",
+    "JSON_DESCRIPTION": "Bloky pro práci s JSON textem a objektovými hodnotami.",
+    "JSON_OBJECT_CREATE_MESSAGE0": "vytvořit objekt",
+    "JSON_OBJECT_CREATE_TOOLTIP": "Vytvoří JSON objekt. Pomocí + přidáš dvojice klíč/hodnota.",
+    "JSON_OBJECT_TO_TEXT_MESSAGE0": "JSON na text $[VALUE]",
+    "JSON_OBJECT_TO_TEXT_TOOLTIP": "Převede hodnotu na JSON text.",
+    "JSON_TEXT_TO_OBJECT_MESSAGE0": "text na JSON $[TEXT]",
+    "JSON_TEXT_TO_OBJECT_TOOLTIP": "Zpracuje text jako JSON objekt.",
+    "JSON_OBJECT_CLEAR_MESSAGE0": "vymazat objekt $[OBJECT]",
+    "JSON_OBJECT_CLEAR_TOOLTIP": "Odstraní z objektu všechny klíče.",
+    "JSON_OBJECT_CONTAINS_KEY_MESSAGE0": "objekt $[OBJECT] obsahuje klíč $[KEY]",
+    "JSON_OBJECT_CONTAINS_KEY_TOOLTIP": "Zkontroluje, zda objekt obsahuje klíč.",
+    "JSON_OBJECT_GET_KEY_MESSAGE0": "získat klíč $[KEY] v objektu $[OBJECT]",
+    "JSON_OBJECT_GET_KEY_TOOLTIP": "Vrátí hodnotu uloženou pod klíčem.",
+    "JSON_OBJECT_SET_KEY_MESSAGE0": "v objektu $[OBJECT] nastavit klíč $[KEY] na hodnotu $[VALUE]",
+    "JSON_OBJECT_SET_KEY_TOOLTIP": "Nastaví klíči hodnotu.",
+    "JSON_OBJECT_DELETE_KEY_MESSAGE0": "v objektu $[OBJECT] smazat klíč $[KEY]",
+    "JSON_OBJECT_DELETE_KEY_TOOLTIP": "Smaže klíč z objektu.",
+    "JSON_OBJECT_ENTRY_MESSAGE0": "klíč $[KEY] hodnota $[VALUE]",
+    "JSON_OBJECT_ENTRY_TOOLTIP": "Jedna dvojice klíč/hodnota uvnitř JSON objektu."
+}

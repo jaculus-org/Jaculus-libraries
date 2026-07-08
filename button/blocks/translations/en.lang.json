@@ -1,0 +1,32 @@
+{
+    "BUTTON_NAME": "Button",
+    "BUTTON_DESCRIPTION": "Event-driven button handler library",
+    "BUTTON_LABEL_SETUP": "Setup (this is required to use other Button blocks)",
+    "BUTTON_LABEL_EVENTS": "Events",
+    "BUTTON_LABEL_OTHER": "Other Button operations",
+
+    "BUTTON_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] button on pin $[PIN] with double-click limit $[DOUBLE_CLICK_LIMIT] ms",
+    "BUTTON_CONSTRUCTOR_TOOLTIP": "Create a new Button instance on the specified GPIO pin",
+
+    "BUTTON_ON_MESSAGE0": "on $[BUTTON_INSTANCE] $[EVENT] do\n$[CODE]",
+    "BUTTON_ON_TOOLTIP": "Register a callback for the selected button event",
+
+    "BUTTON_ON_CLICK_MESSAGE0": "on $[BUTTON_INSTANCE] click do\n$[CODE]",
+    "BUTTON_ON_CLICK_TOOLTIP": "Register a callback for the click event. The duration variable contains the press duration in milliseconds.",
+    "BUTTON_ON_CLICK_CALLBACK_DURATION": "duration (ms)",
+
+    "BUTTON_OFF_MESSAGE0": "remove $[EVENT] handler from $[BUTTON_INSTANCE]",
+    "BUTTON_OFF_TOOLTIP": "Remove the registered callback for the selected button event",
+
+    "BUTTON_CLOSE_MESSAGE0": "close $[BUTTON_INSTANCE]",
+    "BUTTON_CLOSE_TOOLTIP": "Unregister GPIO event handlers for the button",
+
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_PRESS": "press",
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_RELEASE": "release",
+    "BUTTON_ON_ARGS0_FIELD_DROPDOWN_DOUBLE_CLICK": "double click",
+
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_PRESS": "press",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_RELEASE": "release",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_CLICK": "click",
+    "BUTTON_OFF_ARGS0_FIELD_DROPDOWN_DOUBLE_CLICK": "double click"
+}

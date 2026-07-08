@@ -1,0 +1,94 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "ds18b20",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#DC2626",
+    "icon": "Thermometer",
+    "priority": 140,
+    "import": ["import { DS18B20 } from \"ds18b20\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "ds18b20_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "ds18b20_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "RESOLUTION",
+                    "options": [
+                        ["%9BITS%", "9"],
+                        ["%10BITS%", "10"],
+                        ["%11BITS%", "11"],
+                        ["%12BITS%", "12"]
+                    ]
+                }
+            ],
+            "constructs": "ds18b20",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new DS18B20($[PIN], $[RESOLUTION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%READ%"
+        },
+        {
+            "kind": "block",
+            "type": "ds18b20_read_temperature",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "ds18b20"
+                }
+            ],
+            "tooltip": "%T%",
+            "output": "Number",
+            "code": "(await $[SENSOR_INSTANCE].readTemperature())"
+        },
+        {
+            "kind": "label",
+            "text": "%OTHER%"
+        },
+        {
+            "kind": "block",
+            "type": "ds18b20_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "ds18b20"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}
