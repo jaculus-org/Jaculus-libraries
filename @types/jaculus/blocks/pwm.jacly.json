@@ -1,0 +1,285 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "pwm",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#65c277",
+    "icon": "LampDesk",
+    "priority": 105,
+    "import": ["import { PWM, VariablePWM } from \"pwm\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%PWM%"
+        },
+        {
+            "kind": "block",
+            "type": "pwm_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "pwm_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "FREQUENCY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1000
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "RESOLUTION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 10
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DUTY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "pwm",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new PWM({ pin: $[PIN], frequency: $[FREQUENCY], resolution: $[RESOLUTION], duty: $[DUTY] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "pwm_setDuty",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "pwm"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DUTY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 512
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].setDuty($[DUTY]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "pwm_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "pwm"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%VARIABLE_PWM%"
+        },
+        {
+            "kind": "block",
+            "type": "variable_pwm_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "variablePwm_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "FREQUENCY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1000
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "RESOLUTION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 10
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DUTY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "variablePwm",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new VariablePWM({ pin: $[PIN], frequency: $[FREQUENCY], resolution: $[RESOLUTION], duty: $[DUTY] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "variable_pwm_setDuty",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "variablePwm"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DUTY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 512
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].setDuty($[DUTY]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "variable_pwm_setFrequency",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "variablePwm"
+                },
+                {
+                    "type": "input_value",
+                    "name": "FREQUENCY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1000
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].setFrequency($[FREQUENCY]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "variable_pwm_setResolution",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "variablePwm"
+                },
+                {
+                    "type": "input_value",
+                    "name": "RESOLUTION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 10
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].setResolution($[RESOLUTION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "variable_pwm_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PWM_INSTANCE",
+                    "instanceof": "variablePwm"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PWM_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

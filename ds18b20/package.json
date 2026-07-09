@@ -1,0 +1,26 @@
+{
+    "name": "ds18b20",
+    "version": "0.1.0",
+    "author": "Milan Novak",
+    "license": "MIT",
+    "description": "DS18B20 temperature sensor - One Wire sensor library",
+    "type": "module",
+    "main": "build/js/index.js",
+    "types": "build/types/index.d.ts",
+    "files": [
+        "build/**/*"
+    ],
+    "dependencies": {
+        "@types/jaculus": "0.1.0"
+    },
+    "scripts": {
+        "install": "jac lib-install",
+        "build-no-check": "jac lib-build --no-check",
+        "build": "jac lib-build",
+        "clean": "rm -rf build"
+    },
+    "jaculus": {
+        "packageFormat": 1,
+        "blocks": "blocks"
+    }
+}

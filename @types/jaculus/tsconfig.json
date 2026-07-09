@@ -1,0 +1,14 @@
+{
+    "include": ["src"],
+    "compilerOptions": {
+        "target": "es2023",
+        "module": "nodenext",
+        "lib": ["es2023"],
+        "moduleResolution": "nodenext",
+        "declaration": true,
+        "declarationDir": "build/types",
+        "outDir": "build/js",
+        "rootDir": "src",
+        "strict": true
+    }
+}

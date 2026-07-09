@@ -1,0 +1,11 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "jacly-meta-blocks",
+    "category": "functions",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#FF6680",
+    "icon": "SquareFunction",
+    "priority": 60,
+    "custom": "PROCEDURE"
+}

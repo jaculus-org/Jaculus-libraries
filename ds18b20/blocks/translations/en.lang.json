@@ -1,0 +1,20 @@
+{
+    "DS18B20_NAME": "DS18B20",
+    "DS18B20_DESCRIPTION": "DS18B20 temperature sensor library (1-Wire)",
+    "DS18B20_LABEL_SETUP": "Setup (this is required to use other DS18B20 blocks)",
+    "DS18B20_LABEL_READ": "Reading",
+    "DS18B20_LABEL_OTHER": "Other DS18B20 operations",
+
+    "DS18B20_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] DS18B20 on pin $[PIN] with resolution $[RESOLUTION]",
+    "DS18B20_CONSTRUCTOR_TOOLTIP": "Create a new DS18B20 temperature sensor instance",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_9BITS": "9 bits",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_10BITS": "10 bits",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_11BITS": "11 bits",
+    "DS18B20_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_12BITS": "12 bits",
+
+    "DS18B20_READ_TEMPERATURE_MESSAGE0": "read temperature from $[SENSOR_INSTANCE]",
+    "DS18B20_READ_TEMPERATURE_TOOLTIP": "Read the current temperature in degrees Celsius",
+
+    "DS18B20_CLOSE_MESSAGE0": "close $[SENSOR_INSTANCE]",
+    "DS18B20_CLOSE_TOOLTIP": "Release the DS18B20 sensor resources"
+}
