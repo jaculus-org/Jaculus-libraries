@@ -187,9 +187,13 @@ export class Button {
             return;
         }
 
-        this.clickTimeout = setTimeout(() => {
-            this.clickTimeout = 0;
+        if(this.eventCallbacks.doubleClick){
+            this.clickTimeout = setTimeout(() => {
+                this.clickTimeout = 0;
+                this.eventCallbacks.click?.(duration);
+            }, this.doubleClickLimit);
+        }else{
             this.eventCallbacks.click?.(duration);
-        }, this.doubleClickLimit);
+        }
     }
 }
