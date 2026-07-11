@@ -1,0 +1,20 @@
+{
+    "R_ENCODER_NAME": "Rotační enkodér",
+    "R_ENCODER_DESCRIPTION": "Knihovna pro řízení rotačního enkodéru založená na čítači pulzů",
+    "R_ENCODER_LABEL_SETUP": "Nastavení (je potřeba pro použití ostatních bloků rotačního enkodéru)",
+    "R_ENCODER_LABEL_READ": "Čtení",
+    "R_ENCODER_LABEL_OTHER": "Ostatní operace s rotačním enkodérem",
+
+    "RENCODER_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] rotační enkodér\n na pinu úrovně $[PIN_LEVEL] pinu hrany $[PIN_EDGE]",
+    "RENCODER_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci rotačního enkodéru",
+    "RENCODER_READ_MESSAGE0": "přečíst hodnotu z rotačního enkodéru $[R_ENCODER_INSTANCE]",
+    "RENCODER_READ_TOOLTIP": "Přečte aktuální hodnotu rotačního enkodéru",
+    "RENCODER_CLEAR_MESSAGE0": "vynulovat rotační enkodér $[R_ENCODER_INSTANCE]",
+    "RENCODER_CLEAR_TOOLTIP": "Vynuluje rotační enkodér na 0",
+    "RENCODER_START_MESSAGE0": "spustit rotační enkodér $[R_ENCODER_INSTANCE]",
+    "RENCODER_START_TOOLTIP": "Spustí rotační enkodér",
+    "RENCODER_STOP_MESSAGE0": "zastavit rotační enkodér $[R_ENCODER_INSTANCE]",
+    "RENCODER_STOP_TOOLTIP": "Zastaví rotační enkodér",
+    "RENCODER_CLOSE_MESSAGE0": "zavřít rotační enkodér $[R_ENCODER_INSTANCE]",
+    "RENCODER_CLOSE_TOOLTIP": "Zavře rotační enkodér"
+}

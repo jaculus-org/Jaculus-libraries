@@ -1,0 +1,251 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "jacly-meta-blocks",
+    "category": "json",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#d81b60",
+    "priority": 134,
+    "contents": [
+        {
+            "kind": "block",
+            "type": "json_object_create",
+            "inputs": {
+                "PAIRS": {
+                    "block": {
+                        "type": "json_object_entry"
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_to_text",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "VALUE"
+                }
+            ],
+            "output": "String",
+            "tooltip": "%T%",
+            "code": "JSON.stringify($[VALUE])"
+        },
+        {
+            "kind": "block",
+            "type": "json_text_to_object",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "TEXT",
+                    "check": "String"
+                }
+            ],
+            "output": "JsonObject",
+            "tooltip": "%T%",
+            "code": "JSON.parse($[TEXT])",
+            "inputs": {
+                "TEXT": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "{\"key\":\"value\"}"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_clear",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "OBJECT",
+                    "check": "JsonObject"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "(() => { const __jaclyObject = $[OBJECT]; Object.keys(__jaclyObject).forEach((__jaclyKey) => delete __jaclyObject[__jaclyKey]); })();"
+        },
+        {
+            "kind": "block",
+            "type": "json_object_contains_key",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "OBJECT",
+                    "check": "JsonObject"
+                },
+                {
+                    "type": "input_value",
+                    "name": "KEY"
+                }
+            ],
+            "output": "Boolean",
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "Object.prototype.hasOwnProperty.call($[OBJECT], $[KEY])",
+            "inputs": {
+                "KEY": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "key"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_get_key",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "KEY"
+                },
+                {
+                    "type": "input_value",
+                    "name": "OBJECT",
+                    "check": "JsonObject"
+                }
+            ],
+            "output": null,
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "($[OBJECT][$[KEY]])",
+            "inputs": {
+                "KEY": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "key"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_set_key",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "OBJECT",
+                    "check": "JsonObject"
+                },
+                {
+                    "type": "input_value",
+                    "name": "KEY"
+                },
+                {
+                    "type": "input_value",
+                    "name": "VALUE"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "$[OBJECT][$[KEY]] = $[VALUE];",
+            "inputs": {
+                "KEY": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "key"
+                        }
+                    }
+                },
+                "VALUE": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "value"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_delete_key",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "OBJECT",
+                    "check": "JsonObject"
+                },
+                {
+                    "type": "input_value",
+                    "name": "KEY"
+                }
+            ],
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true,
+            "tooltip": "%T%",
+            "code": "delete $[OBJECT][$[KEY]];",
+            "inputs": {
+                "KEY": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "key"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "json_object_entry",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "KEY"
+                },
+                {
+                    "type": "input_value",
+                    "name": "VALUE"
+                }
+            ],
+            "previousStatement": "JsonObjectEntry",
+            "nextStatement": "JsonObjectEntry",
+            "inputsInline": true,
+            "hideInToolbox": true,
+            "tooltip": "%T%",
+            "code": "[$[KEY]]: $[VALUE],",
+            "inputs": {
+                "KEY": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "key"
+                        }
+                    }
+                },
+                "VALUE": {
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "value"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

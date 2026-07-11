@@ -1,0 +1,282 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "piezo",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#177ba2",
+    "icon": "Music",
+    "priority": 140,
+    "import": ["import { PIEZO, Tones, Volume, Effects } from \"piezo\";"],
+    "contents": [
+        { "kind": "label", "text": "%SETUP%" },
+        {
+            "kind": "block",
+            "type": "piezo_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "piezo"
+                },
+                {
+                    "type": "field_number",
+                    "name": "PIEZO_GPIO_PIN",
+                    "value": 5,
+                    "min": 0,
+                    "max": 48,
+                    "precision": 1
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "VOLUME",
+                    "options": [
+                        ["%OFF%", "Volume.OFF"],
+                        ["%LOW%", "Volume.LOW"],
+                        ["%MID%", "Volume.MID"],
+                        ["%ON%", "Volume.ON"]
+                    ]
+                }
+            ],
+            "constructs": "PIEZO",
+            "tooltip": "%T%",
+            "code": "let $[CONSTRUCTED_VAR_NAME] = new PIEZO($[PIEZO_GPIO_PIN], $[VOLUME]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        },
+        {
+            "kind": "block",
+            "type": "piezo_set_volume",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "VOLUME",
+                    "options": [
+                        ["%OFF%", "Volume.OFF"],
+                        ["%LOW%", "Volume.LOW"],
+                        ["%MID%", "Volume.MID"],
+                        ["%ON%", "Volume.ON"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PIEZO_INSTANCE].setVolume($[VOLUME]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        },
+        { "kind": "label", "text": "%PLAY%" },
+        {
+            "kind": "block",
+            "type": "piezo_note",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "NOTE",
+                    "options": [
+                        ["OFF", "Tones.REST"],
+                        ["A", "Tones.A"],
+                        ["A#", "Tones.AS"],
+                        ["H", "Tones.H"],
+                        ["C", "Tones.C"],
+                        ["C#", "Tones.CS"],
+                        ["D", "Tones.D"],
+                        ["D#", "Tones.DS"],
+                        ["E", "Tones.E"],
+                        ["F", "Tones.F"],
+                        ["F#", "Tones.FS"],
+                        ["G", "Tones.G"],
+                        ["G#", "Tones.GS"]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "DURATION_MS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 500 }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "[$[NOTE], $[DURATION_MS]]",
+            "output": "Note",
+            "inputsInline": true
+        },
+        {
+            "kind": "block",
+            "type": "piezo_tone",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "HZ",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 440 }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DURATION_MS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 500 }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "[$[HZ], $[DURATION_MS]]",
+            "output": "Note",
+            "inputsInline": true
+        },
+        {
+            "kind": "block",
+            "type": "piezo_play_tone",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                },
+                {
+                    "type": "input_value",
+                    "name": "HZ",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": { "NUM": 440 }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PIEZO_INSTANCE].playTone($[HZ]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        },
+        {
+            "kind": "block",
+            "type": "piezo_play_note",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                },
+                {
+                    "type": "input_value",
+                    "name": "NOTE",
+                    "check": "Note",
+                    "shadow": {
+                        "type": "piezo_note"
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[PIEZO_INSTANCE].playNote($[NOTE]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        },
+        { "kind": "label", "text": "%SONG%" },
+        {
+            "kind": "block",
+            "type": "piezo_play_song",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SONG",
+                    "check": "Array",
+                    "shadow": {
+                        "type": "lists_create_with",
+                        "mutation": { "items": 3 },
+                        "inputs": {
+                            "ADD0": { "shadow": { "type": "piezo_note" } },
+                            "ADD1": { "shadow": { "type": "piezo_note" } },
+                            "ADD2": { "shadow": { "type": "piezo_note" } }
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[PIEZO_INSTANCE].playSong($[SONG]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        },
+        {
+            "kind": "block",
+            "type": "piezo_play_scale",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[PIEZO_INSTANCE].playScale();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        { "kind": "label", "text": "%EFFECTS%" },
+        {
+            "kind": "block",
+            "type": "piezo_play_effect",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIEZO_INSTANCE",
+                    "instanceof": "PIEZO"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "EFFECT",
+                    "options": [
+                        ["%COIN%", "coin"],
+                        ["%JUMP%", "jump"],
+                        ["%WIN%", "win"],
+                        ["%LOSE%", "lose"],
+                        ["%DAMAGE%", "damage"],
+                        ["%UPGRADE%", "upgrade"],
+                        ["%SHOOT%", "shoot"],
+                        ["%MENU_MOVE%", "menuMove"],
+                        ["%MENU_SELECT%", "menuSelect"],
+                        ["%ERROR%", "error"],
+                        ["%NOTIFY%", "notify"],
+                        ["%TICK%", "tick"],
+                        ["%TOCK%", "tock"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[PIEZO_INSTANCE].playSong(Effects.$[EFFECT]);",
+            "previousStatement": null,
+            "nextStatement": null,
+            "inputsInline": true
+        }
+    ]
+}

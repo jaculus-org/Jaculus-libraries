@@ -1,5 +1,165 @@
 [
   {
     "id": "empty-template"
+  },
+  {
+    "id": "@types/jaculus",
+    "description": "Core package for JacLy providing essential functionalities."
+  },
+  {
+    "id": "algorithms",
+    "description": "Collection of algorithmic functions (Moving Average and PID controller)"
+  },
+  {
+    "id": "basic",
+    "description": "Jacly basic blocks"
+  },
+  {
+    "id": "bq2589",
+    "description": "BQ2589 battery charger control library"
+  },
+  {
+    "id": "button",
+    "description": "Button event library"
+  },
+  {
+    "id": "colors",
+    "description": "Colors utility functions and types"
+  },
+  {
+    "id": "differential-drive",
+    "description": "Differential drive motor control library"
+  },
+  {
+    "id": "ds18b20",
+    "description": "DS18B20 temperature sensor - One Wire sensor library"
+  },
+  {
+    "id": "ds3231",
+    "description": "DS3231 real-time clock (RTC) library"
+  },
+  {
+    "id": "elks",
+    "description": "ELKS (ESP Learning Kit Starter)"
+  },
+  {
+    "id": "game-loop",
+    "description": "Game loop with shape rendering and collision detection"
+  },
+  {
+    "id": "hd44780",
+    "description": "HD44780 LCD display library"
+  },
+  {
+    "id": "jacly-meta-blocks",
+    "description": "This is a collection of internal base blocks used by the Jacly. Those blocks contains base Blockly blocks definitions and generators."
+  },
+  {
+    "id": "lm75a",
+    "description": "LM75A temperature sensor library"
+  },
+  {
+    "id": "mpu6050",
+    "description": "MPU6050 accelerometer and gyroscope library"
+  },
+  {
+    "id": "piezo",
+    "description": "PIEZO piezo sounds library"
+  },
+  {
+    "id": "r-encoder",
+    "description": "R-Encoder library"
+  },
+  {
+    "id": "rc522",
+    "description": "RFID Reader RC522 library"
+  },
+  {
+    "id": "readline",
+    "description": "Readline library for Jaculus"
+  },
+  {
+    "id": "robutek",
+    "description": "Robůtek is robotic platform designed for teaching programming and robotics"
+  },
+  {
+    "id": "rphub75",
+    "description": "Hub75 matrix control"
+  },
+  {
+    "id": "saturn",
+    "description": "Saturn board library"
+  },
+  {
+    "id": "servo",
+    "description": "Servo motor control library"
+  },
+  {
+    "id": "smartled-ext",
+    "description": "Extended SmartLED utility functions and types"
+  },
+  {
+    "id": "template-jacly",
+    "description": "Default Jacly Block template project",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jacly-elks",
+    "description": "Jacly Block template for ELKS (ESP Learning Kit Starter)",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jacly-robutek2",
+    "description": "Jacly Block template for Robutek2",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jacly-saturn",
+    "description": "Default Jacly Block template project for Saturn",
+    "projectType": "jacly",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jaculus",
+    "description": "Default Jaculus TS template project",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jaculus-robutek2",
+    "description": "Jaculus TS template for Robutek2",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jaculus-saturn",
+    "description": "Saturn ",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "template-jaculus-smartled",
+    "description": "Jaculus TS template for SmartLed",
+    "projectType": "code",
+    "isTemplate": true
+  },
+  {
+    "id": "utils",
+    "description": "Jaculus utilities library (scaling, clamping, mapping, etc.)"
+  },
+  {
+    "id": "utils-i2c",
+    "description": "Jaculus utilities library for I2C communication"
+  },
+  {
+    "id": "vl53l0x",
+    "description": "VL53L0X time-of-flight distance sensor library"
+  },
+  {
+    "id": "zscs2016c",
+    "description": "ZSCS2016C color sensor library"
   }
 ]

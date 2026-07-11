@@ -1,0 +1,143 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "renderer_texture",
+    "parentCategory": "display",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#B7791F",
+    "icon": "Image",
+    "priority": 122,
+    "import": [
+        "import { Texture } from \"renderer\";"
+    ],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%TEXTURE%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "texture_?"
+                }
+            ],
+            "constructs": "renderer_texture",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Texture();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_load",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PATH",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "/assets/image.bmp"
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[TEXTURE_INSTANCE].load($[PATH]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_set_wrap_mode",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "WRAP_MODE",
+                    "options": [
+                        [
+                            "%REPEAT%",
+                            "\"repeat\""
+                        ],
+                        [
+                            "%CLAMP%",
+                            "\"clamp\""
+                        ],
+                        [
+                            "%MIRROR%",
+                            "\"mirror\""
+                        ]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[TEXTURE_INSTANCE].setWrapMode($[WRAP_MODE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_get_width",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[TEXTURE_INSTANCE].getWidth()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_get_height",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[TEXTURE_INSTANCE].getHeight()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_texture_is_valid",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[TEXTURE_INSTANCE].isValid()",
+            "output": "Number"
+        }
+    ]
+}

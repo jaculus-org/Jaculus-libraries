@@ -1,0 +1,26 @@
+{
+    "GAME_LOOP_NAME": "Herní smyčka",
+    "GAME_LOOP_DESCRIPTION": "Bloky herní smyčky pro vykreslování tvarů a obsluhu kolizí.",
+    "GAME_LOOP_LABEL_SETUP": "Nastavení",
+    "GAME_LOOP_LABEL_SCENE": "Scéna",
+    "GAME_LOOP_LABEL_EVENTS": "Události",
+
+    "GAME_LOOP_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] herní smyčku na displeji $[DISPLAY_INSTANCE]",
+    "GAME_LOOP_CONSTRUCTOR_TOOLTIP": "Vytvoří herní smyčku, která vykresluje scénu na vybraný displej.",
+
+    "GAME_LOOP_ADD_SHAPE_MESSAGE0": "přidat $[SHAPE_INSTANCE] do $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_ADD_SHAPE_TOOLTIP": "Přidá tvar do scény herní smyčky.",
+
+    "GAME_LOOP_ON_TICK_MESSAGE0": "při tiku $[GAME_LOOP_INSTANCE] proveď\n$[CODE]",
+    "GAME_LOOP_ON_TICK_TOOLTIP": "Spustí kód při každém tiku herní smyčky. Proměnná delta obsahuje uplynulé milisekundy od předchozího tiku.",
+    "GAME_LOOP_ON_TICK_CALLBACK_DELTA": "delta (ms)",
+
+    "GAME_LOOP_ON_COLLISION_MESSAGE0": "při kolizi $[SHAPE_A] a $[SHAPE_B] v $[GAME_LOOP_INSTANCE] proveď\n$[CODE]",
+    "GAME_LOOP_ON_COLLISION_TOOLTIP": "Spustí kód, když se vybrané tvary protínají. Blok připojí k oběma tvarům výchozí collidery.",
+
+    "GAME_LOOP_OFF_TICK_MESSAGE0": "odstranit obsluhu tiku z $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_OFF_TICK_TOOLTIP": "Odstraní callback tiku z herní smyčky.",
+
+    "GAME_LOOP_OFF_COLLISION_MESSAGE0": "odstranit obsluhu kolize $[SHAPE_A] a $[SHAPE_B] z $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_OFF_COLLISION_TOOLTIP": "Odstraní callback kolize pro vybranou dvojici tvarů."
+}

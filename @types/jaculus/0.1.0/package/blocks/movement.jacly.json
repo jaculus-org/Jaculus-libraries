@@ -1,0 +1,12 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "movement",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#2D54CF",
+    "icon": "Cable",
+    "priority": 118,
+    "import": [],
+    "contents": []
+}

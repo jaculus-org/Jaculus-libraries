@@ -1,0 +1,95 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "readline",
+    "parentCategory": "communication",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#8C510C",
+    "icon": "NotebookText",
+    "priority": 140,
+    "import": ["import { readline } from \"readline\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%READ_LINES%"
+        },
+        {
+            "kind": "block",
+            "type": "readline_onLine",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ECHO",
+                    "options": [
+                        ["%ECHO_OFF%", "false"],
+                        ["%ECHO_ON%", "true"]
+                    ]
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "lineText",
+                    "message": "%LINE_TEXT%",
+                    "type": "String",
+                    "codeName": "line"
+                },
+                {
+                    "identifier": "lineLength",
+                    "message": "%LINE_LENGTH%",
+                    "type": "Number",
+                    "codeName": "line.length"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "{\n\tconst streamReadline = new readline($[ECHO]);\n\tasync function streamOnLineLoop() {\n\t\ttry {\n\t\t\tconst line = await streamReadline.read();\n$[CODE]\n\t\t\tstreamOnLineLoop();\n\t\t} catch (_reason) {\n\t\t\tconsole.warn(\"stdin line read failed:\", _reason);\n\t\t\tstreamOnLineLoop();\n\t\t}\n\t}\n\tstreamOnLineLoop();\n}"
+        },
+        {
+            "kind": "block",
+            "type": "readline_keyValue",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "ECHO",
+                    "options": [
+                        ["%ECHO_OFF%", "false"],
+                        ["%ECHO_ON%", "true"]
+                    ]
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "keyText",
+                    "message": "%KEY%",
+                    "type": "String",
+                    "codeName": "keyText"
+                },
+                {
+                    "identifier": "valueText",
+                    "message": "%VALUE_TEXT%",
+                    "type": "String",
+                    "codeName": "valueText"
+                },
+                {
+                    "identifier": "valueNumber",
+                    "message": "%VALUE_NUMBER%",
+                    "type": "Number",
+                    "codeName": "valueNumber"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "{\n\tconst streamReadline = new readline($[ECHO]);\n\tasync function streamOnLineKeyValueLoop() {\n\t\ttry {\n\t\t\tconst line = await streamReadline.read();\n\t\t\tconst _colonIdx = line.indexOf(\":\");\n\t\t\tconst keyText = _colonIdx >= 0 ? line.substring(0, _colonIdx).trim() : line.trim();\n\t\t\tconst _rawValue = _colonIdx >= 0 ? line.substring(_colonIdx + 1).trim() : \"\";\n\t\t\tconst valueText = _rawValue;\n\t\t\tconst valueNumber = parseFloat(_rawValue);\n$[CODE]\n\t\t\tstreamOnLineKeyValueLoop();\n\t\t} catch (_reason) {\n\t\t\tconsole.warn(\"stdin line read failed:\", _reason);\n\t\t\tstreamOnLineKeyValueLoop();\n\t\t}\n\t}\n\tstreamOnLineKeyValueLoop();\n}"
+        }
+    ]
+}

@@ -1,0 +1,232 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "button",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#4F46E5",
+    "icon": "MousePointerClick",
+    "priority": 140,
+    "import": ["import { Button } from \"button\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "button_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "button_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "PIN",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 5
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DOUBLE_CLICK_LIMIT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 250
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DEBOUNCE_TIME",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 30
+                        }
+                    }
+                }
+            ],
+            "constructs": "button",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Button($[PIN], $[DOUBLE_CLICK_LIMIT], $[DEBOUNCE_TIME]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%EVENTS%"
+        },
+        {
+            "kind": "block",
+            "type": "button_on",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "EVENT",
+                    "options": [
+                        ["%PRESS%", "\"press\""],
+                        ["%RELEASE%", "\"release\""],
+                        ["%DOUBLE_CLICK%", "\"doubleClick\""]
+                    ]
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE",
+                    "check": "Function"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].on($[EVENT], async function() {\n$[CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "button_on_edge",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "EVENT",
+                    "options": [
+                        ["%PRESS%", "\"press\""],
+                        ["%RELEASE%", "\"release\""]
+                    ]
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE",
+                    "check": "Function"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "millis",
+                    "message": "%MILLIS%",
+                    "type": "Number",
+                    "codeName": "info.timestamp.millis()"
+                },
+                {
+                    "identifier": "micros",
+                    "message": "%MICROS%",
+                    "type": "Number",
+                    "codeName": "info.timestamp.micros()"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].on($[EVENT], async function(info) {\n$[CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "button_on_click",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE",
+                    "check": "Function"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "duration",
+                    "message": "%DURATION%",
+                    "type": "Number",
+                    "codeName": "duration"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].on(\"click\", async function(duration) {\n$[CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "button_off",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "EVENT",
+                    "options": [
+                        ["%PRESS%", "\"press\""],
+                        ["%RELEASE%", "\"release\""],
+                        ["%CLICK%", "\"click\""],
+                        ["%DOUBLE_CLICK%", "\"doubleClick\""]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].off($[EVENT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "button_is_pressed",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].isPressed()",
+            "output": "Boolean"
+        },
+        {
+            "kind": "label",
+            "text": "%OTHER%"
+        },
+        {
+            "kind": "block",
+            "type": "button_close",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "BUTTON_INSTANCE",
+                    "instanceof": "button"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[BUTTON_INSTANCE].close();",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

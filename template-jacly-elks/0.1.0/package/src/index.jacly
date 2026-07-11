@@ -1,0 +1,490 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "basic_onStart",
+        "id": "hQFI0yMV.M4I)wpjC#Xv",
+        "x": 210,
+        "y": 50,
+        "extraState": {
+          "package": "basic"
+        },
+        "inputs": {
+          "CODE": {
+            "block": {
+              "type": "gpio_pinMode",
+              "id": "V}@0+*mC/q^.m}I#j@$N",
+              "extraState": {
+                "package": "@types/jaculus"
+              },
+              "fields": {
+                "MODE": "gpio.PinMode.INPUT"
+              },
+              "inputs": {
+                "PIN": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "p3N:]ob%R,4s#)?Hg!/I",
+                    "fields": {
+                      "NUM": 5
+                    }
+                  },
+                  "block": {
+                    "type": "elks_pins_buttons",
+                    "id": ".yZ)uf{+#.j^WBy2+3sY",
+                    "extraState": {
+                      "package": "elks"
+                    },
+                    "fields": {
+                      "PIN": "elks.Pins.SW0"
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "gpio_pinMode",
+                  "id": "3[hRXA,rE,fpX#|Wt=Ur",
+                  "extraState": {
+                    "package": "@types/jaculus"
+                  },
+                  "fields": {
+                    "MODE": "gpio.PinMode.OUTPUT"
+                  },
+                  "inputs": {
+                    "PIN": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "595K:Y5n0Tz_n4Y#-_5c",
+                        "fields": {
+                          "NUM": 5
+                        }
+                      },
+                      "block": {
+                        "type": "elks_pins_leds",
+                        "id": "%8yb[-:t0}im?GJ?Ria{",
+                        "extraState": {
+                          "package": "elks"
+                        },
+                        "fields": {
+                          "PIN": "elks.Pins.LED_G"
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "adc_configure",
+                      "id": "Mf^Ax.wT|HW8lBO_3M5T",
+                      "extraState": {
+                        "package": "@types/jaculus"
+                      },
+                      "fields": {
+                        "ATTEN": "adc.Attenuation.Db12"
+                      },
+                      "inputs": {
+                        "PIN": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "~RT+:cdFR5u*X:QhFxC^",
+                            "fields": {
+                              "NUM": 1
+                            }
+                          },
+                          "block": {
+                            "type": "elks_pins_potentiometers",
+                            "id": "8ol+g[^VUPnrKxwwJH0~",
+                            "extraState": {
+                              "package": "elks"
+                            },
+                            "fields": {
+                              "PIN": "elks.Pins.POT0"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "strip_constructor",
+                          "id": ":#uhp[QynRGA$6+gE9bU",
+                          "extraState": {
+                            "package": "@types/jaculus"
+                          },
+                          "fields": {
+                            "CONSTRUCTED_VAR_NAME": "strip",
+                            "LED_TYPE": "LED_WS2812"
+                          },
+                          "inputs": {
+                            "LED_PIN": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "=ZDFT;}}N`Q=@${-Iu,m",
+                                "fields": {
+                                  "NUM": 48
+                                }
+                              },
+                              "block": {
+                                "type": "elks_pins_smartleds",
+                                "id": "}s,SN%9^?:?o.n2|DSc6",
+                                "extraState": {
+                                  "package": "elks"
+                                },
+                                "fields": {
+                                  "PIN": "elks.Pins.ILED_ESP32"
+                                }
+                              }
+                            },
+                            "LED_COUNT": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "P,7Q8T6Bh-,xH)Wve8m,",
+                                "fields": {
+                                  "NUM": 1
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "strip_set",
+                              "id": "9s47F}{64KYobNW1x-Wc",
+                              "extraState": {
+                                "package": "@types/jaculus",
+                                "instanceName": "strip"
+                              },
+                              "fields": {
+                                "STRIP_INSTANCE": "strip"
+                              },
+                              "inputs": {
+                                "INDEX": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "{yB$FPF%:W[7dplz2.4C",
+                                    "fields": {
+                                      "NUM": 0
+                                    }
+                                  }
+                                },
+                                "COLOR_RGB": {
+                                  "block": {
+                                    "type": "dynamic_color_rgb",
+                                    "id": "3AmTUa%gPAY;@Lp2iasm",
+                                    "extraState": {
+                                      "mode": "NAMES",
+                                      "colorName": "green"
+                                    },
+                                    "fields": {
+                                      "MODE": "NAMES",
+                                      "COLOR_NAME": "green"
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "strip_show",
+                                  "id": "]HO8_8]EeU{|$bRGm)qI",
+                                  "extraState": {
+                                    "package": "@types/jaculus",
+                                    "instanceName": "strip"
+                                  },
+                                  "fields": {
+                                    "STRIP_INSTANCE": "strip"
+                                  },
+                                  "next": {
+                                    "block": {
+                                      "type": "basic_console_log",
+                                      "id": "G([U~A6.`;oRhOY.nd?I",
+                                      "extraState": {
+                                        "package": "basic"
+                                      },
+                                      "fields": {
+                                        "MODE": "log"
+                                      },
+                                      "inputs": {
+                                        "TEXT": {
+                                          "shadow": {
+                                            "type": "text",
+                                            "id": "RG*h,*o*T9|Hv!3|s4yP",
+                                            "fields": {
+                                              "TEXT": "init"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "gpio_onEvent",
+        "id": "T4eCz9j^C~R;lA.!8i;}",
+        "x": 210,
+        "y": 510,
+        "extraState": {
+          "package": "@types/jaculus"
+        },
+        "fields": {
+          "EVENT": "\"falling\""
+        },
+        "inputs": {
+          "PIN": {
+            "shadow": {
+              "type": "math_number",
+              "id": "q,?GdSiDD?Jzfl0dwN]z",
+              "fields": {
+                "NUM": 5
+              }
+            },
+            "block": {
+              "type": "elks_pins_buttons",
+              "id": "72+))xSnkUMKLtxjkBg/",
+              "extraState": {
+                "package": "elks"
+              },
+              "fields": {
+                "PIN": "elks.Pins.SW0"
+              }
+            }
+          },
+          "CALLBACK_VAR_millis": {
+            "block": {
+              "type": "gpio_onEvent_millis",
+              "id": "@8H)u~WDr%GPf1=8Zmti"
+            }
+          },
+          "CALLBACK_VAR_micros": {
+            "block": {
+              "type": "gpio_onEvent_micros",
+              "id": "t^?7C:{b6NBy?hBwZO{~"
+            }
+          },
+          "CODE": {
+            "block": {
+              "type": "gpio_write",
+              "id": "/z1E9v-?BHVg)iKV]A|U",
+              "extraState": {
+                "package": "@types/jaculus"
+              },
+              "inputs": {
+                "PIN": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "Uq.f/bC(Vnq*3r{27v!-",
+                    "fields": {
+                      "NUM": 5
+                    }
+                  },
+                  "block": {
+                    "type": "elks_pins_leds",
+                    "id": "VVyh%SZ-@!rk`b9T(7xq",
+                    "extraState": {
+                      "package": "elks"
+                    },
+                    "fields": {
+                      "PIN": "elks.Pins.LED_G"
+                    }
+                  }
+                },
+                "VALUE": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "JsGQ5gl$Ji_o)tzPk:R0",
+                    "fields": {
+                      "NUM": 1
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "strip_set",
+                  "id": "^m@,(+s*V`;}qh/4_EQF",
+                  "extraState": {
+                    "package": "@types/jaculus",
+                    "instanceName": "strip"
+                  },
+                  "fields": {
+                    "STRIP_INSTANCE": "strip"
+                  },
+                  "inputs": {
+                    "INDEX": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "1%/h6to^,xoYYoL;!h4l",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    },
+                    "COLOR_RGB": {
+                      "block": {
+                        "type": "dynamic_color_rgb",
+                        "id": "BkKksH)I;S`x(-Mi21IU",
+                        "inline": false,
+                        "extraState": {
+                          "mode": "HSL"
+                        },
+                        "fields": {
+                          "MODE": "HSL"
+                        },
+                        "inputs": {
+                          "H_INPUT": {
+                            "shadow": {
+                              "type": "math_number",
+                              "id": "rjZ5j{OLZHb|xJeRczWv",
+                              "fields": {
+                                "NUM": 0
+                              }
+                            },
+                            "block": {
+                              "type": "adc_read",
+                              "id": "s=ryI1Twib=c%y8Z)n?K",
+                              "extraState": {
+                                "package": "@types/jaculus"
+                              },
+                              "inputs": {
+                                "PIN": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "3V78=AC5E`RW{^R1!PSp",
+                                    "fields": {
+                                      "NUM": 1
+                                    }
+                                  },
+                                  "block": {
+                                    "type": "elks_pins_potentiometers",
+                                    "id": ":X`ddJ7/8{]WxI*|3s`b",
+                                    "extraState": {
+                                      "package": "elks"
+                                    },
+                                    "fields": {
+                                      "PIN": "elks.Pins.POT0"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "S_INPUT": {
+                            "shadow": {
+                              "type": "math_number",
+                              "id": "P.UmU|Y`KF[|3IwgT?}s",
+                              "fields": {
+                                "NUM": 100
+                              }
+                            }
+                          },
+                          "L_INPUT": {
+                            "shadow": {
+                              "type": "math_number",
+                              "id": "6Km#_Wm]iT/KQ`+^wN^3",
+                              "fields": {
+                                "NUM": 50
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "strip_show",
+                      "id": "v?nCgVLcYl`EnQO!(KIP",
+                      "extraState": {
+                        "package": "@types/jaculus",
+                        "instanceName": "strip"
+                      },
+                      "fields": {
+                        "STRIP_INSTANCE": "strip"
+                      },
+                      "next": {
+                        "block": {
+                          "type": "basic_sleep",
+                          "id": "b@(vR6.`H^w-/jqyt0{0",
+                          "extraState": {
+                            "package": "basic"
+                          },
+                          "inputs": {
+                            "TIME": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "6#@kIOV$}`VRSlu61|Z`",
+                                "fields": {
+                                  "NUM": 500
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "gpio_write",
+                              "id": "nMZPKKa1o,^whXcLURv9",
+                              "extraState": {
+                                "package": "@types/jaculus"
+                              },
+                              "inputs": {
+                                "PIN": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "QUDn4#mYH]p]Z$fu^6:t",
+                                    "fields": {
+                                      "NUM": 5
+                                    }
+                                  },
+                                  "block": {
+                                    "type": "elks_pins_leds",
+                                    "id": "9w8M/t$3wwN_jsjaipJr",
+                                    "extraState": {
+                                      "package": "elks"
+                                    },
+                                    "fields": {
+                                      "PIN": "elks.Pins.LED_G"
+                                    }
+                                  }
+                                },
+                                "VALUE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "/[Z+-hjmYq[|8(f+Qm2)",
+                                    "fields": {
+                                      "NUM": 0
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "variables": [
+    {
+      "name": "adc",
+      "id": "Hz-ewxsKd)/mve+#J^i]"
+    }
+  ]
+}

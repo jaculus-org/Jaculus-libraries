@@ -1,0 +1,26 @@
+{
+    "name": "template-jacly-saturn",
+    "version": "0.1.0",
+    "description": "Default Jacly Block template project for Saturn",
+    "dependencies": {
+        "@types/jaculus": "0.1.0",
+        "basic": "0.1.0",
+        "jacly-meta-blocks": "0.1.0",
+        "colors": "0.1.0",
+        "game-loop": "0.1.0",
+        "saturn": "0.1.0"
+    },
+    "files": [
+        "build/**/*"
+    ],
+    "type": "module",
+    "main": "./build/index.js",
+    "jaculus": {
+        "packageFormat": 1,
+        "registry": [
+            "https://registry.jaculus.org/"
+        ],
+        "template": true,
+        "projectType": "jacly"
+    }
+}

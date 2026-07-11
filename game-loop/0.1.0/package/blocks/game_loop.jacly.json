@@ -1,0 +1,169 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "game-loop",
+    "category": "game_loop",
+    "parentCategory": "display",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#22A06B",
+    "icon": "Gamepad2",
+    "priority": 122,
+    "import": ["import { GameLoop } from \"game-loop\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "gameLoop_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "DISPLAY_INSTANCE",
+                    "instanceof": "rphub75_display"
+                }
+            ],
+            "constructs": "game_loop",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new GameLoop($[DISPLAY_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%SCENE%"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_add_shape",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].addShape($[SHAPE_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%EVENTS%"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_on_tick",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE",
+                    "check": "Function"
+                }
+            ],
+            "callbackVars": [
+                {
+                    "identifier": "delta",
+                    "message": "%DELTA%",
+                    "type": "Number",
+                    "codeName": "delta"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].on(\"tick\", async function(delta) {\n$[CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_on_collision",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_A",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_B",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_statement",
+                    "name": "CODE",
+                    "check": "Function"
+                }
+            ],
+            "isProgramStart": true,
+            "tooltip": "%T%",
+            "code": "$[SHAPE_A].addCollider();\n$[SHAPE_B].addCollider();\n$[GAME_LOOP_INSTANCE].on(\"collision\", $[SHAPE_A], $[SHAPE_B], async function() {\n$[CODE]\n});"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_off_tick",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].off(\"tick\");",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_off_collision",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_A",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_B",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].off(\"collision\", $[SHAPE_A], $[SHAPE_B]);",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}
