@@ -1,0 +1,104 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "renderer_font",
+    "parentCategory": "display",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#2563EB",
+    "icon": "Type",
+    "priority": 123,
+    "import": [
+        "import { Font } from \"renderer\";"
+    ],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%FONT%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_font_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "font_?"
+                }
+            ],
+            "constructs": "renderer_font",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Font();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_font_get_height",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FONT_INSTANCE",
+                    "instanceof": "renderer_font"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[FONT_INSTANCE].getHeight()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_font_get_char_width",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FONT_INSTANCE",
+                    "instanceof": "renderer_font"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CHAR",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "A"
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[FONT_INSTANCE].getCharWidth($[CHAR])",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_font_get_char_spacing",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "FONT_INSTANCE",
+                    "instanceof": "renderer_font"
+                },
+                {
+                    "type": "input_value",
+                    "name": "CHAR",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "A"
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[FONT_INSTANCE].getCharSpacing($[CHAR])",
+            "output": "Number"
+        }
+    ]
+}

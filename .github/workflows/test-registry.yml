@@ -1,0 +1,125 @@
+name: Test Registry
+
+on:
+    pull_request:
+        branches:
+            - main
+            - master
+
+permissions:
+    contents: read
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        env:
+            TZ: Europe/Prague
+            # Default registry repo URL; derived from the current repository
+            REGISTRY_GIT_URL: https://github.com/${{ github.repository }}.git
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v5
+              with:
+                  fetch-depth: 0 # Full history for tags
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "24.x"
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v3
+              with:
+                  version: latest
+
+            - name: Configure command PATH
+              run: |
+                  echo "PNPM_HOME=$HOME/.local/share/pnpm" >> "$GITHUB_ENV"
+                  mkdir -p "$HOME/.local/share/pnpm/bin"
+                  echo "$HOME/.local/share/pnpm/bin" >> $GITHUB_PATH
+                  pnpm config set global-bin-dir "$HOME/.local/share/pnpm/bin"
+
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - name: Setup pnpm cache
+              uses: actions/cache@v4
+              with:
+                  path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Checkout Jaculus-tools
+              run: |
+                  git clone https://github.com/jaculus-org/Jaculus-tools.git --branch master ../Jaculus-tools
+                  cd ../Jaculus-tools
+                  pnpm install
+                  pnpm build
+                  cd packages/tools
+                  pnpm add -g .
+
+            - name: Clone and Build Registry Tool
+              run: |
+                  git clone https://github.com/jaculus-org/Jaculus-registry.git ../jaculus-registry
+                  cd ../jaculus-registry
+                  pnpm install
+                  # Link local jaculus packages (if any) from the previously cloned Jaculus-tools
+                  for pkg in ../Jaculus-tools/packages/*; do
+                    if [ -f "$pkg/package.json" ]; then
+                      echo "Linking local package: $pkg"
+                      pnpm link "$pkg" || true
+                    fi
+                  done
+                  pnpm build || true
+
+            - name: Clone target registry repo (dist)
+              run: |
+                  git clone $REGISTRY_GIT_URL ../jaculus-registry-dist
+                  cd ../jaculus-registry-dist
+                  git fetch --all
+                  git checkout registry || git checkout -b registry
+                  cd -
+
+            - name: Start local registry server
+              run: |
+                  pnpm --dir ../jaculus-registry run cli -- serve "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist" &
+                  echo "REGISTRY_PID=$!" >> $GITHUB_ENV
+                  # Wait for server to be ready
+                  for i in $(seq 1 10); do
+                    if curl -sf http://127.0.0.1:3737/; then
+                      exit 0
+                    fi
+                    sleep 1
+                  done
+                  echo "Registry server did not become ready in time" >&2
+                  exit 1
+
+            - name: Prepare filtered registry source and Generate registry
+              run: |
+                  # Use the previously cloned dist repo as the destination
+                  pnpm --dir ../jaculus-registry run cli -- generate "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+
+            - name: Stop local registry server
+              if: always()
+              run: |
+                  if [ -n "${REGISTRY_PID:-}" ]; then
+                    kill "$REGISTRY_PID" || true
+                  fi
+
+            - name: Copy dist to accessible location
+              run: |
+                  mkdir -p jaculus-registry-artifact
+                  cp -r ../jaculus-registry-dist/* jaculus-registry-artifact/
+
+            - name: Upload registry dist artifact
+              uses: actions/upload-artifact@v7
+              with:
+                  name: registry-dist
+                  path: jaculus-registry-artifact/

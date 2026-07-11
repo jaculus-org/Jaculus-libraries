@@ -1,0 +1,69 @@
+{
+    "RC522_NAME": "RC522",
+    "RC522_DESCRIPTION": "Bloky pro RFID čtečku/zapisovačku RC522.",
+
+    "RC522_LABEL_SETUP": "Nastavení",
+    "RC522_LABEL_CARD": "Karta",
+    "RC522_LABEL_TEXT": "Textové záznamy a data",
+    "RC522_LABEL_LABEL_TEXT_RECORDS": "Textové záznamy a data",
+    "RC522_LABEL_EVENTS": "Události",
+    "RC522_LABEL_OTHER": "Ostatní",
+
+    "RC522_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] na SPI $[SPI_INSTANCE] s CS pinem $[CS_PIN]",
+    "RC522_CONSTRUCTOR_TOOLTIP": "Vytvoří novou instanci RC522",
+
+    "RC522_STARTPOLLING_MESSAGE0": "spustit čtení karet s $[RC522_INSTANCE] každých $[INTERVAL] ms",
+    "RC522_STARTPOLLING_TOOLTIP": "Spustí pravidelné dotazování na kartu",
+    "RC522_STOPPOLLING_MESSAGE0": "zastavit čtení karet s $[RC522_INSTANCE]",
+    "RC522_STOPPOLLING_TOOLTIP": "Zastaví pravidelné dotazování na kartu",
+
+    "RC522_ISCARDPRESENT_MESSAGE0": "je na $[RC522_INSTANCE] karta přiložena",
+    "RC522_ISCARDPRESENT_TOOLTIP": "Zjistí, zda je karta právě v poli čtečky",
+    "RC522_READUID_MESSAGE0": "$[RC522_INSTANCE] přečíst UID karty",
+    "RC522_READUID_TOOLTIP": "Přečte UID jako surová data",
+    "RC522_READUIDTEXT_MESSAGE0": "$[RC522_INSTANCE] přečíst UID jako text",
+    "RC522_READUIDTEXT_TOOLTIP": "Přečte UID a vypíše ho jako hex řetězec",
+    "RC522_UIDTOSTRING_MESSAGE0": "$[RC522_INSTANCE] UID na text $[UID]",
+    "RC522_UIDTOSTRING_TOOLTIP": "Převede surové UID pole na hex řetězec",
+    "RC522_DEFAULTKEY_MESSAGE0": "výchozí RC522 klíč",
+    "RC522_DEFAULTKEY_TOOLTIP": "Výchozí MIFARE klíč (všech 0xFF)",
+
+    "RC522_AUTHENTICATE_MESSAGE0": "$[RC522_INSTANCE] autentizovat blok $[BLOCK] s typem klíče $[KEY_TYPE] a klíčem $[KEY]",
+    "RC522_AUTHENTICATE_TOOLTIP": "Autentizuje sektor před čtením nebo zápisem",
+    "RC522_AUTHENTICATE_ARGS0_FIELD_DROPDOWN_KEY_A": "A",
+    "RC522_AUTHENTICATE_ARGS0_FIELD_DROPDOWN_KEY_B": "B",
+
+    "RC522_GETVERSION_MESSAGE0": "$[RC522_INSTANCE] získat verzi",
+    "RC522_GETVERSION_TOOLTIP": "Přečte registr verze RC522",
+    "RC522_ANTENNAON_MESSAGE0": "$[RC522_INSTANCE] anténa $[ON]",
+    "RC522_ANTENNAON_TOOLTIP": "Zapne nebo vypne anténu",
+    "RC522_ANTENNAON_ARGS0_FIELD_DROPDOWN_ON": "zapnout",
+    "RC522_ANTENNAON_ARGS0_FIELD_DROPDOWN_OFF": "vypnout",
+
+    "RC522_READBLOCK_MESSAGE0": "$[RC522_INSTANCE] přečíst blok $[BLOCK]",
+    "RC522_READBLOCK_TOOLTIP": "Přečte jeden surový 16bajtový blok",
+    "RC522_WRITEBLOCK_MESSAGE0": "$[RC522_INSTANCE] zapsat blok $[BLOCK] data $[DATA]",
+    "RC522_WRITEBLOCK_TOOLTIP": "Zapíše jeden surový 16bajtový blok",
+
+    "RC522_READBLOCKTEXT_MESSAGE0": "$[RC522_INSTANCE] přečíst text z bloku $[BLOCK]",
+    "RC522_READBLOCKTEXT_TOOLTIP": "Přečte UTF-8 text z jednoho bloku",
+    "RC522_WRITEBLOCKTEXT_MESSAGE0": "$[RC522_INSTANCE] zapsat text $[TEXT] do bloku $[BLOCK]",
+    "RC522_WRITEBLOCKTEXT_TOOLTIP": "Zapíše UTF-8 text do jednoho bloku",
+    "RC522_READTEXTRECORD_MESSAGE0": "$[RC522_INSTANCE] přečíst textový záznam od bloku $[START_BLOCK]",
+    "RC522_READTEXTRECORD_TOOLTIP": "Přečte textový záznam uložený ve více navazujících blocích",
+    "RC522_WRITETEXTRECORD_MESSAGE0": "$[RC522_INSTANCE] zapsat textový záznam $[TEXT] od bloku $[START_BLOCK]",
+    "RC522_WRITETEXTRECORD_TOOLTIP": "Zapíše textový záznam do více navazujících bloků",
+    "RC522_READBLOCKUINT32_MESSAGE0": "$[RC522_INSTANCE] přečíst uint32 z bloku $[BLOCK]",
+    "RC522_READBLOCKUINT32_TOOLTIP": "Přečte 32bitové celé číslo ze bloku",
+    "RC522_WRITEBLOCKUINT32_MESSAGE0": "$[RC522_INSTANCE] zapsat uint32 $[VALUE] do bloku $[BLOCK]",
+    "RC522_WRITEBLOCKUINT32_TOOLTIP": "Zapíše 32bitové celé číslo do bloku",
+
+    "RC522_ONCARD_MESSAGE0": "když $[RC522_INSTANCE] detekuje kartu, proveď\n$[CODE]",
+    "RC522_ONCARD_TOOLTIP": "Spustí kód, když čtečka detekuje novou kartu",
+    "RC522_ONCARD_CALLBACK_UID": "UID karty",
+
+    "RC522_HALTCARD_MESSAGE0": "ukončit kartu s $[RC522_INSTANCE]",
+    "RC522_HALTCARD_TOOLTIP": "Uvede aktuální kartu do spánkového režimu",
+    "RC522_STOPCRYPTO_MESSAGE0": "vypnout kryptografii na $[RC522_INSTANCE]",
+    "RC522_STOPCRYPTO_TOOLTIP": "Vypne kryptografii po práci s kartou"
+}

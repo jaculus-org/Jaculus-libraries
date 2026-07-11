@@ -1,0 +1,60 @@
+{
+    "PIEZO_NAME": "PIEZO",
+    "PIEZO_DESCRIPTION": "PIEZO knihovna pro bzučák",
+
+    "PIEZO_LABEL_SETUP": "Nastavení",
+    "PIEZO_LABEL_PLAY": "Přehrávání",
+    "PIEZO_LABEL_SONG": "Skladby",
+    "PIEZO_LABEL_EFFECTS": "Zvukové efekty",
+
+    "PIEZO_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] PIEZO na gpio pinu $[PIEZO_GPIO_PIN] s hlasitostí $[VOLUME]",
+    "PIEZO_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci piezo bzučáku na zadaném GPIO pinu s danou počáteční hlasitostí",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_OFF": "VYPNUTO",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LOW": "NÍZKÁ",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_MID": "STŘEDNÍ",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_ON": "ZAPNUTO",
+
+    "PIEZO_SET_VOLUME_MESSAGE0": "$[PIEZO_INSTANCE] nastavit hlasitost na $[VOLUME]",
+    "PIEZO_SET_VOLUME_TOOLTIP": "Nastaví hlasitost přehrávání piezo bzučáku",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_OFF": "VYPNUTO",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_LOW": "NÍZKÁ",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_MID": "STŘEDNÍ",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_ON": "ZAPNUTO",
+
+    "PIEZO_PLAY_TONE_MESSAGE0": "$[PIEZO_INSTANCE] přehrát tón $[HZ] Hz",
+    "PIEZO_PLAY_TONE_TOOLTIP": "Přehraje danou frekvenci v Hz na bzučáku",
+
+    "PIEZO_PLAY_NOTE_DURATION_MESSAGE0": "$[PIEZO_INSTANCE] přehrát tón $[NOTE] po dobu $[DURATION_MS] ms",
+    "PIEZO_PLAY_NOTE_DURATION_TOOLTIP": "Přehraje jeden pojmenovaný tón po zadanou dobu v milisekundách",
+
+    "PIEZO_NOTE_MESSAGE0": "tón $[NOTE] po dobu $[DURATION_MS] ms",
+    "PIEZO_NOTE_TOOLTIP": "Jeden tón (výška a délka) pro vložení do seznamu skladby",
+
+    "PIEZO_TONE_MESSAGE0": "tón $[TONE] po dobu $[DURATION_MS] ms",
+    "PIEZO_TONE_TOOLTIP": "Jeden tón (výška a délka) pro vložení do seznamu skladby",
+
+    "PIEZO_PLAY_NOTE_MESSAGE0": "$[PIEZO_INSTANCE] přehrát $[NOTE]",
+    "PIEZO_PLAY_NOTE_TOOLTIP": "Přehraje jeden blok tónu",
+
+    "PIEZO_PLAY_SONG_MESSAGE0": "$[PIEZO_INSTANCE] přehrát skladbu $[SONG]",
+    "PIEZO_PLAY_SONG_TOOLTIP": "Přehraje seznam tónů v pořadí; seznam sestavte pomocí bloku vytvořit seznam s vyplněného tónovými bloky",
+
+    "PIEZO_PLAY_SCALE_MESSAGE0": "$[PIEZO_INSTANCE] přehrát stupnici",
+    "PIEZO_PLAY_SCALE_TOOLTIP": "Přehraje vestavěnou chromatickou stupnici od C do H",
+
+    "PIEZO_PLAY_EFFECT_MESSAGE0": "$[PIEZO_INSTANCE] přehrát zvukový efekt $[EFFECT]",
+    "PIEZO_PLAY_EFFECT_TOOLTIP": "Přehraje jeden z vestavěných zvukových efektů",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_COIN": "Mince",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_JUMP": "Skok",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_WIN": "Výhra",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_LOSE": "Prohra",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_DAMAGE": "Zásah",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_UPGRADE": "Vylepšení",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_SHOOT": "Výstřel",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_MENU_MOVE": "Pohyb v menu",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_MENU_SELECT": "Výběr v menu",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_ERROR": "Chyba",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_NOTIFY": "Upozornění",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_TICK": "Tik",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_TOCK": "Tak"
+}

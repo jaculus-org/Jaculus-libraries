@@ -1,0 +1,26 @@
+{
+    "GAME_LOOP_NAME": "Game Loop",
+    "GAME_LOOP_DESCRIPTION": "Game loop blocks for rendering shapes and handling collisions.",
+    "GAME_LOOP_LABEL_SETUP": "Setup",
+    "GAME_LOOP_LABEL_SCENE": "Scene",
+    "GAME_LOOP_LABEL_EVENTS": "Events",
+
+    "GAME_LOOP_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] game loop on display $[DISPLAY_INSTANCE]",
+    "GAME_LOOP_CONSTRUCTOR_TOOLTIP": "Create a game loop that renders its scene to the selected display.",
+
+    "GAME_LOOP_ADD_SHAPE_MESSAGE0": "add $[SHAPE_INSTANCE] to $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_ADD_SHAPE_TOOLTIP": "Add a shape to the game loop scene.",
+
+    "GAME_LOOP_ON_TICK_MESSAGE0": "on $[GAME_LOOP_INSTANCE] tick do\n$[CODE]",
+    "GAME_LOOP_ON_TICK_TOOLTIP": "Run code every game-loop tick. The delta variable contains elapsed milliseconds since the previous tick.",
+    "GAME_LOOP_ON_TICK_CALLBACK_DELTA": "delta (ms)",
+
+    "GAME_LOOP_ON_COLLISION_MESSAGE0": "on $[GAME_LOOP_INSTANCE] collision between $[SHAPE_A] and $[SHAPE_B] do\n$[CODE]",
+    "GAME_LOOP_ON_COLLISION_TOOLTIP": "Run code when the selected shapes intersect. The block attaches default colliders to both shapes.",
+
+    "GAME_LOOP_OFF_TICK_MESSAGE0": "remove tick handler from $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_OFF_TICK_TOOLTIP": "Remove the tick callback from the game loop.",
+
+    "GAME_LOOP_OFF_COLLISION_MESSAGE0": "remove collision handler for $[SHAPE_A] and $[SHAPE_B] from $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_OFF_COLLISION_TOOLTIP": "Remove the collision callback for the selected pair of shapes."
+}

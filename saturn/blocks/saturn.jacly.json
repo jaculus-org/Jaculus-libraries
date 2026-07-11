@@ -1,0 +1,114 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "saturn",
+    "category": "saturn",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#4B9CD3",
+    "icon": "CircuitBoard",
+    "priority": 140,
+    "import": ["import { createSaturn, SaturnPins } from \"saturn\";"],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "saturn_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "saturn_?"
+                }
+            ],
+            "constructs": "saturn",
+            "virtualInstances": [
+                {
+                    "instanceof": "rphub75_display",
+                    "name": "display",
+                    "connection": "$[CONSTRUCTED_VAR_NAME].display"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = createSaturn();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%PINS%"
+        },
+        {
+            "kind": "block",
+            "type": "saturn_pin",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "PIN",
+                    "options": [
+                        ["%ILED%", "SaturnPins.ILED"],
+                        ["%ILED_CONNECTOR%", "SaturnPins.ILEDConnector"],
+                        ["%BOOT_BTN%", "SaturnPins.BootBtn"],
+                        ["%USUP_A_SDA%", "SaturnPins.uSupA.SDA"],
+                        ["%USUP_A_SCL%", "SaturnPins.uSupA.SCL"],
+                        ["%USUP_B_SDA%", "SaturnPins.uSupB.SDA"],
+                        ["%USUP_B_SCL%", "SaturnPins.uSupB.SCL"],
+                        ["%PMOD1_PIN1%", "SaturnPins.Pmod1.Pin1"],
+                        ["%PMOD1_PIN2%", "SaturnPins.Pmod1.Pin2"],
+                        ["%PMOD1_PIN3%", "SaturnPins.Pmod1.Pin3"],
+                        ["%PMOD1_PIN4%", "SaturnPins.Pmod1.Pin4"],
+                        ["%PMOD2_PIN1%", "SaturnPins.Pmod2.Pin1"],
+                        ["%PMOD2_PIN2%", "SaturnPins.Pmod2.Pin2"],
+                        ["%PMOD2_PIN3%", "SaturnPins.Pmod2.Pin3"],
+                        ["%PMOD2_PIN4%", "SaturnPins.Pmod2.Pin4"],
+                        ["%PMOD3_PIN1%", "SaturnPins.Pmod3.Pin1"],
+                        ["%PMOD3_PIN2%", "SaturnPins.Pmod3.Pin2"],
+                        ["%PMOD3_PIN3%", "SaturnPins.Pmod3.Pin3"],
+                        ["%PMOD3_PIN4%", "SaturnPins.Pmod3.Pin4"],
+                        ["%PMOD3_PIN5%", "SaturnPins.Pmod3.Pin5"],
+                        ["%PMOD3_PIN6%", "SaturnPins.Pmod3.Pin6"],
+                        ["%PMOD3_PIN7%", "SaturnPins.Pmod3.Pin7"],
+                        ["%PMOD3_PIN8%", "SaturnPins.Pmod3.Pin8"],
+                        ["%DISPLAY_D0%", "SaturnPins.Display.D0"],
+                        ["%DISPLAY_D1%", "SaturnPins.Display.D1"],
+                        ["%DISPLAY_D2%", "SaturnPins.Display.D2"],
+                        ["%DISPLAY_D3%", "SaturnPins.Display.D3"],
+                        ["%DISPLAY_CS%", "SaturnPins.Display.CS"],
+                        ["%DISPLAY_CK%", "SaturnPins.Display.CK"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[PIN]",
+            "output": "Number"
+        },
+        {
+            "kind": "label",
+            "text": "%DISPLAY%"
+        },
+        {
+            "kind": "block",
+            "type": "rphub75_set_pixel"
+        },
+        {
+            "kind": "block",
+            "type": "rphub75_fill"
+        },
+        {
+            "kind": "block",
+            "type": "rphub75_clear"
+        },
+        {
+            "kind": "block",
+            "type": "rphub75_show"
+        },
+        {
+            "kind": "block",
+            "type": "rphub75_set_brightness"
+        }
+    ]
+}

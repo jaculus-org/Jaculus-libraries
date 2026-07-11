@@ -1,0 +1,60 @@
+{
+    "PIEZO_NAME": "PIEZO",
+    "PIEZO_DESCRIPTION": "PIEZO buzzer sound library",
+
+    "PIEZO_LABEL_SETUP": "Setup",
+    "PIEZO_LABEL_PLAY": "Play",
+    "PIEZO_LABEL_SONG": "Songs",
+    "PIEZO_LABEL_EFFECTS": "Sound effects",
+
+    "PIEZO_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] PIEZO on gpio pin $[PIEZO_GPIO_PIN] with volume $[VOLUME]",
+    "PIEZO_CONSTRUCTOR_TOOLTIP": "Create a PIEZO buzzer instance on the given GPIO pin with the given starting volume",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_OFF": "OFF",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_LOW": "LOW",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_MID": "MID",
+    "PIEZO_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_ON": "ON",
+
+    "PIEZO_SET_VOLUME_MESSAGE0": "$[PIEZO_INSTANCE] set volume to $[VOLUME]",
+    "PIEZO_SET_VOLUME_TOOLTIP": "Set the playback volume of the piezo buzzer",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_OFF": "OFF",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_LOW": "LOW",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_MID": "MID",
+    "PIEZO_SET_VOLUME_ARGS0_FIELD_DROPDOWN_ON": "ON",
+
+    "PIEZO_PLAY_TONE_MESSAGE0": "$[PIEZO_INSTANCE] play tone $[HZ] Hz",
+    "PIEZO_PLAY_TONE_TOOLTIP": "Play a raw frequency in Hz on the piezo indefinitely",
+
+    "PIEZO_PLAY_NOTE_DURATION_MESSAGE0": "$[PIEZO_INSTANCE] play note $[NOTE] for $[DURATION_MS] ms",
+    "PIEZO_PLAY_NOTE_DURATION_TOOLTIP": "Play a single named note for the given duration in milliseconds",
+
+    "PIEZO_NOTE_MESSAGE0": "note $[NOTE] for $[DURATION_MS] ms",
+    "PIEZO_NOTE_TOOLTIP": "A single note (pitch and duration) to place inside a song list",
+
+    "PIEZO_TONE_MESSAGE0": "tone $[HZ] for $[DURATION_MS] ms",
+    "PIEZO_TONE_TOOLTIP": "A single tone (pitch and duration) to place inside a song list",
+
+    "PIEZO_PLAY_NOTE_MESSAGE0": "$[PIEZO_INSTANCE] play $[NOTE]",
+    "PIEZO_PLAY_NOTE_TOOLTIP": "Play a single note block",
+
+    "PIEZO_PLAY_SONG_MESSAGE0": "$[PIEZO_INSTANCE] play song $[SONG]",
+    "PIEZO_PLAY_SONG_TOOLTIP": "Play a list of notes in sequence; build the list with a create list with block filled with note blocks",
+
+    "PIEZO_PLAY_SCALE_MESSAGE0": "$[PIEZO_INSTANCE] play scale",
+    "PIEZO_PLAY_SCALE_TOOLTIP": "Play a built-in chromatic scale from C to H",
+
+    "PIEZO_PLAY_EFFECT_MESSAGE0": "$[PIEZO_INSTANCE] play sound effect $[EFFECT]",
+    "PIEZO_PLAY_EFFECT_TOOLTIP": "Play one of the built-in sound effects",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_COIN": "Coin",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_JUMP": "Jump",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_WIN": "Win",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_LOSE": "Lose",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_DAMAGE": "Damage",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_UPGRADE": "Upgrade",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_SHOOT": "Shoot",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_MENU_MOVE": "Menu move",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_MENU_SELECT": "Menu select",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_ERROR": "Error",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_NOTIFY": "Notify",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_TICK": "Tick",
+    "PIEZO_PLAY_EFFECT_ARGS0_FIELD_DROPDOWN_TOCK": "Tock"
+}

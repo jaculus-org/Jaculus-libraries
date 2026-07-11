@@ -1,0 +1,20 @@
+{
+    "READLINE_NAME": "Readline",
+    "READLINE_DESCRIPTION": "Readline library for handling standard input",
+    "READLINE_LABEL_READ_LINES": "Read lines from standard input",
+    "READLINE_LABEL_OUTPUT": "Output",
+    "READLINE_LABEL_ADVANCED": "Advanced",
+    "READLINE_ONLINE_MESSAGE0": "when a line is read from standard input with echo $[ECHO] do\n$[CODE]",
+    "READLINE_ONLINE_TOOLTIP": "Keep reading lines from standard input and run the attached code for each line.",
+    "READLINE_ONLINE_ARGS0_FIELD_DROPDOWN_ECHO_ON": "on",
+    "READLINE_ONLINE_ARGS0_FIELD_DROPDOWN_ECHO_OFF": "off",
+    "READLINE_ONLINE_CALLBACK_LINE_TEXT": "line text",
+    "READLINE_ONLINE_CALLBACK_LINE_LENGTH": "line length",
+    "READLINE_KEYVALUE_MESSAGE0": "when a key-value line is read from standard input with echo $[ECHO] do\n$[CODE]",
+    "READLINE_KEYVALUE_TOOLTIP": "Keep reading lines from standard input, parse each as 'key: value', and run the attached code. valueNumber is NaN if the value is not a number.",
+    "READLINE_KEYVALUE_ARGS0_FIELD_DROPDOWN_ECHO_ON": "on",
+    "READLINE_KEYVALUE_ARGS0_FIELD_DROPDOWN_ECHO_OFF": "off",
+    "READLINE_KEYVALUE_CALLBACK_KEY": "key",
+    "READLINE_KEYVALUE_CALLBACK_VALUE_TEXT": "value (text)",
+    "READLINE_KEYVALUE_CALLBACK_VALUE_NUMBER": "value (number)"
+}

@@ -1,0 +1,1360 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "renderer_shapes",
+    "parentCategory": "display",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#8B5CF6",
+    "icon": "Shapes",
+    "priority": 121,
+    "import": [
+        "import { Collection, Circle, Rectangle, Polygon, Point, LineSegment, RegularPolygon } from \"shapes\";",
+        "import * as colors from \"colors\";"
+    ],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_collection_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "scene_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Z",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "shape_collection",
+            "virtualInstances": [
+                {
+                    "instanceof": "shape",
+                    "name": "shape",
+                    "connection": "$[CONSTRUCTED_VAR_NAME]"
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Collection({ x: $[X], y: $[Y], z: $[Z] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%SHAPES%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_circle_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "circle_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "RADIUS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 8
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Circle({ x: $[X], y: $[Y], radius: $[RADIUS], color: $[COLOR], fill: $[FILL] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_rectangle_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "rectangle_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 10
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 10
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "WIDTH",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 20
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "HEIGHT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 20
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Rectangle({ x: $[X], y: $[Y], width: $[WIDTH], height: $[HEIGHT], color: $[COLOR], fill: $[FILL] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_point_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "point_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Z",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Point({ x: $[X], y: $[Y], color: $[COLOR], z: $[Z] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_line_segment_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "line_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "X2",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 63
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y2",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 63
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Z",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new LineSegment({ x: $[X], y: $[Y], x2: $[X2], y2: $[Y2], color: $[COLOR], z: $[Z] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_regular_polygon_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "polygon_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SIDES",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 6
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "RADIUS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 12
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new RegularPolygon({ x: $[X], y: $[Y], sides: $[SIDES], radius: $[RADIUS], color: $[COLOR], fill: $[FILL] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_regular_polygon_side_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "polygon_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SIDES",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 6
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SIDE_LENGTH",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 12
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new RegularPolygon({ x: $[X], y: $[Y], sides: $[SIDES], sideLength: $[SIDE_LENGTH], color: $[COLOR], fill: $[FILL] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_polygon_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "polygon_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "VERTICES",
+                    "check": "Array",
+                    "shadow": {
+                        "type": "lists_create_with",
+                        "mutation": {
+                            "items": 3
+                        },
+                        "inputs": {
+                            "ADD0": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            },
+                            "ADD1": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            },
+                            "ADD2": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "constructs": "shape",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Polygon({ x: $[X], y: $[Y], vertices: $[VERTICES], color: $[COLOR], fill: $[FILL] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_polygon_vertex",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "hideInToolbox": true,
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "[$[X], $[Y]]",
+            "output": "Array"
+        },
+        {
+            "kind": "label",
+            "text": "%COLLECTION%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_collection_add",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "COLLECTION_INSTANCE",
+                    "instanceof": "shape_collection"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[COLLECTION_INSTANCE].add($[SHAPE_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_collection_clear",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "COLLECTION_INSTANCE",
+                    "instanceof": "shape_collection"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[COLLECTION_INSTANCE].clear();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%SHAPE_OPS%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_translate",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "DX",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "DY",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[SHAPE_INSTANCE].translate($[DX], $[DY]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setX($[X]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getX()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setY($[Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getY()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_rotation_angle",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "ANGLE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setRotationAngle($[ANGLE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_rotation_angle",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getRotationAngle()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_rotate",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "ANGLE",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 15
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].rotate($[ANGLE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_pivot",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 32
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setPivot($[X], $[Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_scale",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "ORIGIN_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "ORIGIN_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setScale($[SCALE_X], $[SCALE_Y], $[ORIGIN_X], $[ORIGIN_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_color",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setColor($[COLOR]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_color",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getColor()",
+            "output": "Color"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_z",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "Z",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setZ($[Z]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_z",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getZ()",
+            "output": "Number"
+        },
+        {
+            "kind": "label",
+            "text": "%INTERSECTS%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_intersects",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "OTHER_SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].intersects($[OTHER_SHAPE_INSTANCE])",
+            "output": "Boolean"
+        },
+
+        {
+            "kind": "label",
+            "text": "%TEXTURE%"
+        },
+
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_texture",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXTURE_INSTANCE",
+                    "instanceof": "renderer_texture"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setTexture($[TEXTURE_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_texture_rotation",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setTextureRotation($[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_texture_offset",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "OFFSET_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "OFFSET_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setTextureOffset($[OFFSET_X], $[OFFSET_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_texture_scale",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setTextureScale($[SCALE_X], $[SCALE_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%OTHER%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_fix_texture",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FIXED",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setFixTexture($[FIXED]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_scale_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setScaleX($[SCALE_X]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_scale_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getScaleX()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_scale_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setScaleY($[SCALE_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_scale_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getScaleY()",
+            "output": "Number"
+        }
+    ]
+}

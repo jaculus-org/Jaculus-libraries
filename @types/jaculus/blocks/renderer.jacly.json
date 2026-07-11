@@ -1,0 +1,291 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "package": "@types/jaculus",
+    "category": "renderer",
+    "parentCategory": "display",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#7C3AED",
+    "icon": "ScanSearch",
+    "priority": 119,
+    "import": [
+        "import { Renderer, Format } from \"renderer\";",
+        "import * as colors from \"colors\";"
+    ],
+    "contents": [
+        {
+            "kind": "label",
+            "text": "%SETUP%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "renderer_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "WIDTH",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 64
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "HEIGHT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 64
+                        }
+                    }
+                }
+            ],
+            "constructs": "renderer",
+            "tooltip": "%T%",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Renderer($[WIDTH], $[HEIGHT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%RENDER%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_render",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENDERER_INSTANCE",
+                    "instanceof": "renderer"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "COLLECTION_INSTANCE",
+                    "instanceof": "shape_collection"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BUFFER",
+                    "check": "ArrayBuffer"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ANTIALIAS",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FORMAT",
+                    "options": [
+                        [
+                            "%RGB_888%",
+                            "Format.RGB_888"
+                        ],
+                        [
+                            "%RGB_565_LITTLE%",
+                            "Format.RGB_565_LITTLE"
+                        ],
+                        [
+                            "%RGB_565_BIG%",
+                            "Format.RGB_565_BIG"
+                        ],
+                        [
+                            "%RGB_332%",
+                            "Format.RGB_332"
+                        ],
+                        [
+                            "%GRAYSCALE_8_BIT%",
+                            "Format.GRAYSCALE_8_BIT"
+                        ],
+                        [
+                            "%GRAYSCALE_4_BIT%",
+                            "Format.GRAYSCALE_4_BIT"
+                        ],
+                        [
+                            "%MONOCHROME%",
+                            "Format.MONOCHROME"
+                        ],
+                        [
+                            "%RGBA_8888%",
+                            "Format.RGBA_8888"
+                        ],
+                        [
+                            "%XRGB%",
+                            "Format.XRGB"
+                        ]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENDERER_INSTANCE].render($[COLLECTION_INSTANCE], $[BUFFER], $[ANTIALIAS], $[FORMAT], $[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_draw_text",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENDERER_INSTANCE",
+                    "instanceof": "renderer"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BUFFER",
+                    "check": "ArrayBuffer"
+                },
+                {
+                    "type": "input_value",
+                    "name": "TEXT",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "Hello"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FONT_INSTANCE",
+                    "instanceof": "renderer_font"
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "WRAP",
+                    "options": [
+                        [
+                            "%FALSE%",
+                            "false"
+                        ],
+                        [
+                            "%TRUE%",
+                            "true"
+                        ]
+                    ]
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FORMAT",
+                    "options": [
+                        [
+                            "%RGB_888%",
+                            "Format.RGB_888"
+                        ],
+                        [
+                            "%RGB_565_LITTLE%",
+                            "Format.RGB_565_LITTLE"
+                        ],
+                        [
+                            "%RGB_565_BIG%",
+                            "Format.RGB_565_BIG"
+                        ],
+                        [
+                            "%RGB_332%",
+                            "Format.RGB_332"
+                        ],
+                        [
+                            "%GRAYSCALE_8_BIT%",
+                            "Format.GRAYSCALE_8_BIT"
+                        ],
+                        [
+                            "%GRAYSCALE_4_BIT%",
+                            "Format.GRAYSCALE_4_BIT"
+                        ],
+                        [
+                            "%MONOCHROME%",
+                            "Format.MONOCHROME"
+                        ],
+                        [
+                            "%RGBA_8888%",
+                            "Format.RGBA_8888"
+                        ],
+                        [
+                            "%XRGB%",
+                            "Format.XRGB"
+                        ]
+                    ]
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENDERER_INSTANCE].drawText($[BUFFER], $[TEXT], $[X], $[Y], $[FONT_INSTANCE], $[COLOR], $[WRAP], $[FORMAT], $[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        }
+    ]
+}

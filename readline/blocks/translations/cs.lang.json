@@ -1,0 +1,20 @@
+{
+    "READLINE_NAME": "Čtení řádků",
+    "READLINE_DESCRIPTION": "Knihovna pro čtení řádků ze standardního vstupu",
+    "READLINE_LABEL_READ_LINES": "Čtení řádků ze standardního vstupu",
+    "READLINE_LABEL_OUTPUT": "Výstup",
+    "READLINE_LABEL_ADVANCED": "Pokročilé",
+    "READLINE_ONLINE_MESSAGE0": "když se přečte řádek ze standardního vstupu s echem $[ECHO], proveď\n$[CODE]",
+    "READLINE_ONLINE_TOOLTIP": "Průběžně čte řádky ze standardního vstupu a pro každý spustí připojený kód.",
+    "READLINE_ONLINE_ARGS0_FIELD_DROPDOWN_ECHO_ON": "zapnuto",
+    "READLINE_ONLINE_ARGS0_FIELD_DROPDOWN_ECHO_OFF": "vypnuto",
+    "READLINE_ONLINE_CALLBACK_LINE_TEXT": "text řádku",
+    "READLINE_ONLINE_CALLBACK_LINE_LENGTH": "délka řádku",
+    "READLINE_KEYVALUE_MESSAGE0": "když se přečte řádek klíč-hodnota ze standardního vstupu s echem $[ECHO], proveď\n$[CODE]",
+    "READLINE_KEYVALUE_TOOLTIP": "Průběžně čte řádky ze standardního vstupu, každý zparsuje jako 'klíč: hodnota' a spustí připojený kód. valueNumber je NaN, pokud hodnota není číslo.",
+    "READLINE_KEYVALUE_ARGS0_FIELD_DROPDOWN_ECHO_ON": "zapnuto",
+    "READLINE_KEYVALUE_ARGS0_FIELD_DROPDOWN_ECHO_OFF": "vypnuto",
+    "READLINE_KEYVALUE_CALLBACK_KEY": "klíč",
+    "READLINE_KEYVALUE_CALLBACK_VALUE_TEXT": "hodnota (text)",
+    "READLINE_KEYVALUE_CALLBACK_VALUE_NUMBER": "hodnota (číslo)"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "mpu6050",
+    "version": "0.1.0",
+    "author": "Tomas Riha",
+    "license": "MIT",
+    "description": "MPU6050 accelerometer and gyroscope library",
+    "type": "module",
+    "main": "build/js/index.js",
+    "types": "build/types/index.d.ts",
+    "files": [
+        "build/**/*"
+    ],
+    "dependencies": {
+        "@types/jaculus": "0.1.0"
+    },
+    "scripts": {
+        "install": "jac lib-install",
+        "build-no-check": "jac lib-build --no-check",
+        "build": "jac lib-build",
+        "clean": "rm -rf build"
+    },
+    "jaculus": {
+        "packageFormat": 1,
+        "blocks": "blocks"
+    }
+}

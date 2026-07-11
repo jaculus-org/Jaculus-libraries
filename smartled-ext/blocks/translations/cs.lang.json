@@ -1,0 +1,29 @@
+{
+    "SMARTLED_EXT_NAME": "SmartLED Ext",
+    "SMARTLED_EXT_DESCRIPTION": "Rozšířené bloky pro ovládání WS2812 LED pásků s omezením jasu a gama korekcí.",
+
+    "STRIP_EXT_CONSTRUCTOR_MESSAGE0": "vytvoř $[CONSTRUCTED_VAR_NAME] pásky (ext) z $[STRIP_INSTANCE]",
+    "STRIP_EXT_CONSTRUCTOR_TOOLTIP": "Vytvoří nový SmartLedExt pásky obal z existujícího SmartLed pásku",
+    "STRIP_EXT_CONSTRUCTOR_RANGE_MESSAGE0": "vytvoř $[CONSTRUCTED_VAR_NAME] pásky (ext) z $[STRIP_INSTANCE] indexy $[INDEX_FROM] až $[INDEX_TO] (oba včetně)",
+    "STRIP_EXT_CONSTRUCTOR_RANGE_TOOLTIP": "Vytvoří nový SmartLedExt pásky obal pro rozsah LED. Počáteční i koncový index jsou včetně.",
+
+    "STRIP_EXT_SET_ALL_MESSAGE0": "nastav všechny LED pásku $[STRIP_EXT_INSTANCE] na barvu $[COLOR_RGB]",
+    "STRIP_EXT_SET_ALL_TOOLTIP": "Nastaví všechny LED v pásku na danou barvu",
+
+    "STRIP_EXT_MAX_BRIGHTNESS_MESSAGE0": "nastav maximální jas pásku $[STRIP_EXT_INSTANCE] na $[BRIGHTNESS] (0-255)",
+    "STRIP_EXT_MAX_BRIGHTNESS_TOOLTIP": "Nastaví maximální jas pásku (0 = vypnuto, 255 = plný jas)",
+
+    "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_MESSAGE0": "nastav maximální jas pásku $[STRIP_EXT_INSTANCE] na $[PERCENT] %",
+    "STRIP_EXT_MAX_BRIGHTNESS_PERCENT_TOOLTIP": "Nastaví maximální jas jako procento (0 = vypnuto, 100 = plný jas)",
+
+    "STRIP_EXT_LINEARIZE_MESSAGE0": "nastav gama linearizaci pásku $[STRIP_EXT_INSTANCE] na $[ENABLED]",
+    "STRIP_EXT_LINEARIZE_TOOLTIP": "Zapne nebo vypne gama korekci pro lineárně vnímané kroky jasu na WS2812 / NeoPixel páscích",
+    "STRIP_EXT_LINEARIZE_ARGS0_FIELD_DROPDOWN_LINEARIZE_ENABLED": "zapnuto",
+    "STRIP_EXT_LINEARIZE_ARGS0_FIELD_DROPDOWN_LINEARIZE_DISABLED": "vypnuto",
+
+    "STRIP_EXT_SET_MESSAGE0": "nastav LED pásku $[STRIP_EXT_INSTANCE] na indexu $[INDEX] na barvu $[COLOR_RGB]",
+    "STRIP_EXT_SET_TOOLTIP": "Nastaví jednu LED v pásku na danou barvu",
+
+    "STRIP_EXT_CLEAR_MESSAGE0": "vypni všechny LED pásku $[STRIP_EXT_INSTANCE]",
+    "STRIP_EXT_CLEAR_TOOLTIP": "Vypne všechny LED v pásku"
+}
