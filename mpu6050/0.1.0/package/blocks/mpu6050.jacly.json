@@ -1,0 +1,192 @@
+{
+    "$schema": "https://jacly.jaculus.org/schema.json",
+    "category": "mpu6050",
+    "parentCategory": "peripherals",
+    "name": "%T%",
+    "description": "%T%",
+    "colour": "#AC8FBC",
+    "icon": "Compass",
+    "priority": 140,
+    "import": ["import { MPU6050, AccelRange, GyroRange } from \"mpu6050\";"],
+    "contents": [
+        {
+            "kind": "block",
+            "type": "i2c_constructor"
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_constructor",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "mpu6050_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "I2C_INSTANCE",
+                    "instanceof": "i2c_inst"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ADDRESS",
+                    "options": [
+                        ["%ADDRESS_BASIC%", "false"],
+                        ["%ADDRESS_ALTERNATIVE%", "true"]
+                    ]
+                }
+            ],
+            "constructs": "mpu6050",
+            "tooltip": "%T%",
+            "code": "let $[CONSTRUCTED_VAR_NAME] = new MPU6050($[I2C_INSTANCE], $[ADDRESS]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        { "kind": "label", "text": "%RANGE%" },
+        {
+            "kind": "block",
+            "type": "mpu6050_set_accel_range",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "mpu6050"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "RANGE",
+                    "options": [
+                        ["%ACCEL_2G%", "AccelRange.RANGE_2G"],
+                        ["%ACCEL_4G%", "AccelRange.RANGE_4G"],
+                        ["%ACCEL_8G%", "AccelRange.RANGE_8G"],
+                        ["%ACCEL_16G%", "AccelRange.RANGE_16G"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].setAccelRange($[RANGE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_set_gyro_range",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "mpu6050"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "RANGE",
+                    "options": [
+                        ["%GYRO_250%", "GyroRange.RANGE_250_DPS"],
+                        ["%GYRO_500%", "GyroRange.RANGE_500_DPS"],
+                        ["%GYRO_1000%", "GyroRange.RANGE_1000_DPS"],
+                        ["%GYRO_2000%", "GyroRange.RANGE_2000_DPS"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].setGyroRange($[RANGE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        { "kind": "label", "text": "%READ%" },
+        {
+            "kind": "block",
+            "type": "mpu6050_read_acceleration",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "mpu6050"
+                }
+            ],
+            "hideInToolbox": true,
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].getAcceleration()",
+            "output": "MPU6050Vector3"
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_read_angular_velocity",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "mpu6050"
+                }
+            ],
+            "hideInToolbox": true,
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].getAngularVelocity()",
+            "output": "MPU6050Vector3"
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_unpack_vector3",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "VECTOR",
+                    "check": "MPU6050Vector3",
+                    "block": {
+                        "type": "mpu6050_read_acceleration",
+                        "fields": {
+                            "SENSOR_INSTANCE": "mpu6050_?"
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FIELD",
+                    "options": [
+                        ["%AXIS_X%", "0"],
+                        ["%AXIS_Y%", "1"],
+                        ["%AXIS_Z%", "2"]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[VECTOR][$[FIELD]]",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_unpack_vector3",
+            "inputs": {
+                "VECTOR": {
+                    "block": {
+                        "type": "mpu6050_read_angular_velocity",
+                        "fields": {
+                            "SENSOR_INSTANCE": "mpu6050_?"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "kind": "block",
+            "type": "mpu6050_read_temperature",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SENSOR_INSTANCE",
+                    "instanceof": "mpu6050"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SENSOR_INSTANCE].getTemperature()",
+            "output": "Number"
+        }
+    ]
+}
