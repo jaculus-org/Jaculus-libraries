@@ -24,12 +24,7 @@ declare module "spi" {
          * @param qio Whether to use quad SPI mode.
          * @returns The bytes read.
          */
-        transfer(
-            data: SPIData,
-            cs: number,
-            rxLength: number,
-            qio: boolean,
-        ): Uint8Array;
+        transfer(data: SPIData, cs: number, rxLength: number, qio: boolean): Uint8Array;
 
         /**
          * Configure SPI bus and device pins/options.
@@ -50,7 +45,6 @@ declare module "spi" {
         }): void;
     }
 
-    const SPI1: SPI;
     const SPI2: SPI;
     const SPI3: SPI | undefined;
 }
