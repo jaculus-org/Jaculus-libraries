@@ -143,7 +143,7 @@ jobs:
                         /\// { print $1 }
                       ' | sort -u | while read -r id; do
                         [ -n "$id" ] && [ -f "$id/package.json" ] && echo "$id"
-                      done | paste -sd, -)
+                      done | paste -sd, - || true)
                       [ -z "$PACKAGES" ] && echo "No package sources changed -> nothing to rebuild." || echo "Changed packages: $PACKAGES"
                     fi
                   fi
