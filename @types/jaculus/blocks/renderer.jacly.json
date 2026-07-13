@@ -48,51 +48,6 @@
                             "NUM": 64
                         }
                     }
-                }
-            ],
-            "constructs": "renderer",
-            "tooltip": "%T%",
-            "code": "$[CONSTRUCTED_VAR_NAME] = new Renderer($[WIDTH], $[HEIGHT]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "label",
-            "text": "%RENDER%"
-        },
-        {
-            "kind": "block",
-            "type": "renderer_render",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RENDERER_INSTANCE",
-                    "instanceof": "renderer"
-                },
-                {
-                    "type": "field_dropdown",
-                    "name": "COLLECTION_INSTANCE",
-                    "instanceof": "shape_collection"
-                },
-                {
-                    "type": "input_value",
-                    "name": "BUFFER",
-                    "check": "ArrayBuffer"
-                },
-                {
-                    "type": "field_dropdown",
-                    "name": "ANTIALIAS",
-                    "options": [
-                        [
-                            "%TRUE%",
-                            "true"
-                        ],
-                        [
-                            "%FALSE%",
-                            "false"
-                        ]
-                    ]
                 },
                 {
                     "type": "field_dropdown",
@@ -148,8 +103,53 @@
                     }
                 }
             ],
+            "constructs": "renderer",
             "tooltip": "%T%",
-            "code": "$[RENDERER_INSTANCE].render($[COLLECTION_INSTANCE], $[BUFFER], $[ANTIALIAS], $[FORMAT], $[ROTATION]);",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Renderer($[WIDTH], $[HEIGHT], $[FORMAT], $[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%RENDER%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_render",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RENDERER_INSTANCE",
+                    "instanceof": "renderer"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "COLLECTION_INSTANCE",
+                    "instanceof": "shape_collection"
+                },
+                {
+                    "type": "input_value",
+                    "name": "BUFFER",
+                    "check": "ArrayBuffer"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "ANTIALIAS",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[RENDERER_INSTANCE].render($[COLLECTION_INSTANCE], $[BUFFER], $[ANTIALIAS]);",
             "previousStatement": null,
             "nextStatement": null
         },
@@ -229,48 +229,6 @@
                     ]
                 },
                 {
-                    "type": "field_dropdown",
-                    "name": "FORMAT",
-                    "options": [
-                        [
-                            "%RGB_888%",
-                            "Format.RGB_888"
-                        ],
-                        [
-                            "%RGB_565_LITTLE%",
-                            "Format.RGB_565_LITTLE"
-                        ],
-                        [
-                            "%RGB_565_BIG%",
-                            "Format.RGB_565_BIG"
-                        ],
-                        [
-                            "%RGB_332%",
-                            "Format.RGB_332"
-                        ],
-                        [
-                            "%GRAYSCALE_8_BIT%",
-                            "Format.GRAYSCALE_8_BIT"
-                        ],
-                        [
-                            "%GRAYSCALE_4_BIT%",
-                            "Format.GRAYSCALE_4_BIT"
-                        ],
-                        [
-                            "%MONOCHROME%",
-                            "Format.MONOCHROME"
-                        ],
-                        [
-                            "%RGBA_8888%",
-                            "Format.RGBA_8888"
-                        ],
-                        [
-                            "%XRGB%",
-                            "Format.XRGB"
-                        ]
-                    ]
-                },
-                {
                     "type": "input_value",
                     "name": "ROTATION",
                     "check": "Number",
@@ -283,7 +241,7 @@
                 }
             ],
             "tooltip": "%T%",
-            "code": "$[RENDERER_INSTANCE].drawText($[BUFFER], $[TEXT], $[X], $[Y], $[FONT_INSTANCE], $[COLOR], $[WRAP], $[FORMAT], $[ROTATION]);",
+            "code": "$[RENDERER_INSTANCE].drawText($[BUFFER], $[TEXT], $[X], $[Y], $[FONT_INSTANCE], $[COLOR], $[WRAP], $[ROTATION]);",
             "previousStatement": null,
             "nextStatement": null
         }

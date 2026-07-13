@@ -715,6 +715,45 @@
         },
         {
             "kind": "block",
+            "type": "renderer_shape_set_position",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[SHAPE_INSTANCE].setPosition($[X], $[Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
             "type": "renderer_shape_translate",
             "message0": "%T%",
             "args0": [
@@ -1235,6 +1274,244 @@
             ],
             "tooltip": "%T%",
             "code": "$[SHAPE_INSTANCE].setTextureScale($[SCALE_X], $[SCALE_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_uv_scale_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setUVScaleX($[SCALE_X]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_uv_scale_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SCALE_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setUVScaleY($[SCALE_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_uv_offset_x",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "OFFSET_X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setUVOffsetX($[OFFSET_X]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_uv_offset_y",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "OFFSET_Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setUVOffsetY($[OFFSET_Y]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_uv_rotation",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setUVRotation($[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%TRANSFORM_MATRIX%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_transformation_matrix",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "A",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "B",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "C",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "D",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 1
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "E",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "F",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[SHAPE_INSTANCE].setTransformationMatrix({ a: $[A], b: $[B], c: $[C], d: $[D], e: $[E], f: $[F] });",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_clear_transformation_matrix",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].clearTransformationMatrix();",
             "previousStatement": null,
             "nextStatement": null
         },
