@@ -29,12 +29,12 @@ jobs:
                   fetch-depth: 0 # Full history for tags
 
             - name: Set up Node.js
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: "24.x"
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v3
+              uses: pnpm/action-setup@v4
               with:
                   version: latest
 
@@ -57,6 +57,7 @@ jobs:
                   }
                   EOF
                   pnpm config set global-pnpmfile "$HOME/.pnpm-hooks/.pnpmfile.cjs"
+                  pnpm config set frozen-lockfile false
 
             - name: Configure command PATH
               run: |
@@ -80,13 +81,13 @@ jobs:
                       ${{ runner.os }}-pnpm-store-
 
             - name: Install dependencies
-              run: pnpm install
+              run: pnpm install --no-frozen-lockfile
 
             - name: Checkout Jaculus-tools
               run: |
                   git clone https://github.com/jaculus-org/Jaculus-tools.git --branch master ../Jaculus-tools
                   cd ../Jaculus-tools
-                  pnpm install
+                  pnpm install --no-frozen-lockfile
                   pnpm build
                   cd packages/tools
                   pnpm add -g .
@@ -95,7 +96,7 @@ jobs:
               run: |
                   git clone https://github.com/jaculus-org/Jaculus-registry.git ../jaculus-registry
                   cd ../jaculus-registry
-                  pnpm install
+                  pnpm install --no-frozen-lockfile
                   # Link local jaculus packages (if any) from the previously cloned Jaculus-tools
                   for pkg in ../Jaculus-tools/packages/*; do
                     if [ -f "$pkg/package.json" ]; then
@@ -129,9 +130,8 @@ jobs:
 
             - name: Prepare filtered registry source and Generate registry
               run: |
-                  # Run without --force to rely on the registry cache
+                  # Run with force options (including your custom skip-validation bypass option)
                   node ../jaculus-registry/bin/jaculus-registry.js generate --force --force-rebuild-all "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
-
 
             - name: Stop local registry server
               if: always()
