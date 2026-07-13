@@ -110,7 +110,8 @@ jobs:
             - name: Prepare filtered registry source and Generate registry
               run: |
                   # Run without --force to rely on the registry cache
-                  node ../jaculus-registry/bin/jaculus-registry.js generate "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  node ../jaculus-registry/bin/jaculus-registry.js generate --force --force-rebuild-all "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+
 
             - name: Stop local registry server
               if: always()
