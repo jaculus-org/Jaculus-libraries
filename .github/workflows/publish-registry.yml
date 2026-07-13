@@ -109,8 +109,8 @@ jobs:
 
             - name: Prepare filtered registry source and Generate registry
               run: |
-                  # Use the previously cloned dist repo as the destination
-                  pnpm --dir ../jaculus-registry run cli -- generate --force "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  # Run the bin script directly with node
+                  node ../jaculus-registry/bin/jaculus-registry.js generate --force "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
 
             - name: Stop local registry server
               if: always()
