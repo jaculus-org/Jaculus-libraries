@@ -91,36 +91,6 @@ jobs:
                   cd ../jaculus-registry-dist
                   git fetch --all
                   git checkout registry || git checkout -b registry
-                  
-                  # Clean out built package folders to force a rebuild, preserving .git and list.json
-                  find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name 'list.json' -exec rm -rf {} +
-                  
-                  # Use a safe Heredoc to empty list.json dynamically based on its schema
-                  cat << 'EOF' > empty-list.js
-                  const fs = require('fs');
-                  const file = './list.json';
-                  if (fs.existsSync(file)) {
-                    const data = JSON.parse(fs.readFileSync(file, 'utf8'));
-                    let empty;
-                    if (Array.isArray(data)) {
-                      empty = [];
-                    } else if (typeof data === 'object' && data !== null) {
-                      empty = {};
-                      for (const k in data) {
-                        if (Array.isArray(data[k])) empty[k] = [];
-                        else if (typeof data[k] === 'object' && data[k] !== null) empty[k] = {};
-                        else empty[k] = data[k];
-                      }
-                    } else {
-                      empty = {};
-                    }
-                    fs.writeFileSync(file, JSON.stringify(empty, null, 2));
-                    console.log('Successfully cleared list.json schema:', empty);
-                  }
-                  EOF
-                  
-                  node empty-list.js
-                  rm empty-list.js
                   cd -
 
             - name: Start local registry server
@@ -139,8 +109,8 @@ jobs:
 
             - name: Prepare filtered registry source and Generate registry
               run: |
-                  # Run the bin script directly with node and force option to ignore commit cache
-                  node ../jaculus-registry/bin/jaculus-registry.js generate --force "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  # Run without --force to rely on the registry cache
+                  node ../jaculus-registry/bin/jaculus-registry.js generate "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
 
             - name: Stop local registry server
               if: always()
