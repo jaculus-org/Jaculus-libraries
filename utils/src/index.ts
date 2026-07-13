@@ -43,3 +43,44 @@ export function map(
 export function clamp(value: number, min: number, max: number): number {
     return Math.min(Math.max(value, min), max);
 }
+
+/**
+ * Converts a string into a Uint8Array by mapping each character to its character code.
+ * @param s The string to convert.
+ * @returns A Uint8Array containing the character code byte values.
+ */
+export function strToBytes(s: string): Uint8Array {
+    const bytes = new Uint8Array(s.length);
+    for (let i = 0; i < s.length; i++) {
+        bytes[i] = s.charCodeAt(i);
+    }
+    return bytes;
+}
+
+/**
+ * Converts a Uint8Array or ArrayBuffer into a string using character codes.
+ * @param b The Uint8Array or ArrayBuffer containing byte data.
+ * @returns The reconstructed string.
+ */
+export function bytesToStr(b: Uint8Array | ArrayBuffer): string {
+    const bytes = b instanceof ArrayBuffer ? new Uint8Array(b) : b;
+    return String.fromCharCode.apply(null, bytes as unknown as number[]);
+}
+
+/**
+ * Performs a byte-by-byte comparison of two Uint8Array instances to check for equality.
+ * @param a The first Uint8Array to compare.
+ * @param b The second Uint8Array to compare.
+ * @returns True if both arrays are of equal length and contain identical bytes, false otherwise.
+ */
+export function bytesEqual(a: Uint8Array, b: Uint8Array): boolean {
+    if (a.length !== b.length) {
+        return false;
+    }
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
