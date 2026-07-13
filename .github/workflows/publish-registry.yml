@@ -55,7 +55,6 @@ jobs:
                   }
                   EOF
                   pnpm config set global-pnpmfile "$HOME/.pnpm-hooks/.pnpmfile.cjs"
-                  pnpm config set frozen-lockfile false
 
             - name: Configure command PATH
               run: |
@@ -102,7 +101,7 @@ jobs:
                       pnpm link "$pkg" || true
                     fi
                   done
-                  pnpm build || true
+                  pnpm build
 
             - name: Clone target registry repo (dist)
               run: |
@@ -128,8 +127,8 @@ jobs:
 
             - name: Prepare filtered registry source and Generate registry
               run: |
-                  # Run with force options (including your custom skip-validation bypass option)
-                  node ../jaculus-registry/bin/jaculus-registry.js generate --force --force-rebuild-all "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  # Rebuild all packages for new commits (cache-driven; avoids reprocessing all history every run)
+                  node ../jaculus-registry/bin/jaculus-registry.js generate --force-rebuild-all "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
 
             - name: Stop local registry server
               if: always()
@@ -150,7 +149,7 @@ jobs:
                   path: jaculus-registry-artifact/
 
             - name: Push registry branch (optional)
-              if: ${{ env.PUSH_REGISTRY == 'true' && github.event_name == 'push' }}
+              if: ${{ env.PUSH_REGISTRY == 'true' }}
               run: |
                   set -euo pipefail
                   cd ../jaculus-registry-dist
@@ -169,7 +168,7 @@ jobs:
                     git add -A
                     git commit --allow-empty -m "Update registry via GitHub Actions (${GITHUB_SHA})"
                     git reset --soft $(git rev-list --max-parents=0 HEAD)
-                    git commit --amend -m "Registry build from $(git rev-parse --short HEAD:../Jaculus-libraries/.git/HEAD || echo 'main')"
+                    git commit --amend -m "Registry build from ${GITHUB_SHA}"
                     git push --force origin registry
                   else
                     # Regular commit and push
