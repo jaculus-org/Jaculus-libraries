@@ -38,6 +38,26 @@ jobs:
               with:
                   version: latest
 
+            - name: Configure global pnpm hook to force TypeScript 5
+              run: |
+                  mkdir -p "$HOME/.pnpm-hooks"
+                  cat << 'EOF' > "$HOME/.pnpm-hooks/.pnpmfile.cjs"
+                  module.exports = {
+                    hooks: {
+                      readPackage(pkg) {
+                        if (pkg.dependencies && pkg.dependencies.typescript) {
+                          pkg.dependencies.typescript = '^5.5.0';
+                        }
+                        if (pkg.devDependencies && pkg.devDependencies.typescript) {
+                          pkg.devDependencies.typescript = '^5.5.0';
+                        }
+                        return pkg;
+                      }
+                    }
+                  }
+                  EOF
+                  pnpm config set global-pnpmfile "$HOME/.pnpm-hooks/.pnpmfile.cjs"
+
             - name: Configure command PATH
               run: |
                   echo "PNPM_HOME=$HOME/.local/share/pnpm" >> "$GITHUB_ENV"
