@@ -91,11 +91,13 @@ jobs:
                   cd ../jaculus-registry-dist
                   git fetch --all
                   git checkout registry || git checkout -b registry
+                  # Clean out existing built packages to allow --force to actually rebuild them
+                  find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
                   cd -
 
             - name: Start local registry server
               run: |
-                  pnpm --dir ../jaculus-registry run cli -- serve "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist" &
+                  node ../jaculus-registry/bin/jaculus-registry.js serve "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist" &
                   echo "REGISTRY_PID=$!" >> $GITHUB_ENV
                   # Wait for server to be ready
                   for i in $(seq 1 10); do
@@ -109,7 +111,7 @@ jobs:
 
             - name: Prepare filtered registry source and Generate registry
               run: |
-                  # Run the bin script directly with node
+                  # Run the bin script directly with node and force option to ignore commit cache
                   node ../jaculus-registry/bin/jaculus-registry.js generate --force "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
 
             - name: Stop local registry server
