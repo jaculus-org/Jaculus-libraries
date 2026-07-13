@@ -26,7 +26,7 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v5
               with:
-                  fetch-depth: 0 # Full history for tags
+                  fetch-depth: 1 # Only HEAD: publish current package state once, not replay every commit
 
             - name: Set up Node.js
               uses: actions/setup-node@v4
