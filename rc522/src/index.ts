@@ -1,12 +1,8 @@
 import { SPI } from "spi";
 
-// Based on original work by Gordon Williams, Pur3 Ltd.
-
 const BLOCK_SIZE = 16;
 const MAX_MIFARE_CLASSIC_BLOCK = 63;
 const TEXT_RECORD_HEADER_SIZE = 2;
-
-// ── Register map ────────────────────────────────────────────────────────────
 
 enum Reg {
     Command = 0x01 << 1,
@@ -31,8 +27,6 @@ enum Reg {
     Version = 0x37 << 1,
 }
 
-// ── PICC (card) commands ─────────────────────────────────────────────────────
-
 const PICC = {
     REQA: 0x26,
     WUPA: 0x52,
@@ -46,15 +40,11 @@ const PICC = {
     WRITE: 0xa0,
 } as const;
 
-// ── PCD (reader) commands ────────────────────────────────────────────────────
-
 const PCD = {
     IDLE: 0x00,
     AUTHENT: 0x0e,
     TRANSCEIVE: 0x0c,
 } as const;
-
-// ── Public types ─────────────────────────────────────────────────────────────
 
 /** UID of a detected card (1–10 bytes). */
 export type CardUID = Uint8Array;
@@ -65,61 +55,27 @@ export type KeyType = "A" | "B";
 /** Default MIFARE factory key (all 0xFF). */
 export const DEFAULT_KEY: number[] = [0xff, 0xff, 0xff, 0xff, 0xff, 0xff];
 
-// ── Main Factory class ─────────────────────────────────────────────────────────
-
 /**
- * Create and initialise an RC522 instance.
  * Driver for the RC522 RFID reader/writer module (SPI interface).
- *
- * @param spi SPI bus (e.g. `SPI1`).
- * @param cs  Chip-select (NSS) pin number.
- * @returns   Initialised `RC522` instance.
- *
- * @example
- * ```ts
- * import { RC522, DEFAULT_KEY, CardUID } from "rc522";
- * import { SPI2 } from "spi";
- *
- * SPI2.setup({
- *     sck: 4,
- *     mosi: 15,
- *     miso: 5,
- *     baud: 100000,
- *     mode: 0,
- *     order: "msb",
- * });
- *
- * const rfid = new RC522(SPI2, 16);
- *
- * rfid.onCard(async (uid) => {
- *     console.log("Card detected with UID: " + rfid.uidToString(uid));
- * 	await rfid.authenticate(uid, 4, "A", DEFAULT_KEY);
- *
- * 	await rfid.writeTextRecord(4, "Ahoj tabor! Zdraví Honza a Kuba.");
- * 	const message = await rfid.readTextRecord(4);
- *
- * 	console.log(message);
- * 	await rfid.haltCard();
- * 	rfid.stopCrypto();
- * });
- *
- * rfid.startPolling(500);
- * ```
  */
-
 export class RC522 {
+    readonly spi: SPI;
+    readonly cs: number;
     private _onCard: ((uid: CardUID) => void | Promise<void>) | null = null;
     private _pollInterval: number | null = null;
     private _lastUID: string = "";
 
-    constructor(
-        readonly spi: SPI,
-        readonly cs: number,
-    ) {
+    /**
+     * Create and initialise an RC522 instance.
+     *
+     * @param spi SPI bus (e.g. `SPI1`).
+     * @param cs  Chip-select (NSS) pin number.
+     */
+    constructor(spi: SPI, cs: number) {
+        this.spi = spi;
+        this.cs = cs;
         this.init();
     }
-
-    // ── Low-level register I/O ───────────────────────────────────────────────
 
     private regRead(addr: number): number {
         return this.spi.transfer([addr | 0x80, 0], this.cs, 2, false)[1];
@@ -288,8 +244,6 @@ export class RC522 {
         return text;
     }
 
-    // ── Initialisation ───────────────────────────────────────────────────────
-
     private init(): void {
         this.regWrite(Reg.Mode, 0x3d); // CRC preset 0x6363, polarity
         this.regWrite(Reg.TxAuto, 0x40); // force 100% ASK modulation
@@ -323,13 +277,10 @@ export class RC522 {
         return this.regRead(Reg.Version);
     }
 
-    // ── Core transceive ──────────────────────────────────────────────────────
-
     private async transceive(
         data: number[],
         crc: boolean = false,
     ): Promise<Uint8Array> {
-        // Enable/disable CRC in TX and RX
         if (crc) {
             this.regSet(Reg.TxMode, 0x80);
             this.regSet(Reg.RxMode, 0x80);
@@ -371,8 +322,6 @@ export class RC522 {
         return this.regReadMany(Reg.FifoData, fifo);
     }
 
-    // ── Card detection ───────────────────────────────────────────────────────
-
     /**
      * Check whether a card is present in the field.
      * @returns `true` if a card responded to REQA.
@@ -397,9 +346,7 @@ export class RC522 {
             // Anti-collision: no CRC
             const r = await this.transceive([PICC.SELECT1, 0x20], false);
             if (r.length >= 5) return r.slice(0, 4);
-        } catch {
-            // fall through
-        }
+        } catch {}
         return new Uint8Array(0);
     }
 
@@ -418,8 +365,6 @@ export class RC522 {
         return s;
     }
 
-    // ── Halt ─────────────────────────────────────────────────────────────────
-
     /**
      * Send HALT command to put the card into sleep state.
      */
@@ -431,8 +376,6 @@ export class RC522 {
             // HALT does not return a response – ignore errors
         }
     }
-
-    // ── Authentication ───────────────────────────────────────────────────────
 
     /**
      * Authenticate a sector before reading or writing.
@@ -481,8 +424,6 @@ export class RC522 {
         this.regClear(Reg.Status2, 0x08); // clear MFCrypto1On
     }
 
-    // ── Block read / write ───────────────────────────────────────────────────
-
     /**
      * Read a 16-byte block from the card.
      * Requires prior `authenticate()` for protected sectors.
@@ -519,8 +460,6 @@ export class RC522 {
         await this.transceive([PICC.WRITE, block], true);
         await this.transceive(Array.from(data), true);
     }
-
-    // ── Convenience helpers ──────────────────────────────────────────────────
 
     /**
      * Read a text string stored in a block (strips trailing null bytes).
@@ -648,8 +587,6 @@ export class RC522 {
         await this.writeBlock(block, buf);
     }
 
-    // ── Event-based polling ──────────────────────────────────────────────────
-
     /**
      * Register a callback that fires whenever a new card is detected.
      * The same card will not trigger the callback again until it is removed
@@ -737,10 +674,8 @@ export class RC522 {
             return;
         }
 
-        // Card is now ACTIVE – check if it's a new card
         const uidStr = this.uidToString(uid);
         if (uidStr === this._lastUID) {
-            // Same card still present – do nothing
             return;
         }
 

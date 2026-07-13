@@ -24,7 +24,7 @@ export class GameLoop {
     renderer: Renderer;
 
     private onTick?: (delta: number) => void;
-    private collisions: Map<[shapes.Shape, shapes.Shape], () => void> = new Map();
+    private collisions: Map<[shapes.Shape, shapes.Shape], [() => void, boolean]> = new Map();
 
     constructor(display: DisplayLike) {
         this.display = display;
@@ -37,10 +37,12 @@ export class GameLoop {
             const delta = now - then;
             then = now;
 
-            this.collisions.forEach((callback, [a, b]) => {
-                if (a.intersects(b)) {
-                    callback();
+            this.collisions.forEach((val, [a, b]) => {
+                const curr = a.intersects(b);
+                if (curr && !val[1]) {
+                    val[0]();
                 }
+                val[1] = curr;
             });
             this.onTick?.(delta);
             this.renderer.render(this.scene, this.display.frame, true, Format.RGB_888);
@@ -49,14 +51,14 @@ export class GameLoop {
     }
 
     addShape(obj: shapes.Shape) { this.scene.add(obj); }
-    // removeShape(obj: shapes.Shape) { this.scene.remove(obj); }
+    removeShape(obj: shapes.Shape) { this.scene.remove(obj); }
 
     on(event: "tick", callback: (delta: number) => void): void;
     on(event: "collision", a: shapes.Shape, b: shapes.Shape, callback: () => void): void;
     on<E extends Event>(event: E, ...args: Events[E]): void {
         if (event === "collision") {
             const [shapeA, shapeB, callback] = args as [shapes.Shape, shapes.Shape, () => void];
-            this.collisions.set([shapeA, shapeB], callback);
+            this.collisions.set([shapeA, shapeB], [callback, false]);
             return;
         }
         if (event === "tick") {
