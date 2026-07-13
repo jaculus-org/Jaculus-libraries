@@ -111,6 +111,46 @@ jobs:
                   git checkout registry || git checkout -b registry
                   cd -
 
+            - name: Determine changed packages
+              run: |
+                  set -uo pipefail
+                  CACHE_FILE="../jaculus-registry-dist/.cache/registry-cache.json"
+                  LAST_SHA=""
+                  [ -f "$CACHE_FILE" ] && LAST_SHA=$(jq -r '.lastProcessedCommit // ""' "$CACHE_FILE")
+
+                  BUILD_ALL=0
+                  PACKAGES=""
+
+                  if [ -z "$LAST_SHA" ]; then
+                    echo "No last-published commit recorded -> building all packages."
+                    BUILD_ALL=1
+                  elif ! git fetch --depth=1 origin "$LAST_SHA" 2>/dev/null || ! git cat-file -e "${LAST_SHA}^{commit}" 2>/dev/null; then
+                    echo "Last-published commit $LAST_SHA not fetchable -> building all packages."
+                    BUILD_ALL=1
+                  else
+                    echo "Diffing ${LAST_SHA}..HEAD"
+                    CHANGED_FILES=$(git diff --name-only "$LAST_SHA" HEAD)
+                    echo "Changed files:"; echo "$CHANGED_FILES"
+
+                    # Workspace-wide files affect every package -> full rebuild
+                    if echo "$CHANGED_FILES" | grep -qE '^(package\.json|pnpm-lock\.yaml|pnpm-workspace\.yaml|tsconfig[^/]*\.json|@types/jaculus/)'; then
+                      echo "Shared workspace file changed -> building all packages."
+                      BUILD_ALL=1
+                    else
+                      # Map each changed file to its package id (dir name, or @scope/name); keep only real packages
+                      PACKAGES=$(echo "$CHANGED_FILES" | awk -F/ '
+                        /^@[^/]+\// { print $1"/"$2; next }
+                        /\// { print $1 }
+                      ' | sort -u | while read -r id; do
+                        [ -n "$id" ] && [ -f "$id/package.json" ] && echo "$id"
+                      done | paste -sd, -)
+                      [ -z "$PACKAGES" ] && echo "No package sources changed -> nothing to rebuild." || echo "Changed packages: $PACKAGES"
+                    fi
+                  fi
+
+                  echo "BUILD_ALL=$BUILD_ALL" >> "$GITHUB_ENV"
+                  echo "PACKAGES=$PACKAGES" >> "$GITHUB_ENV"
+
             - name: Start local registry server
               run: |
                   node ../jaculus-registry/bin/jaculus-registry.js serve "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist" &
@@ -125,10 +165,19 @@ jobs:
                   echo "Registry server did not become ready in time" >&2
                   exit 1
 
-            - name: Prepare filtered registry source and Generate registry
+            - name: Generate registry
               run: |
-                  # Rebuild all packages for new commits (cache-driven; avoids reprocessing all history every run)
-                  node ../jaculus-registry/bin/jaculus-registry.js generate --force-rebuild-all "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  SRC="$GITHUB_WORKSPACE"
+                  DIST="$GITHUB_WORKSPACE/../jaculus-registry-dist"
+                  if [ "${BUILD_ALL:-0}" = "1" ]; then
+                    echo "Building all packages."
+                    node ../jaculus-registry/bin/jaculus-registry.js generate --force-rebuild-all "$SRC" "$DIST"
+                  elif [ -n "${PACKAGES:-}" ]; then
+                    echo "Building changed packages: $PACKAGES"
+                    node ../jaculus-registry/bin/jaculus-registry.js generate --force-rebuild-all --packages "$PACKAGES" "$SRC" "$DIST"
+                  else
+                    echo "No package changes; skipping registry generation."
+                  fi
 
             - name: Stop local registry server
               if: always()
