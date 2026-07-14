@@ -1,5 +1,5 @@
 import * as shapes from "shapes";
-import { Renderer, Format } from "renderer";
+import { Renderer, Format, Font } from "renderer";
 
 
 type DisplayLike = {
@@ -19,8 +19,19 @@ type Event = keyof Events;
 type SliceLast<T extends any[]> = T extends [...infer R, any] ? R : never;
 
 
+export type TextRecord = {
+    text: string,
+    x: number,
+    y: number,
+    font: Font,
+    color: number,
+    wrap: boolean,
+    rotation: number
+};
+
 export class GameLoop {
     scene: shapes.Collection;
+    texts: Set<TextRecord> = new Set();
     display: DisplayLike;
     renderer: Renderer;
 
@@ -47,6 +58,9 @@ export class GameLoop {
             });
             this.onTick?.(delta);
             this.renderer.render(this.scene, this.display.frame, true);
+            this.texts.forEach(({ text, x, y, font, color, rotation, wrap }) => {
+                this.renderer.drawText(this.display.frame, text, x, y, font, color, wrap, rotation);
+            });
             this.display.show();
         }, 0);
     }
@@ -57,6 +71,27 @@ export class GameLoop {
      */
     addShape(obj: shapes.Shape) { this.scene.add(obj); }
     removeShape(obj: shapes.Shape) { this.scene.remove(obj); }
+
+    drawText(record: TextRecord): TextRecord;
+    drawText(text: string, x: number, y: number, font: Font, color: number, wrap?: boolean, rotation?: number): TextRecord;
+    drawText(...args: [TextRecord] | [string, number, number, Font, number, boolean?, number?]): TextRecord {
+        if (args.length === 1) {
+            const [rec] = args;
+            this.texts.add(rec);
+            return rec;
+        }
+        const [text, x, y, font, color, wrap = false, rotation = 0] = args;
+        let rec = { text, x, y, font, color, wrap, rotation };
+        this.texts.add(rec);
+        return rec;
+    }
+    removeText(rec: TextRecord) {
+        this.texts.delete(rec);
+    }
+    clearText() {
+        this.texts.clear();
+    }
+
 
     /**
      * Registers an event listener for the specified event.
