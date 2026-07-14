@@ -57,7 +57,7 @@ class Saturn {
 
     display: Display;
 
-    constructor(flip?: number) {
+    constructor(flip?: boolean) {
         this.display = new Display({
             spi: {
                 pin_d0: SaturnPins.Display.D0,
@@ -76,6 +76,6 @@ class Saturn {
 }
 
 
-export function createSaturn(flip?: number) {
+export function createSaturn(flip?: boolean) {
     return new Saturn(flip);
 }

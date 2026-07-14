@@ -8,6 +8,8 @@
 
     "SATURN_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] desku Saturn otočení $[FLIP]",
     "SATURN_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci desky Saturn a zpřístupní její vestavěný displej.",
+    "SATURN_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_TRUE": "ano",
+    "SATURN_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_FALSE": "ne",
 
     "SATURN_PIN_MESSAGE0": "Saturn pin $[PIN]",
     "SATURN_PIN_TOOLTIP": "Vrátí číslo vybraného GPIO pinu desky Saturn.",

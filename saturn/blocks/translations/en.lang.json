@@ -8,6 +8,8 @@
 
     "SATURN_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] Saturn board flip $[FLIP]",
     "SATURN_CONSTRUCTOR_TOOLTIP": "Create a Saturn board instance and expose its built-in display.",
+    "SATURN_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_TRUE": "true",
+    "SATURN_CONSTRUCTOR_ARGS0_FIELD_DROPDOWN_FALSE": "false",
 
     "SATURN_PIN_MESSAGE0": "Saturn pin $[PIN]",
     "SATURN_PIN_TOOLTIP": "Return the selected Saturn GPIO pin number.",

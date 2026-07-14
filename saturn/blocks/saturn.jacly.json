@@ -24,15 +24,12 @@
                     "text": "saturn_?"
                 },
                 {
-                    "type": "input_value",
+                    "type": "field_dropdown",
                     "name": "FLIP",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 0
-                        }
-                    }
+                    "options": [
+                        ["%FALSE%", "false"],
+                        ["%TRUE%", "true"]
+                    ]
                 }
             ],
             "constructs": "saturn",
