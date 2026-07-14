@@ -1,23 +1,27 @@
-# RFID Reader RC522
+# RC522
 
-Driver for the RC522 RFID reader/writer module.
-
-For simple text values, prefer the higher-level record helpers instead of reading blocks one by one:
+SPI driver for selecting ISO/IEC 14443-A cards and accessing MIFARE Classic 1K data blocks.
 
 ```ts
-import { RC522, DEFAULT_KEY } from "rc522";
+import { DEFAULT_KEY, formatUID, MifareClassic, RC522 } from "rc522";
 import { SPI1 } from "spi";
 
-const rfid = new RC522(SPI1, 5);
+const reader = new RC522(SPI1, 5);
+const mifare = new MifareClassic(reader);
 
-rfid.onCard(async (uid) => {
-    await rfid.authenticate(uid, 4, "A", DEFAULT_KEY);
+const uid = await reader.readCard();
+if (uid !== null) {
+    console.log(formatUID(uid));
 
-    await rfid.writeTextRecord(4, "Ahoj tabor!");
-    const message = await rfid.readTextRecord(4);
+    await mifare.authenticate(uid, 4, DEFAULT_KEY, "A");
+    const data = await mifare.readBlock(4);
+    console.log(data);
 
-    console.log(message);
-    await rfid.haltCard();
-    rfid.stopCrypto();
-});
+    mifare.stopCrypto();
+    await reader.halt();
+}
 ```
+
+`MifareClassic` supports blocks 0–63. Writes to manufacturer block 0 and sector trailers are rejected to avoid destroying card metadata or access keys.
+
+`readCard()` returns `null` when no card responds. Communication and malformed-response errors are thrown.

@@ -76,6 +76,7 @@ export class RC522TimeoutError extends Error {
 export class RC522 {
     readonly spi: SPI;
     readonly chipSelect: number;
+    pollInterval: number | null = null;
 
     /**
      * Create and initialize an RC522 reader.
@@ -279,6 +280,27 @@ export class RC522 {
     /** Clear the Crypto1 state after a MIFARE Classic session. */
     clearCrypto(): void {
         this.clearRegBits(Reg.Status2, 0x08);
+    }
+
+    on(event: "card", callback: (uid: CardUID) => void, options: { pollInterval: number } = { pollInterval: 200 }): void {
+        this.off("card");
+        this.pollInterval = setInterval(async () => {
+            try {
+                const uid = await this.readCard();
+                if (uid !== null) {
+                    callback(uid);
+                }
+            } catch (error) {
+                console.error(`Error reading card: ${(error as Error).message ?? error}`);
+            }
+        }, options.pollInterval);
+    }
+
+    off(event: "card"): void {
+        if (this.pollInterval !== null) {
+            clearInterval(this.pollInterval);
+            this.pollInterval = 0;
+        }
     }
 }
 
