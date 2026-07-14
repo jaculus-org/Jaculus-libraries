@@ -13,6 +13,7 @@ interface SPIConfig {
 export interface DisplayConfig {
     width: number;
     height: number;
+    rotation: number;
     spi: SPIConfig;
 }
 
@@ -39,6 +40,7 @@ export class Display {
     private _width: number;
     private _height: number;
     private _brightness: number;
+    private _rotation: number;
 
     private _frame: ArrayBuffer;
     private view: Uint8Array;
@@ -49,6 +51,7 @@ export class Display {
     constructor(config: DisplayConfig) {
         this._width = config.width;
         this._height = config.height;
+        this._rotation = config.rotation;
         this._brightness = 0.5;
         this._frame = new ArrayBuffer(this.width * this.height * 3);
         this.view = new Uint8Array(this.frame);
@@ -101,6 +104,10 @@ export class Display {
         SPI2.transfer(this.sync, cs, 0, true);
         SPI2.transfer(this.modeset, cs, 0, true);
         SPI2.transfer(this.frame, cs, 0, true);
+    }
+
+    get rotation(): number {
+        return this._rotation;
     }
 
     /**

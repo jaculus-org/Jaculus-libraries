@@ -6,7 +6,7 @@
     "SATURN_LABEL_DISPLAY": "Vestavěný displej",
     "SATURN_LABEL_GAME_LOOP": "Herní smyčka",
 
-    "SATURN_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] desku Saturn",
+    "SATURN_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] desku Saturn otočení $[FLIP]",
     "SATURN_CONSTRUCTOR_TOOLTIP": "Vytvoří instanci desky Saturn a zpřístupní její vestavěný displej.",
 
     "SATURN_PIN_MESSAGE0": "Saturn pin $[PIN]",

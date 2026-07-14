@@ -6,7 +6,7 @@
     "SATURN_LABEL_DISPLAY": "Built-in display",
     "SATURN_LABEL_GAME_LOOP": "Game Loop",
 
-    "SATURN_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] Saturn board",
+    "SATURN_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] Saturn board flip $[FLIP]",
     "SATURN_CONSTRUCTOR_TOOLTIP": "Create a Saturn board instance and expose its built-in display.",
 
     "SATURN_PIN_MESSAGE0": "Saturn pin $[PIN]",

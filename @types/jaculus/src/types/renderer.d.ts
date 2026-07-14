@@ -364,18 +364,22 @@ declare module "renderer" {
     }
 
     export class Renderer {
-        constructor(width: number, height: number);
+        /**
+         * @param width The renderer's output width in pixels.
+         * @param height The renderer's output height in pixels.
+         * @param format The output pixel format.
+         * @param rotation Rotates the whole image by 90 degree increments.
+         */
+        constructor(width: number, height: number, format?: Format, rotation?: number);
 
         /**
          * Render a scene into the provided buffer.
          * @param scene The collection to render.
          * @param buffer The output pixel buffer.
          * @param antialias Whether to enable antialiasing.
-         * @param format The output pixel format.
-         * @param rotation Rotates the whole image by 90 degree increments.
          * @returns The number of bytes written.
          */
-        render(scene: Collection, buffer: ArrayBuffer, antialias?: boolean, format?: Format, rotation?: number): number;
+        render(scene: Collection, buffer: ArrayBuffer, antialias?: boolean): number;
 
         /**
          * Draw text into the provided buffer.
@@ -386,11 +390,10 @@ declare module "renderer" {
          * @param font The font to use.
          * @param color The text color.
          * @param wrap Whether to wrap lines to the renderer width.
-         * @param format The output pixel format.
          * @param rotation Rotates the whole image by 90 degree increments, referenced to the panel's global origin - the same convention as render()'s rotation. Applied independently of any render() or other drawText() call: it only affects the pixels this call draws.
          * @returns The number of bytes written.
          */
-        drawText(buffer: ArrayBuffer, text: string, x: number, y: number, font: Font, color: Rgb, wrap: boolean, format?: Format, rotation?: number): number;
+        drawText(buffer: ArrayBuffer, text: string, x: number, y: number, font: Font, color: Rgb, wrap?: boolean, rotation?: number): number;
     }
 
     // https://419.ecma-international.org/3.0/index.html#-15-display-class-pattern-pixel-format-values

@@ -18,6 +18,9 @@
     "GAME_LOOP_ON_COLLISION_MESSAGE0": "při kolizi $[SHAPE_A] a $[SHAPE_B] v $[GAME_LOOP_INSTANCE] proveď\n$[CODE]",
     "GAME_LOOP_ON_COLLISION_TOOLTIP": "Spustí kód, když se vybrané tvary protínají. Blok připojí k oběma tvarům výchozí collidery.",
 
+    "GAME_LOOP_CLEAR_MESSAGE0": "vymazat $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_CLEAR_TOOLTIP": "Vymaže scénu a odstraní všechny event listenery z herní smyčky.",
+
     "GAME_LOOP_OFF_TICK_MESSAGE0": "odstranit obsluhu tiku z $[GAME_LOOP_INSTANCE]",
     "GAME_LOOP_OFF_TICK_TOOLTIP": "Odstraní callback tiku z herní smyčky.",
 

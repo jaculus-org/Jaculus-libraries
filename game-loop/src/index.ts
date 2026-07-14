@@ -6,6 +6,7 @@ type DisplayLike = {
     width: number;
     height: number;
     frame: ArrayBuffer;
+    rotation: number;
     show(): void;
 };
 
@@ -29,7 +30,7 @@ export class GameLoop {
     constructor(display: DisplayLike) {
         this.display = display;
         this.scene = new shapes.Collection({ x: 0, y: 0 });
-        this.renderer = new Renderer(this.display.width, this.display.height);
+        this.renderer = new Renderer(this.display.width, this.display.height, Format.RGB_888, this.display.rotation);
 
         let then = Date.now();
         setInterval(() => {
@@ -45,7 +46,7 @@ export class GameLoop {
                 val[1] = curr;
             });
             this.onTick?.(delta);
-            this.renderer.render(this.scene, this.display.frame, true, Format.RGB_888);
+            this.renderer.render(this.scene, this.display.frame, true);
             this.display.show();
         }, 0);
     }
