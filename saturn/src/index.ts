@@ -66,7 +66,7 @@ class Saturn {
                 pin_d3: SaturnPins.Display.D3,
                 pin_cs: SaturnPins.Display.CS,
                 pin_ck: SaturnPins.Display.CK,
-                baud: 2_000_000
+                baud: 20_000_000
             },
             width: 64,
             height: 64,
