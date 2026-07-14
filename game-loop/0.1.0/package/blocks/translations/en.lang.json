@@ -18,6 +18,9 @@
     "GAME_LOOP_ON_COLLISION_MESSAGE0": "on $[GAME_LOOP_INSTANCE] collision between $[SHAPE_A] and $[SHAPE_B] do\n$[CODE]",
     "GAME_LOOP_ON_COLLISION_TOOLTIP": "Run code when the selected shapes intersect. The block attaches default colliders to both shapes.",
 
+    "GAME_LOOP_CLEAR_MESSAGE0": "clear $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_CLEAR_TOOLTIP": "Clear the scene and remove all event listeners from the game loop.",
+
     "GAME_LOOP_OFF_TICK_MESSAGE0": "remove tick handler from $[GAME_LOOP_INSTANCE]",
     "GAME_LOOP_OFF_TICK_TOOLTIP": "Remove the tick callback from the game loop.",
 

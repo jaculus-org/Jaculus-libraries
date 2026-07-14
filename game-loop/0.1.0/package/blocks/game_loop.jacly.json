@@ -141,6 +141,22 @@
         },
         {
             "kind": "block",
+            "type": "game_loop_clear",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].clear();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
             "type": "game_loop_off_collision",
             "message0": "%T%",
             "args0": [

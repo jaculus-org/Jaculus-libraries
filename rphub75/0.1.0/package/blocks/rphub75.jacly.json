@@ -9,7 +9,6 @@
     "priority": 120,
     "import": [
         "import { Display } from \"rphub75\";",
-        "import * as rendererRuntime from \"renderer\";",
         "import * as colors from \"colors\";"
     ],
     "contents": [
@@ -48,11 +47,22 @@
                             "NUM": 64
                         }
                     }
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
                 }
             ],
             "constructs": "rphub75_display",
             "tooltip": "%T%",
-            "code": "$[CONSTRUCTED_VAR_NAME] = new Display({ width: $[WIDTH], height: $[HEIGHT] });",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new Display({ width: $[WIDTH], height: $[HEIGHT], rotation: $[ROTATION] });",
             "previousStatement": null,
             "nextStatement": null
         },
@@ -193,36 +203,10 @@
                         ["%TRUE%", "true"],
                         ["%FALSE%", "false"]
                     ]
-                },
-                {
-                    "type": "field_dropdown",
-                    "name": "FORMAT",
-                    "options": [
-                        ["%RGB_888%", "rendererRuntime.Format.RGB_888"],
-                        ["%RGB_565_LITTLE%", "rendererRuntime.Format.RGB_565_LITTLE"],
-                        ["%RGB_565_BIG%", "rendererRuntime.Format.RGB_565_BIG"],
-                        ["%RGB_332%", "rendererRuntime.Format.RGB_332"],
-                        ["%GRAYSCALE_8_BIT%", "rendererRuntime.Format.GRAYSCALE_8_BIT"],
-                        ["%GRAYSCALE_4_BIT%", "rendererRuntime.Format.GRAYSCALE_4_BIT"],
-                        ["%MONOCHROME%", "rendererRuntime.Format.MONOCHROME"],
-                        ["%RGBA_8888%", "rendererRuntime.Format.RGBA_8888"],
-                        ["%XRGB%", "rendererRuntime.Format.XRGB"]
-                    ]
-                },
-                {
-                    "type": "input_value",
-                    "name": "ROTATION",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 0
-                        }
-                    }
                 }
             ],
             "tooltip": "%T%",
-            "code": "$[RENDERER_INSTANCE].render($[SCENE_INSTANCE], $[DISPLAY_INSTANCE].frame, $[ANTIALIAS], $[FORMAT], $[ROTATION]);\n$[DISPLAY_INSTANCE].show();",
+            "code": "$[RENDERER_INSTANCE].render($[SCENE_INSTANCE], $[DISPLAY_INSTANCE].frame, $[ANTIALIAS]);\n$[DISPLAY_INSTANCE].show();",
             "previousStatement": null,
             "nextStatement": null
         },

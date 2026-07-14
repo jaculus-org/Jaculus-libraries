@@ -22,6 +22,17 @@
                     "type": "field_input",
                     "name": "CONSTRUCTED_VAR_NAME",
                     "text": "saturn_?"
+                },
+                {
+                    "type": "input_value",
+                    "name": "FLIP",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
                 }
             ],
             "constructs": "saturn",
@@ -33,7 +44,7 @@
                 }
             ],
             "tooltip": "%T%",
-            "code": "$[CONSTRUCTED_VAR_NAME] = createSaturn();",
+            "code": "$[CONSTRUCTED_VAR_NAME] = createSaturn($[FLIP]);",
             "previousStatement": null,
             "nextStatement": null
         },
