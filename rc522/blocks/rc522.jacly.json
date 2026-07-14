@@ -7,7 +7,7 @@
     "colour": "#294761",
     "icon": "CreditCard",
     "priority": 140,
-    "import": ["import { RC522, DEFAULT_KEY } from \"rc522\";"],
+    "import": ["import { RC522, MifareClassic, DEFAULT_KEY, formatUID } from \"rc522\";"],
     "contents": [
         {
             "kind": "label",
@@ -48,45 +48,23 @@
         },
         {
             "kind": "block",
-            "type": "rc522_startPolling",
+            "type": "rc522_mifareConstructor",
             "message0": "%T%",
             "args0": [
                 {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "mifare_?"
                 },
                 {
-                    "type": "input_value",
-                    "name": "INTERVAL",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 250
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].startPolling($[INTERVAL]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "block",
-            "type": "rc522_stopPolling",
-            "message0": "%T%",
-            "args0": [
-                {
                     "type": "field_dropdown",
                     "name": "RC522_INSTANCE",
                     "instanceof": "rc522"
                 }
             ],
+            "constructs": "mifareClassic",
             "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].stopPolling();",
+            "code": "$[CONSTRUCTED_VAR_NAME] = new MifareClassic($[RC522_INSTANCE]);",
             "previousStatement": null,
             "nextStatement": null
         },
@@ -96,7 +74,7 @@
         },
         {
             "kind": "block",
-            "type": "rc522_isCardPresent",
+            "type": "rc522_readCard",
             "message0": "%T%",
             "args0": [
                 {
@@ -106,49 +84,14 @@
                 }
             ],
             "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].isCardPresent()",
-            "output": "Boolean"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_readUID",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                }
-            ],
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].readUID()",
+            "code": "await $[RC522_INSTANCE].readCard()",
             "output": "Array"
         },
         {
             "kind": "block",
-            "type": "rc522_readUIDText",
+            "type": "rc522_formatUID",
             "message0": "%T%",
             "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                }
-            ],
-            "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].uidToString(await $[RC522_INSTANCE].readUID())",
-            "output": "String"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_uidToString",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
                 {
                     "type": "input_value",
                     "name": "UID",
@@ -157,8 +100,28 @@
             ],
             "inputsInline": true,
             "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].uidToString($[UID])",
+            "code": "formatUID($[UID])",
             "output": "String"
+        },
+        {
+            "kind": "block",
+            "type": "rc522_halt",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "RC522_INSTANCE",
+                    "instanceof": "rc522"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "await $[RC522_INSTANCE].halt();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%MIFARE%"
         },
         {
             "kind": "block",
@@ -175,8 +138,8 @@
             "args0": [
                 {
                     "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
+                    "name": "MIFARE_INSTANCE",
+                    "instanceof": "mifareClassic"
                 },
                 {
                     "type": "input_value",
@@ -195,70 +158,27 @@
                     }
                 },
                 {
-                    "type": "field_dropdown",
-                    "name": "KEY_TYPE",
-                    "options": [
-                        ["%KEY_A%", "\"A\""],
-                        ["%KEY_B%", "\"B\""]
-                    ]
-                },
-                {
                     "type": "input_value",
                     "name": "KEY",
                     "check": "Array",
                     "shadow": {
                         "type": "rc522_defaultKey"
                     }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "KEY_TYPE",
+                    "options": [
+                        ["%KEY_A%", "\"A\""],
+                        ["%KEY_B%", "\"B\""]
+                    ]
                 }
             ],
             "inputsInline": true,
             "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].authenticate($[UID], $[BLOCK], $[KEY_TYPE], $[KEY]);",
+            "code": "await $[MIFARE_INSTANCE].authenticate($[UID], $[BLOCK], $[KEY], $[KEY_TYPE]);",
             "previousStatement": null,
             "nextStatement": null
-        },
-        {
-            "kind": "block",
-            "type": "rc522_getVersion",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                }
-            ],
-            "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].getVersion()",
-            "output": "Number"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_antennaOn",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "field_dropdown",
-                    "name": "ON",
-                    "options": [
-                        ["%ON%", "true"],
-                        ["%OFF%", "false"]
-                    ]
-                }
-            ],
-            "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].antennaOn($[ON]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "label",
-            "text": "%TEXT%"
         },
         {
             "kind": "block",
@@ -267,8 +187,8 @@
             "args0": [
                 {
                     "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
+                    "name": "MIFARE_INSTANCE",
+                    "instanceof": "mifareClassic"
                 },
                 {
                     "type": "input_value",
@@ -284,7 +204,7 @@
             ],
             "inputsInline": true,
             "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].readBlock($[BLOCK])",
+            "code": "await $[MIFARE_INSTANCE].readBlock($[BLOCK])",
             "output": "Array"
         },
         {
@@ -294,8 +214,8 @@
             "args0": [
                 {
                     "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
+                    "name": "MIFARE_INSTANCE",
+                    "instanceof": "mifareClassic"
                 },
                 {
                     "type": "input_value",
@@ -316,260 +236,7 @@
             ],
             "inputsInline": true,
             "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].writeBlock($[BLOCK], $[DATA]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "label",
-            "text": "%TEXT_RECORDS%"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_readBlockText",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].readBlockText($[BLOCK])",
-            "output": "String"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_writeBlockText",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                },
-                {
-                    "type": "input_value",
-                    "name": "TEXT",
-                    "check": "String",
-                    "shadow": {
-                        "type": "text",
-                        "fields": {
-                            "TEXT": "Ahoj tábor!"
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].writeBlockText($[BLOCK], $[TEXT]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "block",
-            "type": "rc522_readTextRecord",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "START_BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].readTextRecord($[START_BLOCK])",
-            "output": "String"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_writeTextRecord",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "START_BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                },
-                {
-                    "type": "input_value",
-                    "name": "TEXT",
-                    "check": "String",
-                    "shadow": {
-                        "type": "text",
-                        "fields": {
-                            "TEXT": "Ahoj tábor!"
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].writeTextRecord($[START_BLOCK], $[TEXT]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "block",
-            "type": "rc522_readBlockUint32",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].readBlockUint32($[BLOCK])",
-            "output": "Number"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_writeBlockUint32",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_value",
-                    "name": "BLOCK",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 4
-                        }
-                    }
-                },
-                {
-                    "type": "input_value",
-                    "name": "VALUE",
-                    "check": "Number",
-                    "shadow": {
-                        "type": "math_number",
-                        "fields": {
-                            "NUM": 42
-                        }
-                    }
-                }
-            ],
-            "inputsInline": true,
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].writeBlockUint32($[BLOCK], $[VALUE]);",
-            "previousStatement": null,
-            "nextStatement": null
-        },
-        {
-            "kind": "label",
-            "text": "%EVENTS%"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_onCard",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                },
-                {
-                    "type": "input_statement",
-                    "name": "CODE"
-                }
-            ],
-            "callbackVars": [
-                {
-                    "identifier": "uid",
-                    "message": "%UID%",
-                    "type": "Array",
-                    "codeName": "uid"
-                }
-            ],
-            "isProgramStart": true,
-            "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].onCard(async (uid) => {\n$[CODE]\n});"
-        },
-        {
-            "kind": "label",
-            "text": "%OTHER%"
-        },
-        {
-            "kind": "block",
-            "type": "rc522_haltCard",
-            "message0": "%T%",
-            "args0": [
-                {
-                    "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
-                }
-            ],
-            "tooltip": "%T%",
-            "code": "await $[RC522_INSTANCE].haltCard();",
+            "code": "await $[MIFARE_INSTANCE].writeBlock($[BLOCK], $[DATA]);",
             "previousStatement": null,
             "nextStatement": null
         },
@@ -580,12 +247,12 @@
             "args0": [
                 {
                     "type": "field_dropdown",
-                    "name": "RC522_INSTANCE",
-                    "instanceof": "rc522"
+                    "name": "MIFARE_INSTANCE",
+                    "instanceof": "mifareClassic"
                 }
             ],
             "tooltip": "%T%",
-            "code": "$[RC522_INSTANCE].stopCrypto();",
+            "code": "$[MIFARE_INSTANCE].stopCrypto();",
             "previousStatement": null,
             "nextStatement": null
         }
