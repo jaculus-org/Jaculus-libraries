@@ -50,10 +50,26 @@ export class GameLoop {
         }, 0);
     }
 
+    /**
+     * Adds a shape to the scene.
+     * @param obj The shape to add.
+     */
     addShape(obj: shapes.Shape) { this.scene.add(obj); }
     removeShape(obj: shapes.Shape) { this.scene.remove(obj); }
 
+    /**
+     * Registers an event listener for the specified event.
+     * @param event "tick"
+     * @param callback The callback function to be called on each tick.
+     */
     on(event: "tick", callback: (delta: number) => void): void;
+    /**
+     * Registers an event listener for the specified event.
+     * @param event "collision"
+     * @param a The first shape to check for collision.
+     * @param b The second shape to check for collision.
+     * @param callback The callback function to be called when the two shapes collide.
+     */
     on(event: "collision", a: shapes.Shape, b: shapes.Shape, callback: () => void): void;
     on<E extends Event>(event: E, ...args: Events[E]): void {
         if (event === "collision") {
@@ -68,6 +84,9 @@ export class GameLoop {
         }
     }
 
+    /**
+     * Removes an event listener for the specified event.
+     */
     off(event: "tick"): void;
     off(event: "collision", a: shapes.Shape, b: shapes.Shape): void;
     off<E extends Event>(event: E, ...args: SliceLast<Events[E]>): void {
@@ -80,5 +99,13 @@ export class GameLoop {
             this.onTick = undefined;
             return;
         }
+    }
+
+    /**
+     * Clears the scene and removes all event listeners.
+     */
+    clear() {
+        this.scene.clear();
+        this.collisions.clear();
     }
 }
