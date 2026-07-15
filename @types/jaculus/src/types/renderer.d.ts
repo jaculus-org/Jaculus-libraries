@@ -8,6 +8,18 @@ declare module "shapes" {
         z?: number;
     }
 
+    /**
+     * A 2D affine transformation matrix:
+     * ```
+     * | a  c  e |
+     * | b  d  f |
+     * | 0  0  1 |
+     * ```
+     * `a`/`d` are the X/Y axis scale (and rotation/skew combined with `b`/`c`),
+     * `e`/`f` are the translation.
+     */
+    export type Matrix2D = [a: number, b: number, c: number, d: number, e: number, f: number];
+
     export class Shape {
         /**
          * Set the absolute position of the shape.
@@ -44,6 +56,21 @@ declare module "shapes" {
          * @param originY Optional y coordinate of the scale origin.
          */
         setScale(scaleX: number, scaleY: number, originX?: number, originY?: number): void;
+
+        /**
+         * Replace the position/rotation/scale transform with a fixed matrix.
+         * Overrides setPosition/translate/rotate/setScale until cleared with
+         * clearTransformation(). Useful for skew or externally-driven
+         * animation that doesn't fit the built-in transform.
+         * @param matrix The [a, b, c, d, e, f] matrix to use for this shape's local transform.
+         */
+        setTransformation(matrix: Matrix2D): void;
+
+        /**
+         * Remove a previously set transformation matrix, reverting to the
+         * position/rotation/scale transform.
+         */
+        clearTransformation(): void;
 
         /**
          * Set the z order used during rendering.

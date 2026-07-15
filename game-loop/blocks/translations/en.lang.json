@@ -3,6 +3,7 @@
     "GAME_LOOP_DESCRIPTION": "Game loop blocks for rendering shapes and handling collisions.",
     "GAME_LOOP_LABEL_SETUP": "Setup",
     "GAME_LOOP_LABEL_SCENE": "Scene",
+    "GAME_LOOP_LABEL_TEXT": "Text",
     "GAME_LOOP_LABEL_EVENTS": "Events",
 
     "GAME_LOOP_CONSTRUCTOR_MESSAGE0": "create $[CONSTRUCTED_VAR_NAME] game loop on display $[DISPLAY_INSTANCE]",
@@ -10,6 +11,18 @@
 
     "GAME_LOOP_ADD_SHAPE_MESSAGE0": "add $[SHAPE_INSTANCE] to $[GAME_LOOP_INSTANCE]",
     "GAME_LOOP_ADD_SHAPE_TOOLTIP": "Add a shape to the game loop scene.",
+
+    "GAME_LOOP_REMOVE_SHAPE_MESSAGE0": "remove $[SHAPE_INSTANCE] from $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_REMOVE_SHAPE_TOOLTIP": "Remove a shape from the game loop scene.",
+
+    "GAME_LOOP_DRAW_TEXT_MESSAGE0": "draw $[CONSTRUCTED_VAR_NAME] text $[TEXT] at x: $[X] y: $[Y] on $[GAME_LOOP_INSTANCE] with font $[FONT_INSTANCE] color $[COLOR] wrap $[WRAP] rotation $[ROTATION]",
+    "GAME_LOOP_DRAW_TEXT_TOOLTIP": "Draw text on every tick of the game loop and keep a handle to it so it can be removed later.",
+
+    "GAME_LOOP_REMOVE_TEXT_MESSAGE0": "remove text $[TEXT_INSTANCE] from $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_REMOVE_TEXT_TOOLTIP": "Stop drawing the selected text.",
+
+    "GAME_LOOP_CLEAR_TEXT_MESSAGE0": "clear all text from $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_CLEAR_TEXT_TOOLTIP": "Remove all drawn text from the game loop.",
 
     "GAME_LOOP_ON_TICK_MESSAGE0": "on $[GAME_LOOP_INSTANCE] tick do\n$[CODE]",
     "GAME_LOOP_ON_TICK_TOOLTIP": "Run code every game-loop tick. The delta variable contains elapsed milliseconds since the previous tick.",
