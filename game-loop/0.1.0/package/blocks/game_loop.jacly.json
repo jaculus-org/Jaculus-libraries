@@ -274,7 +274,7 @@
             ],
             "isProgramStart": true,
             "tooltip": "%T%",
-            "code": "$[SHAPE_A].addCollider();\n$[SHAPE_B].addCollider();\n$[GAME_LOOP_INSTANCE].on(\"collision\", $[SHAPE_A], $[SHAPE_B], async function() {\n$[CODE]\n});"
+            "code": "$[GAME_LOOP_INSTANCE].on(\"collision\", $[SHAPE_A], $[SHAPE_B], async function() {\n$[CODE]\n});"
         },
         {
             "kind": "block",
