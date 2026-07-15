@@ -68,7 +68,16 @@ export class Display {
      * To submit the changes, use `Display.draw`.
      */
     setPixel(x: number, y: number, color: Rgb) {
-        const i = Math.round(x) + this.height * Math.round(y);
+        x = Math.round(x);
+        y = Math.round(y);
+
+        if (this._rotation === 1) {
+            [x, y] = [y, this.height - 1 - x];
+        } else if (this._rotation === -1) {
+            [x, y] = [this.width - 1 - y, x];
+        }
+
+        const i = x + this.height * y;
         const r = (color & 0xff0000) >> 16;
         const g = (color & 0x00ff00) >> 8;
         const b = color & 0x0000ff;
