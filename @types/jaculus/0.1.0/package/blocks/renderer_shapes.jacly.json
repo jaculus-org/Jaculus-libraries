@@ -1495,7 +1495,7 @@
             ],
             "tooltip": "%T%",
             "inputsInline": true,
-            "code": "$[SHAPE_INSTANCE].setTransformationMatrix({ a: $[A], b: $[B], c: $[C], d: $[D], e: $[E], f: $[F] });",
+            "code": "$[SHAPE_INSTANCE].setTransformation([$[A], $[B], $[C], $[D], $[E], $[F]]);",
             "previousStatement": null,
             "nextStatement": null
         },
@@ -1511,7 +1511,7 @@
                 }
             ],
             "tooltip": "%T%",
-            "code": "$[SHAPE_INSTANCE].clearTransformationMatrix();",
+            "code": "$[SHAPE_INSTANCE].clearTransformation();",
             "previousStatement": null,
             "nextStatement": null
         },

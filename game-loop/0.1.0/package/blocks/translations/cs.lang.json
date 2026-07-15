@@ -3,6 +3,7 @@
     "GAME_LOOP_DESCRIPTION": "Bloky herní smyčky pro vykreslování tvarů a obsluhu kolizí.",
     "GAME_LOOP_LABEL_SETUP": "Nastavení",
     "GAME_LOOP_LABEL_SCENE": "Scéna",
+    "GAME_LOOP_LABEL_TEXT": "Text",
     "GAME_LOOP_LABEL_EVENTS": "Události",
 
     "GAME_LOOP_CONSTRUCTOR_MESSAGE0": "vytvořit $[CONSTRUCTED_VAR_NAME] herní smyčku na displeji $[DISPLAY_INSTANCE]",
@@ -10,6 +11,18 @@
 
     "GAME_LOOP_ADD_SHAPE_MESSAGE0": "přidat $[SHAPE_INSTANCE] do $[GAME_LOOP_INSTANCE]",
     "GAME_LOOP_ADD_SHAPE_TOOLTIP": "Přidá tvar do scény herní smyčky.",
+
+    "GAME_LOOP_REMOVE_SHAPE_MESSAGE0": "odebrat $[SHAPE_INSTANCE] z $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_REMOVE_SHAPE_TOOLTIP": "Odebere tvar ze scény herní smyčky.",
+
+    "GAME_LOOP_DRAW_TEXT_MESSAGE0": "vykreslit $[CONSTRUCTED_VAR_NAME] text $[TEXT] na x: $[X] y: $[Y] na $[GAME_LOOP_INSTANCE] písmem $[FONT_INSTANCE] barvou $[COLOR] zalomení $[WRAP] rotace $[ROTATION]",
+    "GAME_LOOP_DRAW_TEXT_TOOLTIP": "Vykreslí text při každém tiku herní smyčky a uchová si na něj odkaz, aby ho bylo možné později odebrat.",
+
+    "GAME_LOOP_REMOVE_TEXT_MESSAGE0": "odebrat text $[TEXT_INSTANCE] z $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_REMOVE_TEXT_TOOLTIP": "Přestane vykreslovat vybraný text.",
+
+    "GAME_LOOP_CLEAR_TEXT_MESSAGE0": "vymazat veškerý text z $[GAME_LOOP_INSTANCE]",
+    "GAME_LOOP_CLEAR_TEXT_TOOLTIP": "Odebere veškerý vykreslený text z herní smyčky.",
 
     "GAME_LOOP_ON_TICK_MESSAGE0": "při tiku $[GAME_LOOP_INSTANCE] proveď\n$[CODE]",
     "GAME_LOOP_ON_TICK_TOOLTIP": "Spustí kód při každém tiku herní smyčky. Proměnná delta obsahuje uplynulé milisekundy od předchozího tiku.",

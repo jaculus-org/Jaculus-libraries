@@ -62,6 +62,159 @@
             "nextStatement": null
         },
         {
+            "kind": "block",
+            "type": "game_loop_remove_shape",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].removeShape($[SHAPE_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "label",
+            "text": "%TEXT%"
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_draw_text",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_input",
+                    "name": "CONSTRUCTED_VAR_NAME",
+                    "text": "text_?"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "input_value",
+                    "name": "TEXT",
+                    "check": "String",
+                    "shadow": {
+                        "type": "text",
+                        "fields": {
+                            "TEXT": "Hello"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "X",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FONT_INSTANCE",
+                    "instanceof": "renderer_font"
+                },
+                {
+                    "type": "input_value",
+                    "name": "COLOR",
+                    "check": "Color",
+                    "block": {
+                        "type": "dynamic_color_rgb"
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "WRAP",
+                    "check": "Boolean",
+                    "shadow": {
+                        "type": "logic_boolean",
+                        "fields": {
+                            "BOOL": "FALSE"
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "ROTATION",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 0
+                        }
+                    }
+                }
+            ],
+            "constructs": "game_loop_text",
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[CONSTRUCTED_VAR_NAME] = $[GAME_LOOP_INSTANCE].drawText($[TEXT], $[X], $[Y], $[FONT_INSTANCE], $[COLOR], $[WRAP], $[ROTATION]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_remove_text",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "TEXT_INSTANCE",
+                    "instanceof": "game_loop_text"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].removeText($[TEXT_INSTANCE]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "game_loop_clear_text",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "GAME_LOOP_INSTANCE",
+                    "instanceof": "game_loop"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[GAME_LOOP_INSTANCE].clearText();",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
             "kind": "label",
             "text": "%EVENTS%"
         },
