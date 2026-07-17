@@ -1,6 +1,7 @@
 declare module "shapes" {
     import { Texture } from "renderer";
     // Packed 24-bit RGB, e.g. 0xff0000 for red.
+    export type Color = number;
 
     export interface ShapeParams {
         x: number;
@@ -219,13 +220,13 @@ declare module "shapes" {
          * Set the color used for rendering the shape.
          * @param color The new shape color.
          */
-        setColor(color: Rgb): void;
+        setColor(color: Color): void;
 
         /**
          * Get the current shape color.
          * @returns The current color.
          */
-        getColor(): Rgb;
+        getColor(): Color;
     }
 
     export class Collection extends Shape {
@@ -250,19 +251,27 @@ declare module "shapes" {
     }
 
     export interface CircleParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         radius: number;
         fill?: boolean;
     }
 
+    /**
+     * A circle. Applying a non-uniform scale (setScale/setScaleX/setScaleY
+     * with differing x/y factors) renders it as an ellipse.
+     */
     export class Circle extends Shape implements Colorable {
         constructor(params: CircleParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
+        setRadius(radius: number): void;
+        getRadius(): number;
+        setFill(fill: boolean): void;
+        getFill(): boolean;
     }
 
     export interface RectangleParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         width: number;
         height: number;
         fill?: boolean;
@@ -270,53 +279,66 @@ declare module "shapes" {
 
     export class Rectangle extends Shape implements Colorable {
         constructor(params: RectangleParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
+        setWidth(width: number): void;
+        getWidth(): number;
+        setHeight(height: number): void;
+        getHeight(): number;
+        setFill(fill: boolean): void;
+        getFill(): boolean;
     }
 
     export interface PolygonParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         vertices: [number, number][];
         fill?: boolean;
     }
 
     export class Polygon extends Shape implements Colorable {
         constructor(params: PolygonParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
+        setVertices(vertices: [number, number][]): void;
+        getVertices(): [number, number][];
+        setFill(fill: boolean): void;
+        getFill(): boolean;
     }
 
     export interface LineSegmentParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         x2: number;
         y2: number;
     }
 
     export class LineSegment extends Shape implements Colorable {
         constructor(params: LineSegmentParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
+        setEndpoint(x2: number, y2: number): void;
+        getX2(): number;
+        getY2(): number;
     }
 
     export interface PointParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
     }
 
     export class Point extends Shape implements Colorable {
         constructor(params: PointParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
     }
 
     export interface RegularPolygonRadiusParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         sides: number;
         radius: number;
         fill?: boolean;
     }
 
     export interface RegularPolygonSideParams extends ShapeParams {
-        color: Rgb;
+        color: Color;
         sides: number;
         sideLength: number;
         fill?: boolean;
@@ -324,13 +346,19 @@ declare module "shapes" {
 
     export class RegularPolygon extends Shape implements Colorable {
         constructor(params: RegularPolygonRadiusParams | RegularPolygonSideParams);
-        setColor(color: Rgb): void;
-        getColor(): Rgb;
+        setColor(color: Color): void;
+        getColor(): Color;
+        setSides(sides: number): void;
+        getSides(): number;
+        setRadius(radius: number): void;
+        getRadius(): number;
+        setFill(fill: boolean): void;
+        getFill(): boolean;
     }
 }
 
 declare module "renderer" {
-    import { Collection } from "shapes";
+    import { Collection, Color } from "shapes";
 
     export class Texture {
         constructor();
@@ -392,9 +420,9 @@ declare module "renderer" {
 
     export class Renderer {
         /**
-         * @param width The renderer's output width in pixels.
-         * @param height The renderer's output height in pixels.
-         * @param format The output pixel format.
+         * @param width The panel width in pixels.
+         * @param height The panel height in pixels.
+         * @param format The output pixel format used by render() and drawText().
          * @param rotation Rotates the whole image by 90 degree increments.
          */
         constructor(width: number, height: number, format?: Format, rotation?: number);
@@ -417,10 +445,10 @@ declare module "renderer" {
          * @param font The font to use.
          * @param color The text color.
          * @param wrap Whether to wrap lines to the renderer width.
-         * @param rotation Rotates the whole image by 90 degree increments, referenced to the panel's global origin - the same convention as render()'s rotation. Applied independently of any render() or other drawText() call: it only affects the pixels this call draws.
+         * @param rotation Rotates the text by 90 degree increments, relative to the rotation set in the constructor.
          * @returns The number of bytes written.
          */
-        drawText(buffer: ArrayBuffer, text: string, x: number, y: number, font: Font, color: Rgb, wrap?: boolean, rotation?: number): number;
+        drawText(buffer: ArrayBuffer, text: string, x: number, y: number, font: Font, color: Color, wrap: boolean, rotation?: number): number;
     }
 
     // https://419.ecma-international.org/3.0/index.html#-15-display-class-pattern-pixel-format-values
