@@ -1125,6 +1125,352 @@
         },
         {
             "kind": "label",
+            "text": "%GEOMETRY%"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_radius",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "RADIUS",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 8
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setRadius($[RADIUS]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_radius",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getRadius()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_width",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "WIDTH",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 20
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setWidth($[WIDTH]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_width",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getWidth()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_height",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "HEIGHT",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 20
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setHeight($[HEIGHT]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_height",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getHeight()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_sides",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "SIDES",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 6
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setSides($[SIDES]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_sides",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getSides()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_vertices",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "VERTICES",
+                    "check": "Array",
+                    "shadow": {
+                        "type": "lists_create_with",
+                        "mutation": {
+                            "items": 3
+                        },
+                        "inputs": {
+                            "ADD0": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            },
+                            "ADD1": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            },
+                            "ADD2": {
+                                "shadow": {
+                                    "type": "renderer_polygon_vertex"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[SHAPE_INSTANCE].setVertices($[VERTICES]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_vertices",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getVertices()",
+            "output": "Array"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_endpoint",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "input_value",
+                    "name": "X2",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 63
+                        }
+                    }
+                },
+                {
+                    "type": "input_value",
+                    "name": "Y2",
+                    "check": "Number",
+                    "shadow": {
+                        "type": "math_number",
+                        "fields": {
+                            "NUM": 63
+                        }
+                    }
+                }
+            ],
+            "tooltip": "%T%",
+            "inputsInline": true,
+            "code": "$[SHAPE_INSTANCE].setEndpoint($[X2], $[Y2]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_x2",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getX2()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_y2",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getY2()",
+            "output": "Number"
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_set_fill",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                },
+                {
+                    "type": "field_dropdown",
+                    "name": "FILL",
+                    "options": [
+                        [
+                            "%TRUE%",
+                            "true"
+                        ],
+                        [
+                            "%FALSE%",
+                            "false"
+                        ]
+                    ]
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].setFill($[FILL]);",
+            "previousStatement": null,
+            "nextStatement": null
+        },
+        {
+            "kind": "block",
+            "type": "renderer_shape_get_fill",
+            "message0": "%T%",
+            "args0": [
+                {
+                    "type": "field_dropdown",
+                    "name": "SHAPE_INSTANCE",
+                    "instanceof": "shape"
+                }
+            ],
+            "tooltip": "%T%",
+            "code": "$[SHAPE_INSTANCE].getFill()",
+            "output": "Boolean"
+        },
+        {
+            "kind": "label",
             "text": "%INTERSECTS%"
         },
         {
